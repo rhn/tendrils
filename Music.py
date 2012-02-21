@@ -510,26 +510,32 @@ def RestartSong():
     pygame.mixer.music.play()
 
 def PlaySong(Song, Force = 0):
+    """Returns True for SUCCESS"""
     global FudgeFactorTicks
     if not Song:
         return
     if Global.CurrentSong:
         if (not Force) and (Global.CurrentSong.Type == Song.Type):
-            return # Already playing that song type!
+            return False # Already playing that song type!
         Global.CurrentSong.Arrows = [] # Drop it!
         if Global.CurrentSong.Type == SongType.Sting:
             #pygame.mixer.music.set_endevent()
             #pygame.mixer.music.queue(Song.SongPath)
             Global.QueueSong = Song
-            return
+            return False
     FudgeFactorTicks = 0
     Global.CurrentSong = Song
     Global.CurrentSong.LoadArrows()
-    pygame.mixer.music.load(Song.SongPath)
+    try:
+        pygame.mixer.music.load(Song.SongPath)
+    except Exception, e:
+        print 'Cannot play file:', repr(Song.SongPath)
+        print 'Original exception:', e
+        return False
     pygame.mixer.music.play()
     pygame.mixer.music.rewind() #%%% try immediate rewind
     pygame.mixer.music.set_endevent(SongOverEvent)
-    return 1 # TRUE for SUCCESS
+    return True
 
 def PlaySongByName(Name):
     Song = Global.MusicLibrary.GetSong(Name)
