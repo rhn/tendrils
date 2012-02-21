@@ -1,4 +1,4 @@
-"""
+r"""
 Carriage returns.  Line feeds.  Their usage differs between OSes, which
 occasionally gives rise to some rather miserable bugs.  In DOS/Windows,
 text files end lines with a carriage return and a line feed (\r\n).  In
