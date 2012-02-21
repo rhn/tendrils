@@ -767,9 +767,12 @@ class BlockScreen(Screen.TendrilsScreen):
             self.ActiveBlock = None
             self.ClearAllowedMoves()
             self.Redraw()
+
 try:
+    psyco
+    psyco_enabled = True
+except NameError:
+    psyco_enabled = False
+if psyco_enabled:
     psyco.release(BlockSprite.__init__)
     psyco.release(pygame.draw.rect)
-except:
-    traceback.print_exc()
-        
