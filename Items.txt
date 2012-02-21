@@ -1,0 +1,334 @@
+# Items for Tendrils																				
+#0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18	19	20
+#Name	Comment	Level	Slot 	Cost	Classes	DamDieCount	DamDie	DamBonus	ToHit	AC	HP	MP	STR	DEX	CON	INT	WIS	CHA	Perks	UniqueFlag
+					FCMSBN															
+			"(Weapon, Body, Head, Arms, Feet, Relic)"																	
+##########################################################################################################################																				
+#Weapons																				
+Short Sword	WFighter1	1	0		F	1	6													
+#WCleric1	#WCleric1	1	0		FCBN	1	4													
+Bamboo Stick	WMage1	1	0		FCMSBN	1	4													
+Axe	WFighter12	"1,2"	0		F	2	5													
+Flail	WCleric12	"1,2"	0		FCBN	1	8													
+Boomerang	WMage12	"1,2"	0		FCMSBN	1	6													
+Ancient Sword	WSpecialFighter1	1	0		F	2	5	2	3				1	1						1
+# An NPC gives you this if you chat with him on christmas:																				
+Red Ryder BB-Gun	WSpecialMage1	1	0		FCMSBN	1	4		5											1
+
+Katana	WFighter23	"2,3"	0		F	1	18													
+Whip	WCleric23	"2,3"	0		FCBN	3	4													
+Magic Rang	WMage23	"2,3"	0		FCMSBN	1	10													
+Bombs	WSpecialMage2	2	0		FCMSBN	1	12		3							1				1
+
+Longsword	WFighter34	"3,4"	0		F	3	6	4												
+Power Staff	WCleric34	"3,4"	0		CMS	2	6	5												
+Shuriken	WMage34	"3,4"	0		FCMSBN	2	6	1												
+Belmont's Cross	WSpecialCleric3	"3,4"	0		FCBN	2	6	6	3						1			1		1
+
+Red Candle	WFighter45	"4,5"	0		F	2	20	10												
+Butterfly Knife	WCleric45	"4,5"	0		FCBN	2	20													
+Deluge Bubble	WMage45	"4,5"	0		FCMSBN	6	4	4												
+Death Sickle	WSpecialFighter4	4	0		F	10	6	12	3										"Paralysis Immune,Stoning Immune"	1
+
+Broadsword	WFighter56	"5,6"	0		F	20	5	2												
+Longbow	WCleric56	"5,6"	0		FCBN	10	6	3												
+Dodongo Bombs	WMage56	"5,6"	0		FCMSBN	8	6	2	-2											
+Master Sword	WSpecialMage5	5	0		FCMSBN	10	6	5	3										Silence Strike	1
+
+Greatsword	WFighter67	"6,7"	0		F	10	18													
+Elven Crossbow	WCleric67	"6,7"	0		FCBN	7	18													
+Crystal Staff	WMage67	"6,7"	0		CMS	7	16													
+Rapier	WSpecialCleric6	6	0		NB	10	18		1					1				2	Poison Strike	1
+
+
+Tsurani Crossbow	WFighter78	"7,8"	0		F	48	6													
+Elfin Bow	WCleric78	"7,8"	0		FCBN	60	4													
+Red Candle	WMage78	"7,8"	0		FCMSBN	1	150		-1											
+Glider Gun	WSpecialFighter7	7	0		FN	50	6	5	3										Paralysis Strike	1
+
+Mega Sword	WFighter89	"8,9"	0		F	5	100	50	1											
+Ghoul Axe	WCleric89	"8,9"	0		FCBN	10	50	25	1											
+Red Mage Sword	WMage89	"8,9"	0		FCMSBN	20	20		1											
+Rastan Rod	WSpecialMage8	8	0		CMS	5	100	55	4										Poison Immune	1
+
+Gigas Axe	WFighter90	"9,10"	0		F	100	6	200	2											
+Extensible Flail	WCleric90	"9,10"	0		FCBN	90	10	50	3											
+Backhand Whip	WMage90	"9,10"	0		FCMSBN	100	8		4											
+Flaming Sword	WSpecialCleric9	9	0		FBN	100	6	220	5										Fire Strike	1
+
+Calris	WFighter10	10	0		F	100	10	420	3				4	-1		-2	-2			
+Cobra Shuttle	WCleric10	10	0		FBN	9	100	0	4										Poison Strike	
+Blue Candle	WMage10	10	0		FCMSBN	1	2000		5											
+Myer Sword	WSpecialMage10	10	0		FCMSBN	100	10	420	9		25	25			1		1	1	"Stoning Immune, Paralysis Immune, Sleep Immune, Poison Immune"	1
+
+#########################################################################################################																				
+#Body																				
+Cuirass	Fighter1	1	1		F					3										
+Bronze Armor	Fighter12	"1,2"	1		F					4										
+Leather Armor	Cleric1	1	1		FCBN					2										
+Brigandine	Cleric12	"1,2"	1		FCBN					3										
+Tunic	Mage1	1	1		FCBNMS					1										
+Robe	Mage12	"1,2"	1		FCBNMS					2										
+
+Iron Armor	Fighter23	"2,3"	1		F					5										
+Chain Plate	Cleric23	"2,3"	1		FCBN					4										
+Magic Robe	Mage23	"2,3"	1		FCBNMS					3		5								
+Materia Armor	SpecialFighter2	2	1		F					5			1			2				1
+
+Chain Mail	Fighter34	"3,4"	1		F					7										
+Adaman Vest	Cleric34	"3,4"	1		FCBN					5										
+Linen Cuirass	Mage34	"3,4"	1		FCBNMS					3		15								
+Pyros Cape	SpecialCleric3	3	1		FCBN					5							2		Poison Immune	1
+
+Valheru Armor	Fighter45	"4,5"	1		F					8										
+Sage Robe	Cleric45	"4,5"	1		FCBN					6										
+Lordly Robe	Mage45	"4,5"	1		FCBNMS					4										
+Blaze Robe	SpecialMage4	4	1		MS					4						1			"Silence Immune, Resist Fire"	1
+
+
+Armature	Fighter56	"5,6"	1		F					11										
+Genji Armor	Cleric56	"5,6"	1		FCBN					8										
+Mistle Robe	Mage56	"5,6"	1		FCBNMS					6										
+Hyper Armor	SpecialFighter5	5	1		F					11			1						"Poison Immune, Paralysis Immune, Recovery"	1
+
+Field Plate	Fighter67	"6,7"	1		F					14										
+Steel Armor	Cleric67	"6,7"	1		FCBN					10										
+Magus Robe	Mage67	"6,7"	1		FCBNMS					7										
+Teddy Bear Suit	SpecialCleric6	6	1		CBN					11	12	12		2				2		1
+
+Plate Mail	Fighter78	"7,8"	1		F					19				1						
+Red Robe	Cleric78	"7,8"	1		FCBN					14								1		
+Chocobo Suit	Mage78	"7,8"	1		FCBNMS					9							1			
+Reaper Cloak	SpecialMage7	7	1		FCBNMS			10	10	16										1
+
+Opal Armor	Fighter89	"8,9"	1		F					24									Stoning Immune	
+Chrome Breast	Cleric89	"8,9"	1		FCBN					14									Paralysis Immune	
+Studded Mail	Mage89	"8,9"	1		FCBNMS					9									Poison Immune	
+Diamond Armor	SpecialFighter8	8	1		F					24									"Poison Immune, Paralysis Immune, Stoning Immune"	1
+
+Adaman Armor	Fighter910	"9,10"	1		F					31	50		1		1					
+Battle Suit	Cleric910	"9,10"	1		FCBN					24	25	25		1	1					
+Gaia Gear	Mage910	"9,10"	1		FCBNMS					16		50			1	1				
+Legacy Armor	SpecialCleric9	9	1		CBN					28	50	50	1	1	1	1				1
+
+Grand Armor	Fighter10	10	1		F					40	50		2		2					
+Hyper Breast	Cleric10	10	1		FCBN					31	15	15	1		1		1			
+Wygar	Mage10	10	1		FCBNMS					24	50							2		
+Elf Mantle	SpecialMage10	10	1		FCBNMS					31	50	25				1	1	1	"Resist Fire, Resist Cold, Poison Immune"	1
+
+###############################################################################################																				
+#Arm																				
+Buckler	Fighter1	1	3		F					2										
+Power Bracelet	Fighter12	"1,2"	3		F					3										
+Gauntlets	Cleric12	"1,2"	3		FCBN					2										
+Glove	Mage1	1	3		FCBNMS					1										
+
+Bracers	ArmFighter23	"2,3"	3		F					3	20								Sleep Immune	
+Shield	ArmCleric23	"2,3"	3		FCBN					3	10									
+Magic Book	ArmMage23	"2,3"	3		CMS					2	5									
+Star Armlet	ArmSpecialCleric2	2	3		FCBN					3	10								Regen	1
+
+Bronze Shield	ArmFighter34	"3,4"	3		F					4	30								Sleep Immune	
+#ArmCleric34	ArmCleric34	"3,4"	3		FCBN					3	10									
+#ArmMage34	ArmMage34	"3,4"	3		FCBNMS					2	5									
+Angel Ring	ArmSpecialMage3	3	3		FCBNMS					2	10	10							Silence Immune	1
+
+Bone Armlets	ArmFighter45	"4,5"	3		F					6	30									
+Choco Shield	ArmCleric45	"4,5"	3		FCBN					4	25									
+Fire Mitts	ArmMage45	"4,5"	3		FCBNMS					2	10								Resist Fire	
+Power Glove	ArmSpecialFighter4	4	3		F					6	10	10	2							1
+
+Opal Shield	ArmFighter56	"5,6"	3		F					7	30									
+Genji Armlets	ArmCleric56	"5,6"	3		FCBN					5	25									
+Jade Armlet	ArmMage56	"5,6"	3		FCBNMS					4	10									
+Magic Shield	ArmSpecialCleric5	5	3		FCBN					7	10			1			1	1	Haste	1
+
+Round Shield	ArmFighter67	"6,7"	3		F					10	40									
+Aegis Shield	ArmCleric67	"6,7"	3		FCBN					3	30								Stoning Immune	
+Platina Shield	ArmMage67	"6,7"	3		FCBNMS					5	20									
+108 Gems	ArmSpecialMage6	6	3		FCBNMS					10	100									1
+
+Dual Shield	ArmFighter78	"7,8"	3		F					12	45									
+Escutcheon	ArmCleric78	"7,8"	3		FCBN					9	35									
+Gold Shield	ArmMage78	"7,8"	3		FCBNMS					6	25									
+Titan's Mitt	ArmSpecialFighter7	7	3		F					12	45		4						Regen	1
+
+Iron Glove	ArmFighter89	"8,9"	3		F					16			1	1					Recovery	
+Aura Glove	ArmCleric89	"8,9"	3		FCBN					12					2				Recovery	
+Athena Shield	ArmMage89	"8,9"	3		FCBNMS					9							2		Recovery	
+Moogle Claws	ArmSpecialCleric8	8	3		FCBN					13				2				2	"Recovery, Poison Strike"	1
+
+
+Fury Shield	ArmFighter90	"9,10"	3		F					20	80		1	1						
+Battle Shield	ArmCleric90	"9,10"	3		FCBN					16	70		2							
+Salamander Shield	ArmMage90	"9,10"	3		FCBNMS					12	50				2				Resist Fire	
+Shield of Justice	ArmSpecialMage9	9	3		FCBNMS					13	60						2	2	"Silence Immune, Sleep Immune"	1
+
+Dragon Shield	ArmFighter10	10	3		F					28	150		1	1	1	1	1	1		
+Power Knuckle	ArmCleric10	10	3		FCBN					20	100		1	1	1	1	1	1		
+Faxanadu Shield	ArmMage10	10	3		FCBNMS					18	80		1	1	1	1	1	1		
+Cats Claws	ArmSpecialFighter10	10	3		FCBNMS					26	100	20	2	2	1	1	1	1	"Regen, Paralysis Strike"	1
+
+
+###############################################################################################																				
+#Head																				
+#HeadMage1	HeadMage1	1	2		FCBNMS					1										
+#HeadFighter12	HeadFighter12	"1,2"	2		F					1										
+#HeadCleric12	HeadCleric12	"1,2"	2		FCBN					1										
+Ribbon	HeadMage12	"1,2"	2		FCBNMS					1										1
+
+Helmet	HeadFighter23	"2,3"	2		F					2										
+Feather Hat	HeadCleric23	"2,3"	2		FCBN					2										
+#HeadMage23	HeadMage23	"2,3"	2		FCBNMS					1										
+Galuf's Amulet	HeadSpecialMage2	2	2		FCBNMS					1		10							Recovery	1
+
+Bronze Helm	HeadFighter34	"3,4"	2		F					2					1					
+#HeadCleric34	#HeadCleric34	"3,4"	2		FCBN					2										
+Headband	HeadMage34	"3,4"	2		FCBNMS					2										
+King Tycoon's Helm	HeadSpecialFighter3	3	2		F					3				2			1		Silence Strike	1
+
+#HeadFighter45	#HeadFighter45	"4,5"	2		F					2					1					
+Neko Hat	HeadCleric45	"4,5"	2		FCBN					2									Recovery	
+#HeadMage45	#HeadMage45	"4,5"	2		FCBNMS					2										
+Ruby Earring	HeadSpecialCleric4	4	2		FCBN					3		25				1	1			1
+
+Safety Helmet	HeadFighter56	"5,6"	2		F					4					1					
+#HeadCleric56	HeadCleric56	"5,6"	2		FCBN					2									Recovery	
+#HeadMage56	#HeadMage56	"5,6"	2		FCBNMS					2										
+Tiara	HeadSpecialMage5	5	2		FCBNMS					4						2	 		Silence Immune	1
+
+#HeadFighter67	#HeadFighter67	"6,7"	2		F					5					1					
+Feather Cap	HeadCleric67	"6,7"	2		FCBN					3							1		Resist Fire	
+#HeadMage67	#HeadMage67	"6,7"	2		FCBNMS					3										
+Gold Helmet	HeadSpecialFighter6	6	2		F					5						1			"Resist Fire, Poison Immune"	1
+
+
+Grand Helmet	#HeadFighter67	"7,8"	2		F					6			1		1					
+Genji Helmet	HeadCleric67	"7,8"	2		FCBN					5				1			1	1		
+X-ray Goggles	HeadMage7	7	2		FCBNMS					0									X-ray Vision	
+Acacia Hat	HeadSpecialCleric7	7	2		FCBNMS					5							1		X-ray Vision	1
+
+
+Visor Helm	HeadFighter89	"8,9"	2		F				-2	8	15				2					
+Circlet	HeadCleric89	"8,9"	2		FCBN					6		15				1	2			
+Cachusa	HeadMage89	8	2		FCBNMS					4									Silence Immune	
+Crown of Command	HeadSpecialMage8	8	2		FCBN					6										1
+
+Battle Helmet	HeadFighter910	"9,10"	2		F					10			1	1	1					
+Bandana	HeadCleric910	"9,10"	2		FCBN					7					1		1	1		
+#HeadMage910	HeadMage910	"9,10"	2		FCBNMS					0										
+Mister Angry Eyes	HeadSpecialFighter9	9	2		F					12			4		1					1
+
+Diamond Helm	HeadFighter0	10	2		F					12	100		2	1	1				Stoning Immune	
+Crystal Helmet	HeadCleric10	10	2		FCBN					10	75				3					
+#HeadMage10	HeadMage10	10	2		FCBNMS					0										
+Mantra Band	HeadSpecialCleric10	10	2		FCBN					10	50	50				3	3		X-ray Vision	1
+
+
+
+###############################################################################################																				
+#Feet																				
+Boots	FeetFighter12	"1,2"	4		F					1										
+
+Blue Boots	FeetMage23	"2,3"	4		FCBNMS					2								-1	Resist Ice	
+Germinas	FeetFighter23	"2,3"	4		F			1	-1	3				-1						
+Galmia Shoes	FeetSpecialCleric2	2	4		CBN				1	2				1						1
+
+Caligula	FeetFighter34	"3,4"	4		F					3				1						
+Battle Boots	FeetCleric34	"3,4"	4		FCBN					2										
+Speed Boots	FeetSpecialFighter3	3	4		F				 	 				 					Haste	1
+
+Feather Boots	FeetMage45	"4,5"	4		FCBNMS					1									Recovery	
+Fairy Shoes	FeetSpecialMage4	4	4		MS			2	 	 				 					Paralysis Immune	1
+
+Fireproof Boots	FeetFighter56	"5,6"	4		F					4									Resist Fire	
+Flippers	FeetCleric56	"5,6"	4		FCBN					3										
+Weed Walkers	FeetMage56	"5,6"	4		FCBNMS					1									Poison Immune	
+Ninja Tabi	FeetSpecialCleric5	5	4		FBN					3									"Sleep Immune, Paralysis Immune, Silence Immune"	1
+
+Healing Boots	FeetFighter67	"6,7"	4		F					1				1					Regen	
+Anklet	FeetCleric67	"6,7"	4		FCBN				1	4										
+#FeetMage67	FeetMage67	"6,7"	4		FCBNMS					2				1						
+Dash Shoes	FeetSpecialFighter6	6	4		F					2			1	1	1	1	1	1	Haste	1
+
+#FeetFighter78	FeetFighter78	"7,8"	4		F					5				1						
+#FeetCleric78	FeetCleric78	"7,8"	4		FCBN					4										
+Hermes Sandals	FeetMage78	"7,8"	4		FCBNMS					2				3						
+Winged Boots	FeetSpecialMage7	7	4		FCBNMS					2										1
+
+#FeetFighter89	FeetFighter89	"8,9"	4		F					5										
+Snow Spikes	FeetCleric89	"8,9"	4		FCBN				1	4					1				Resist Cold	
+#FeetMage89	FeetMage89	"8,9"	4		FCBNMS					2										
+#FeetSpecialCleric8	FeetSpecialCleric8	8	4		FCBN					2										1
+
+Desert Boots	FeetFighter910	"9,10"	4		F					5									"Resist Fire, Resist Cold"	
+#FeetCleric910	FeetCleric910	"9,10"	4		FCBN					4										
+#FeetMage910	FeetMage910	"9,10"	4		FCBNMS					2										
+#FeetSpecialFighter9	FeetSpecialFighter9	9	4		F					2										1
+
+
+#FeetFighter10	FeetFighter10	10	4		F					5										
+#FeetCleric910	FeetCleric10	10	4		FCBN				1	4										
+Spike Boots	FeetMage10	10	4		FCBNMS			80	5	2				3	3			2		
+#FeetSpecialFighter9	FeetSpecialMage10	10	4		FCBNMS					2										1
+
+
+
+
+
+##########################################################################################################																				
+#Relics																				
+Pendant of Bub		2	5		FCMSBN					2	25		1	1						1
+Pendant of Bob		2	5		FCMSBN					2		10				1	1			1
+
+Phial of Galadriel		2	5		FCMSBN				1		1	1								
+
+Regen Ring		"6,7,8,9,10"	5		FCMSBN														Regen	
+Ring of Haste		"3,4,5,6,7,8,9,10,11,12,13"	5		FCMSBN														Haste	
+Amulet of Yendor		5	5		FCMSBN					3			1		2	1	1		Recovery	1
+Amulet		"4,5,6"	5		FCMSBN					3					1					
+Ring of Hydlide		"7,8,9"	5		FCMSBN					6					2				Recovery	
+Ring of Heroism		"10,11,12"	5		FCMSBN					9					3				Recovery	
+Blue Ring		"3,4,5"	5		FCBN			1		2	20									
+Red Ring		"8,9,10"	5		FCBN			2		4	40								Recovery	
+Scarab		"4,5,6,7"	5		C										2		2			
+Infinity Loop		"11,12,13"	5		FCMSBN														"Regen,Recovery,Haste"	
+Gold Ring		4	5		MS											1	1		Silence Immune	
+Ring of Prandur		5	5		B													2		1
+
+#Cape		1	2	10	FCMSBN					2									Regen	
+#Dash Boots		3	4	50	FCMSBN					3				1					Haste	
+#Death's Sickle		5	0		N	2	6													
+#Flippers		3	4		FCMSBN					5										
+#Glove		1	3		FCMSBN					1										
+#Helmet		1	1		FCMSBN					1										
+#Hyper Armor		10	2		F					50	15	5	1			
+#Magic Book		1	0		FCBN	1	4									1
+#Wooden Boomerang		1	0		FCBN	1	6		1							
+#Magic Boomerang		5	0		FCBN	1	6		2							
+#Magic Shield		3	3		FB					10						
+#Master Sword		35	0		F	2	6	10	5							
+#Power Glove		10	3		FCBN					1			2			
+#Titan's Mitt		35	3		FCBN					10			5			
+#Tunic		1	2		FCMSBN					5						
+#Whip		1	0		FCBN	1	6		1							
+#Axe		20	0		F	1	8	3								
+
+
+###############################################################################################																
+# Supplies																
+# Elixir is found only in chests.																
+Potion		"1,2,3,4"		50	FCMSBN															2
+Hi-Potion		"4,5,6,7,8"		2000	FCMSBN															2
+X-Potion		"8,9,10"		2000	FCMSBN															2
+Antidote		"1,2,3,4,5,6,7,8,9,10"		100	FCMSBN															2
+Flute		"5,6,7,8,9,10"		100	FCMSBN															2
+Black Coffee		"3,4,5,6,7,8,9,10"		100	FCMSBN															2
+Medusa Scale		"7,8,9,10"		2000	FCMSBN															2
+Remedy		"8,9,10"		2500	FCMSBN															2
+Phoenix Down		"3,6,9"		5000	FCMSBN															2
+Ether		"2,4,6,8,10"		10000	FCMSBN															2
+Elixir		0		500000	FCMSBN															2
+Escapipe		"3,4,6,7,9"		50	FCMSBN															2
+Compass		"4,5,6,9,10"		2000	FCMSBN															
+###############################################################################################																				

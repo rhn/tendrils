@@ -1,0 +1,232 @@
+# RabbitA, the female rabbit, demands crumpets.  (Both rabbits are
+# having tea, and are missing an important ingredient).  If
+# you help both rabbits, then they will help you...
+def FirstMetPre(P,M):
+    return not P.EventFlags.get("L7RabbitAMet")
+def FirstMetTrig(P,M):
+    P.EventFlags["L7RabbitAMet"] = 1
+def MetOtherRabbit(P,M):
+    return P.EventFlags.get("L7RabbitBMet")
+def PostPlight(P, M):
+    if P.KeyItemFlags.get("Crumpet"):
+        return "DemandCrumpet"
+    else:
+        return "AskForCrumpet"
+def CrumpTrigger(P,M):
+    del P.KeyItemFlags["Crumpets"]
+    P.EventFlags["L7FedRabbitA"] = 1
+def HaveCrumpet(P,M):
+    return P.KeyItemFlags.get("Crumpets")
+def HaveArmy(P,M):
+    return P.KeyItemFlags.get("Army of Rabbits")
+def DefeatedCastle(P,M):
+    return P.EventFlags.get("L7DefeatedCastle")
+def HelpedRabbitA(P, M):
+    return P.EventFlags.get("L7FedRabbitA")
+def HelpedRabbitB(P, M):
+    return P.EventFlags.get("L7FedRabbitB")
+def HelpUsPost(P,M):
+    # Ask for help.
+    print "HUP!"
+    if P.KeyItemFlags.get("Army of Rabbits"):
+        return "HelpUsD"
+    if not P.EventFlags.get("L7FedRabbitA"):
+        print "I'm hungry."
+        return "HelpUsA"    
+    if not P.EventFlags.get("L7FedRabbitB"):
+        print "He's hungry."
+        return "HelpUsB"
+    # Aha!  Both rabbits are ready to go:
+    P.EventFlags["L7RabbitBreed"] = 1
+    import time
+    P.EventFlags["L7RabbitBreedTime"] = time.time() + 24*60*60
+    M.Walls[2][(13, 13)] = 111 #%%%
+    return "HelpUsC"
+def OffLevelPost(P,M):
+    if P.KeyItemFlags.get("L7DefeatedCastle"):
+        return "OffLevelAfter"
+    return "OffLevelBefore"
+def OtherRabbitPost(P,M):
+    if P.EventFlags.get("L7FedRabbitB"):
+        return "OtherRabbitNice"
+    return "OtherRabbitJerk"
+def GetArmyPre(P,M):
+    if not P.EventFlags.get("L7RabbitBreed"):
+        return 0
+    if P.EventFlags.get("L7DefeatedCastle") or P.KeyItemFlags.get("Army of Rabbits"):
+        return 0
+    ##M.Walls[2][(13, 13)] = 2 #%%%
+    P.KeyItemFlags["Army of Rabbits"] = 1
+    return 1
+~
+Root|~
+|GetArmy|GetArmyPre
+|FirstGreet|FirstMetPre|None|FirstMetTrig
+|Congrats|DefeatedCastle
+|GoodLuck|HaveArmy
+|GreetCrumpet|HelpedRabbitA
+|Greet
+~
+Bye|Thanks for stopping by, dearies!~
+Bye, Kuni [Done]|None
+~
+FirstGreet|Oh, goodness gracious me!  Some adventurers, I do declare!  Sakes alive!
+~
+Hello, Ms. Rabbit.  We come in peace.|FirstGreet2
+~
+GetArmy|Hello there!  Klo and I have a nice surprise for you: An army!  
+\n\n<CN:ORANGE>[ Kuni gestures at a batallion of 832,040 rabbits in infantry gear. ]</c>
+\n\nIf you'd waited a bit longer, we could have had an army of 1,346,269.  But
+this should be plenty.  Say hello to the nice adventurers, kids!
+\n\n<CN:ORANGE>[ The army of rabbits salute, then fall into formation behind you ]</c>
+~
+Where did all these rabbits come from?|Army2
+You and Klo have been...busy.|Army2
+~
+Army2|Well, when two rabbits love each other very much...it doesn't take long before
+there are plenty <CN:BRIGHTGREEN>more</C> rabbits.  Now storming that castle should
+be no problem at all!~
+Onward to glory.|Main
+Lagomorph power!|Main
+~
+FirstGreet2|Oh, no need to be formal.  You may call me Kuni, because that is
+my name.  And now, please sit down and have some tea.  I do wish I
+could offer you some crumpets, but they are rather hard to find these
+days.  This neighborhood has really become frightfully uncivilized
+since Mother Brain's legions of death invaded.  Legions of death will
+do that, you know.
+~
+So, what's new?|Main
+Sorry, just popping in.  Bye! [Done]|Bye
+~
+Greet|Oh, my stars and garters!  The human adventurers have come
+calling again.  And here I am, with no crumpets to offer them.  I do
+hope you'll find it in your hearts to forgive me.~
+Um...sure.|Main
+Oh, don't give it another thought.|Main
+Actually, we've brought some crumpets.  Here.|GiveCrumpets|HaveCrumpet||CrumpTrigger
+No crumpets?  We're out of here. [Done]|Bye
+~
+GiveCrumpets|Oh, goodness me!  These look just scrumptious!  How very wonderful of you to bring them by.  Thank
+you ever so much.~
+Glad you like them.|Main
+So, can you do something for us in return?|||HelpUsPost
+~
+GreetCrumpet|Hello, dearies!  I hope things are going well for you.  I'm so glad you could pop in for
+a visit.~
+Hello again, Kuni.|Main
+~
+Main|Well now, what would you like to chat about?~
+Who's that other rabbit?||MetOtherRabbit|OtherRabbitPost
+How do we get off this level?|||OffLevelPost
+So, what's going on around here?|GoingOn
+Thanks for the tea, Kuni.  We should be going now.|Bye
+~
+GoodLuck|Hello, adventurers.  Ah, I see you have the whole Rabbit Army with you.  Getting ready to assault the
+castle, are we?  Come in, bunnies, and have a chat with your Auntie Kuni!~
+Hello again.|Main
+~
+Congrats|Hello, dearies!  I'm so pleased that the attack on the castle went well.  I set up a lawn chair on the roof
+so I could watch the whole thing.  It was quite splendid.~
+It was amazing.  You should have been there.|HandleLabor
+Hello again.|Main
+~
+HandleLabor|I would have come, but I'm not really the fighting sort.  But don't worry, I was cheering
+for you the whole time! It all looks ever so exciting.  But I suppose
+someone had to stay home and look after the house.
+~
+Yeah, I guess.|Main
+Don't feel bad, we couldn't have done it without the rabbit army.  We did the work, but you did the labor.|Main
+~
+OffLevelBefore|The stairway up is just outside the house.  You could get back up that way, and I can't say I'd
+blame you, what with all the monsters about.~
+Yes, but what about the stairs down?|StairsDownBefore
+So, what's going on around here?|GoingOn
+Who's that other rabbit?||MetOtherRabbit|OtherRabbitPost
+Thanks for the tea, Kuni.  We should be going now.|Bye
+~
+StairsDownBefore|Oh, the stairs <CN:BRIGHTGREEN>down</C>?  That's another story.  They're at the center of the
+Castle of Fear, guarded by demonic hordes and undead scourges and that sort of thing, don't you know.  It would
+take an <CN:BRIGHTGREEN>army</c> to break through.~
+So, what's going on around here?|GoingOn
+Who's that other rabbit?||MetOtherRabbit|OtherRabbitPost
+Any chance you could help us?|||HelpUsPost
+Thanks for the tea, Kuni.  We should be going now.|Bye
+~
+OffLevelAfter|The stairway up is just outside the house.  And the stairway down is inside the Castle of Fear.  Now
+that the castle is taken, you can go onward any time - but do be careful!~
+So, what's going on around here?|GoingOn
+Who's that other rabbit?||MetOtherRabbit|OtherRabbitPost
+Thanks for the tea, Kuni.  We should be going now.|Bye
+~
+HelpUsA|Help you?  Well, I don't know about that.  I'm still a little upset over my crumpet crisis.
+And I don't think I'd be much good against a demnic horde.  I'm not
+even sure what a demonic horde looks like.  Is it like a horse?~
+No, a whole HORDE of demons.  You know, "horde" as in "army".|OoGhastly
+Yes, a little bit like a horse.  A horse...OF THE DAMNED!|OoGhastly
+~
+OoGhastly|Oooo, how ghastly!  You'll give me nightmares, talking like that.  Let's talk about something else.~
+Who's that other rabbit?||MetOtherRabbit|OtherRabbitPost
+How do we get off this level?|||OffLevelPost
+So, what's going on around here?|GoingOn
+Thanks for the tea, Kuni.  We should be going now.|Bye
+~
+HelpUsB|Well, you did bring me those crumpets, so I really feel like I ought to help you out.  Maybe if you could
+talk that stubborn bunny Klo into apologizing to me, the two of us could be of use to you.~
+We'll try.|Main
+We'll go give it a try right now.|Bye
+~
+HelpUsC|First you find crumpets, and then you talk Klo into saying something nice.  You <CN:BRIGHTGREEN>are</c>
+a bunch of miracle workers, aren't you?  Well now, Klo and I should be able to help you out.  It won't take
+long.  Come back in...mmm...one day, all right?  Now run along, dearies!~
+Bye now. [Done]|None
+~
+HelpUsD|Oh, I think you are quite ready to attack the castle already!  Don't underestimate <CN:red>the wrath of
+the rabbit army</c>.~
+Ok.|Main
+~
+GoingOn|It's been an eventful month.  Let's see...there was a spaceship crash a week ago.  And the other day, I saw
+a horrible snake.  Ooh, and yesterday, I tripped and broke one of my china teacups!
+~
+A spaceship crash?|Spaceship
+A horrible snake?|Snake
+Sounds like quite a month.|Main
+Thanks for the tea, Kuni.  We should be going now.|Bye
+~
+Spaceship|Yes, it made a tremendous crashing sound.  I think I saw the pilot hop out at the last minute, and hide out
+to the northeast.  I do hope he's all right, the poor dear.  It must have been quite upsetting.~
+What else has been happening?|GoingOn
+~
+Snake|Ooo, it was horrible!  I saw its forky tongue, and everything.  It was a huge thing, all slithery and slimy!
+~
+What else has been happening?|GoingOn
+Actually, snake scales are quite dry.|Snake2
+~
+Snake2|Well, that may be so.  But you wouldn't see me getting close enough to find out what its scales are
+like, thank you very much!~
+What else has been happening?|GoingOn
+~
+OtherRabbitJerk|Oh, Klo is such a <CN:BRIGHTRED>beast</C>!  He said the most frightful thing to me the other day.
+I haven't spoken to him since.  I wouldn't pay any attention to him if I were you, because he's nothing but
+a mean, rude...  Hmph!~
+I see.|Main
+What did he say to you?|WhatSay
+~
+WhatSay|Well, it was a remark in such poor taste that I will not deign to repeat it.~
+I see.|Main
+Oh, go on.|WhatSay2
+~
+WhatSay2|Oh, you do pry, don't you?  Well, I'm sorry, but my civil and ladylike nature will simply not permit me
+to repeat such a horrid utterance, and that is that.~
+Oh well.|Main
+~
+OtherRabbitNice|Klo can say the most awful things, sometimes.  But just recently he apologized
+for something he said, and he did it quite nicely too, so I forgave him.
+It's hard to stay mad at Klo.  He's just so dreamy.~
+What a guy.|Main
+Does that mean you LIKE him?|IHeartKlo
+~
+IHeartKlo|Oh, you silly, how could I <CN:BRIGHTRED>not</C> like him?  Just look at those ears.
+~
+Um...yes, I see what you mean.|Main
+~

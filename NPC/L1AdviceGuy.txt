@@ -1,0 +1,189 @@
+#A person in the first town gives some useful advice about
+#STATS, and PERKS, and STATUS AILMENTS
+def GreetingPost(P,M):
+    import time
+    NewbieFlag = 1
+    for Player in P.Players:
+        if Player.IsDead():
+            return "GreetingDead"
+        if Player.Level > 1:
+            NewbieFlag = 0
+    Now = time.localtime()
+    Month = Now[1]
+    Day = Now[2]
+    Hour = Now[3]
+    if (Month, Day) == (1, 1):
+        return "GreetingNewYears"
+    if (Month, Day) == (12, 25):
+        return "GreetingChristmas"
+    if (Month, Day) == (4, 1):
+        return "GreetingAprilFools"
+    if Hour in (23,0,1,2,3,4):
+        return "GreetingLate"
+    if NewbieFlag:
+        return "GreetingNewbie"
+    return "Greeting"
+def FarewellPost(P,M):
+    return random.choice(("Farewell1", "Farewell2", "Farewell3"))
+def PresentPre(P,M):
+    if not P.EventFlags.get("L1Xmas", None):
+        return 1
+def PresentTrigger(P,M):
+    print "Present TRIGGER!!!"
+    P.GetItem("Red Ryder BB-Gun")
+    P.EventFlags["L1Xmas"] = 1
+def StatusPost(P,M):
+    if P.Gold >= 100:
+        P.Gold -= 100
+        return "Status"
+    return "NotEnoughMoney"
+def AttributePost(P,M):
+    print "AttPost!!"
+    if P.Gold >= 100:
+        P.Gold -= 100
+        return "Attributes"
+    return "NotEnoughMoney"
+def PerksPost(P,M):
+    if P.Gold >= 100:
+        P.Gold -= 100
+        return "Perks"
+    return "NotEnoughMoney"
+~
+Root|~
+||FirstMetPre|GreetingPost
+~
+GreetingNewbie|Well, what have we here?  It looks like a party of new adventurers.  You've come
+to the right place if you want a little training.  I can give you some handy tips to get started,
+and my rates are <CN:RED>very</C> reasonable.~
+What can you tell us about?|Main
+No thanks.|Bye
+~
+Greeting|Well, hello there!  You look like an experienced bunch.  Still, it never hurts to review
+the basics.  Would you be interested in learning something?~
+Sure.|Main
+No thanks.|Bye
+~
+GreetingDead|Oh dear!  It looks like your friend there is feeling a little bit dead.  You should
+head straight over to the Inn and get patched up!  The Inn is at the southwest end of town.~
+Okay.|Bye
+~
+GreetingLate|Well, you folks are <CN:YELLOW>*yawn*</C> certainly up late.  Still, I guess when you're
+saving the world you don't always <CN:YELLOW>*yawn*</C> get to keep regular hours.  Anyway, are
+you here for some training?~
+Sure.|Main
+No thanks.|Bye
+~
+GreetingNewYears|Happy New Year!  Time to party down, because if the monster raids keep coming, 
+we may not make it through another year!  Eat, drink, and be merry, and so forth!  Ah, but if
+you like, I can give you some training.~
+Sure.|Main
+No thanks.|Bye
+~
+GreetingChristmas|~
+|GreetingChristmasPresent|PresentPre
+|GreetingChristmasNoPresent
+~
+GreetingChristmasPresent|Merry Christmas!  Ah, I'm drunk on yuletide cheer.  And on egg nog.  Since
+I heard you people were heading off on such a hazardous journey, I thought I would give you this.
+Go ahead, unwrap it.\n\n<CENTER><CN:YELLOW>You received: Red Ryder BB-Gun</C>~
+Wow, thanks!|Main|||PresentTrigger
+~
+GreetingChristmasNoPresent|Merry Christmas!  Ah, I'm drunk on yuletide cheer.  And on egg nog.~
+Merry Christmas to you, too.|Main
+Bah, humbug!|Main
+~
+GreetingAprilFools|Ah!  Thank goodness you've come!  A giant werewolf is attacking the villagers
+and devouring their shoes!  It can shoot fire out of its mouth, and its only weakness is cheese, 
+and...<CN:BRIGHTRED>OH NO!  There is is...BEHIND YOU!</C>
+\n\n
+Just kidding.  April Fools!  Ha, ha, ha, ha, ha!~
+Ha, good one.|Main
+You're funny.  Reeeeeal funny.  That's why I'll kill you last.|Main
+~
+Bye|~
+|||FarewellPost
+~
+Farewell1|What?  Leaving so soon?  But the fun's just getting started!  Come on lad, let's set our
+hair on fire!~
+We really should be going. [Done]|
+~
+Farewell2|Goodbye, and good luck.  Oh!  I just remembered...  Some mages cast a big Detect Magic
+spell the other day, and they said there are three spells hidden on the second level.  Or was it
+four?  No, definitely four - a Cleric, a Mage, and a Summoner spell.  I don't 
+know whether that tidbit of information will come in handy or not, but there you are.~
+Bye now. [Done]|
+~
+Farewell3|Farewell.  And remember: The character in the front takes the most damage from 
+monsters.  Characters on the flank take 1/4 less damage, and the character
+in back takes 1/2 as much.~
+Bye now. [Done]|
+~
+Main|I can teach you some things about <CN:GREEN>Attributes</C>, about <CN:GREEN>perks</C>, or about
+<CN:GREEN>status ailments</C>.  It costs 100 zenny for each lesson - and believe me, it's worth it.
+What'll it be?~
+Tell us about attributes.|||AttributePost
+Tell us about perks.|||PerksPost
+Tell us about status ailments.|||StatusPost
+We'll be going now.|Bye
+~
+NotEnoughMoney|What?  You don't have 100 zenny?  No money, no lesson.  Go kill yourselves some
+monsters, get some funds.~
+Ok.  [Done]|
+~
+Status|<CN:YELLOW>[You have paid 100 zenny]</C>\n\n
+Well, in addition to doing damage, monsters can do some other nasty things.  They can poison you,
+which makes you take damage every so often.  They can put you to sleep, which means you can't
+attack until something hits you to wake you up.  They can silence you, which prevents you from
+casting spells.  And they can paralyze you, or turn you to stone,
+and that means you can't do anything until you recover.\n\n
+There are items to fix all these problems.  <CN:YELLOW>Antidotes</c> cure poison, 
+<CN:YELLOW>Black Coffee</C> cures sleep and
+paralysis, <CN:YELLOW>Medusa Scales</C> cure stoning, and <CN:YELLOW>Flutes</C> cure silence.  A <CN:YELLOW>Remedy</C> will fix all status
+problems, and so will the Cleric spell <CN:YELLOW>Esuna</C>, once you find it.  Staying at the inn fixes 
+everything, too, so if you get poisoned and run out of antidotes, make a beeline for the
+nearest inn!  You also recover from these things over time - 
+the higher your CON, the faster you get better.\n\n
+The good news is: Some equipment makes you immune to status ailments.  And it's possible for 
+you to dish out status ailments to the monsters, if you have the right sort of weapons and 
+armor.  Also, watch for the perk "Recovery" - that makes you recover from status problems
+three times as fast.~
+Interesting.|Main
+~
+Perks|<CN:YELLOW>[You have paid 100 zenny]</C>\n\n
+Some items have special powers, called <CN:brightblue>perks</c>, which you can use by equipping
+them.  For instance, the <CN:green>Regen</c> perk restores hit points automatically over
+time.  The <CN:green>Haste</c> perk makes you faster at casting spells, using items - even
+fleeing from combat.  There are perks like <CN:green>Poison Immune</c> which prevent status
+problems, and perks like <CN:green>Sleep Strike</c> which let you cause status problems to
+the monsters.  I've even heard of items that provide <CN:green>X-ray Vision</c>, which 
+reveals all the secret doors in the dungeon...\n\n
+Now, you can only
+get each perk once - so if you put two <CN:green>Resist Fire</c> items on the same character, their
+fire resistance doesn't get any better than if they had just one. \n\n
+You can check your perks from the equipment screen.  Sometimes 
+it's worth passing up an item with better stats to get the perks it gives.~
+Interesting.|Main
+~
+Attributes|<CN:YELLOW>[You have paid 100 zenny]</C>\n\n
+Attributes determine how good your character is at doing things - the higher they are, the better.
+You can increase attributes when you gain a level, and there is equipment out there that affects
+them.
+Monsters have the same stats that you do, so you'll meet some monsters that are smarter or stronger
+than others. 
+\n
+<CN:RED>Strength</C> (<CN:BRIGHTRED>STR</C>) affects how much damage you do with your attacks.\n
+<CN:RED>Dexterity</C> (<CN:BRIGHTRED>DEX</C>) measures how good you are at hitting and dodging.  If
+your DEX is higher than a monster's, your attacks will connect more often, and you'll dodge more of
+its blows.\n
+<CN:RED>Constitution</C> (<CN:BRIGHTRED>CON</C>) affects your maximum HP.  It also helps you
+recover faster from things like poison and paralysis.\n
+<CN:RED>Intelligence</C> (<CN:BRIGHTRED>INT</C>) controls Mage and Summoner spell power and 
+maximum MP.  It also helps all characters take less damage from magic.\n
+<CN:RED>Wisdom</C> (<CN:BRIGHTRED>WIS</C>) controls Cleric spell power and 
+maximum MP.  It also controls your chance to dodge magic.\n
+<CN:RED>Charisma</C> (<CN:BRIGHTRED>CHA</C>) controls Bard powers.  Also, a party with good
+charisma gets better prices from shopkeepers.\n\n
+All attributes are useful, but focus on raising the key attributes for your character's class first.~
+Interesting.|Main
+~
+

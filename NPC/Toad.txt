@@ -1,0 +1,98 @@
+def FirstMetPre(P,M):
+    return not P.EventFlags.get("L7ToadMet")
+def FirstMetTrig(P,M):
+    P.EventFlags["L7ToadMet"] = 1
+def IsShipFixed(P,M):
+    return P.EventFlags.get("L7FixedSpaceship")
+def IsShipNewlyFixed(P,M):
+    return P.EventFlags.get("L7FixedSpaceship") and not P.EventFlags.get("L7SpaceshipReward")
+def IsShipNotFixed(P,M):
+    return not P.EventFlags.get("L7FixedSpaceship")
+def RewardTrig(P,M):
+    print "REWARD TRIGGER!"
+    P.EventFlags["L7SpaceshipReward"] = 1
+    P.GetItem("Titan's Mitt")
+    P.GetItem("Reaper Cloak")
+    # Erase some maze contents:
+    for X in range(3,9):
+        for Y in range(14,18):
+            M.RemoveWalls(X,Y)
+    for X in range(3,9):
+        M.Walls[0][(X, 13)] = 0
+        M.Walls[1][(X, 18)] = 0
+    M.Walls[2][(9,16)] = 0
+    M.Walls[2][(9,14)] = 0
+    for X in range(30):
+        for Y in range(30):
+            if M.Rooms[(X,Y)] in (420, 403): 
+                M.Rooms[(X,Y)] = 0
+def HaveParts(P,M):
+    return P.KeyItemFlags.get("Spaceship Parts")
+def NotHaveParts(P,M):
+    return not P.KeyItemFlags.get("Spaceship Parts")
+
+~
+Root|~
+|FirstGreet|FirstMetPre|None|FirstMetTrig
+|RewardForFix|IsShipNewlyFixed
+|ThanksAgain|IsShipFixed
+|SecondGreet
+~
+SecondGreet|Hello again!  Have you seen any sign of my spaceship parts?~
+Yes, we've got them here.|GotParts|HaveParts
+Not yet.  Any idea where they are?|PleaseFindParts|NotHaveParts
+~
+RewardForFix|The starship?  It's fixed?  Hooray!  Now I can get off this frogforsaken planet and head 
+back home.  And here, take these - they're a couple of items I found during the survey.~
+Why, thanks!|Farewell|||RewardTrig
+~
+Farewell|I know it's not much, but it's the least I 
+can do for you saving my life.  Now, if you'll excuse me, I'm going to go blast off for home!~
+Have a safe trip home, Slippy. [Done]|None
+~
+PleaseFindParts|I don't know where the parts ended up, but I'm sure they're on this level
+somewhere.  Maybe you could find one of the local creatures to help you find them?  I'd be too
+scared to go talk to them.~
+A cowardly frog.  What else is new?|StarToadDammit
+Ok, we'll keep looking. [Done]|None
+~
+GotParts|Oh, thank goodness!  Now, take them to the starship - it's straight southeast of here - 
+and plug them all in.  Oh, please hurry!~
+Ok, we'll do it. [Done]|None
+You're pretty pushy for a frog.|StarToadDammit
+~
+StarToadDammit|I'm not a <CN:RED>frog</c>, I'm a <CN:green>StarToad</C>!  But that's not important
+now.  Please, go fix the ship!~
+Fine, fine, we'll go fix your darn ship. [Done]|None
+~
+FirstGreet|Oh, hello there!  I'm Slippy, the StarToad.  Please, you have to help me!~
+What's wrong, little guy?|HelpMe
+We're too busy. [Done]|None
+~
+HelpMe|You see, I was flying near Nexus on a survey mission.  All the warp zones on this planet 
+destabilize the space/time continuum enough that the whole thing has to be re-surveyed every so
+often.  Anyway, I flew too low and I ended up in the middle of a thunderstorm.  Do you know what
+happens to a StarToad when it gets struck by lightning?  It's not pretty, I assure you.  My 
+spaceship fritzed out and crashed off to the southeast.~
+You mean, that ship we fixed a little while ago?|RewardForFix|IsShipFixed
+Well, at least you survived.|QuestExplain|IsShipNotFixed
+~
+QuestExplain|I'll be in big trouble if I can't get back into orbit soon.  I'm running out of supplies,
+and this level is crawling with monsters.  Please, could you see if you can fix my ship?  Some of 
+the parts aren't at the crash site - they must have been scattered
+by the collision.  There's a manual on the ship, so if you could just <CN:red>find the parts</c> 
+and <CN:green>take them to the cockpit</C>, I'm sure you could figure out the rest.~
+Ok, we'll give it a shot.|ThanksForTrying
+Well, what's in it for us?|IllGiveReward
+~
+ThanksForTrying|Oh, thank you.  And be careful out there, this planet is crazy!~
+Tell me about it.  Ok, see you later.  [Done]|None
+~
+IllGiveReward|Well, if you can fix it, I'll give you some equipment that I found during my surveys.  
+It should be useful. ~
+Ok, we'll see what we can do. [Done]|None
+~
+ThanksAgain|Hello again!  Thanks so much for fixing my ship.  Now if you'll excuse me, I've got 
+to finish getting ready for takeoff.~
+Bye, Slippy! [Done]|None
+~

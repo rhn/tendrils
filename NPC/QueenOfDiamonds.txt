@@ -1,0 +1,90 @@
+def FirstMetPre(P,M):
+    return not P.EventFlags.get("L8QueenOfDiamondsMet")
+def FirstMetTrig(P,M):
+    P.EventFlags["L8QueenOfDiamondsMet"] = 1
+def JoinedAlready(P,M):
+    return P.EventFlags.get("L8DiamondsJoined")
+def NotJoinedAlready(P,M):
+    return not P.EventFlags.get("L8DiamondsJoined")
+def DefeatedDragon(P,M):
+    return P.KilledBosses.get((8, "ShivanDragon"))
+def JoinNowPre(P,M):
+    print "Join Now?"
+    print P.EventFlags.get("L8HeartsJoined"), P.EventFlags.get("L8ClubsJoined")
+    print P.EventFlags.get("L8DiamondsJoined"), P.EventFlags.get("L8SpadesJoined")
+    if not P.EventFlags.get("L8HeartsJoined") or not P.EventFlags.get("L8ClubsJoined"):
+        return 0
+    if P.EventFlags.get("L8DiamondsJoined") or not P.EventFlags.get("L8SpadesJoined"):
+        return 0
+    return 1
+def JoinTrig(P,M):
+    P.EventFlags["L8DiamondsJoined"] = 1
+~
+Root|~
+|JoinNow|JoinNowPre||JoinTrig
+|FirstGreet|FirstMetPre|None|FirstMetTrig
+|SecondGreet
+~
+JoinNow|I see that you have assembled an impressive force.  And so, I will ante up and cast my lot in with yours.
+The Army of Diamonds will join you against the goblin force.~
+Fabulous!|Main
+Nifty!  And now, we must go. [Done]|None
+~
+FirstGreet|Greetings and salutations!  It is with inestimable pleasure that I extend my hospitality to the 
+intrepid foursome who are contending with the eldritch forces of darkess.  I am the Queen of Diamonds, ruler
+of the Kingdom of Knowledge.~
+Thanks...I think.|Main
+~
+SecondGreet|Affability and delectation!  The plucky swashbucklers have suspended their exploits long enough 
+to sojourn in my demesne.~
+Greetings, your majesty.|Main
+I'll be back when I figure out what that meant. [Done]|None
+~
+Main|~
+|JoinedMain|JoinedAlready
+|MainDone|DefeatedDragon
+|UnjoinedMain
+~
+MainDone|Triumph and jubilation!  The wily wyrm has fallen before your terpsichordean prowess.  Now we can
+get back to life as usual. ~
+Thanks for your help.[Done]|None
+~
+JoinedMain|Panoply and readiness!  Our forces are prepared to fight.  Now, what plans shall we discuss?~
+What news do you have?|News
+Can you give us any advice?|Advice
+Farewell, your Majesty. [Done]|None
+~
+UnjoinedMain|Upon which topic shall we dissertate?~
+What news do you have?|News
+Can you give us any advice?|Advice
+Can you help us?|Help
+Farewell, your Majesty. [Done]|None
+~
+Help|Help?  Against the goblin armies?  We salute and countenance your efforts, of course.  But our strategists 
+estimate the odds of a successful attack on the goblins at what they called "miniscule at best".  Now, if the <CN:GREEN>other
+three kingdoms</C> were to join you first, then it might well become judicious for us to muster our forces.
+~
+We will see what we can do.|Main
+What are you, afraid to fight?|Afraid
+~
+Afraid|Prudent, yes.  Forethoughtful, certainly.  But once the four kingdoms are assembled, we will make manifest the valor 
+and sinew of our nation, and you will know that we are no mere recreants.~
+We'll be just fine, if you can fight as well as you talk.|Main
+Very well then, we'll return when we've recruited the other kingdoms. Done]|None
+~
+News|The tidings are grim.  The goblins, unholy demihumans that they are, control the northeast fortress.  With them is a
+truly bestial creature: a <CN:BRIGHTRED>Shivan dragon</C>.  Its very breath is a conflagration, and its 
+hide a scaly wall.  To oppugn such a lusus naturae, you would do well to employ some sort of thaumaturgical gelidity.~
+Thauma-whatsical who?|Gelidity
+We had some other questions.|Main
+Listening to you hurts my brain.  I'm leaving. [Done]|None
+~
+Gelidity|Some form of <CN:BRIGHTBLUE>cold magic</C>, you lumpenproletariat.  Honestly, sometimes I wonder why I bother.
+~
+We had some other questions.|Main
+~
+Advice|I have only this counsel: Hidden on this level is a druidic sanctorum.  The ecclesiastics there may be able to teach
+you any hallowed incantations that have been overlooked in your questings hitherto.~
+We had some other questions.|Main
+Farewell, your Majesty. [Done]|None
+~

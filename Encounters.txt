@@ -1,0 +1,107 @@
+#Tendrils Encounter Tables					
+#Level	Backrank	Midrank	Frontrank		
+1	"Goomba,Goomba,Goomba"	"Goomba,Goomba"	Shyguy		
+1	"RedTrooper,RedTrooper"	"Trooper,Trooper,Trooper"			
+1	"Goomba,Crawler"	"Crawler,Goomba"			
+1	"Goomba,Shyguy,Goomba,Shyguy"	"Goomba,Goomba,Goomba,Goomba"			
+1	"Berzerk Robot,Berzerk Robot,Berzerk Robot"	"Berzerk Robot,Berzerk Robot,Berzerk Robot"	"Berzerk Robot,Berzerk Robot,Berzerk Robot"		
+1	"Fygar,Fygar,Pooka,Fygar,Pooka,Fygar"				
+1	"Cat, Goro, Cat"				
+1	"Demon, Demon, Demon"	"Ghost, Ghost"			
+1	"Ghost, Ghost, Ghost"	"MrDont, MrDont, MrDont"			
+1	"Invader1,Invader2,Invader2,Invader3,Invader3"	"Invader1,Invader2,Invader2,Invader3,Invader3"	"Invader1,Invader2,Invader2,Invader3,Invader3"	"Invader1,Invader2,Invader2,Invader3,Invader3"	"Invader1,Invader2,Invader2,Invader3,Invader3"
+1	"RedTrap, BlueTrap"	"Berzerk Robot, Goomba, Berzerk Robot"			
+
+#########################################################					
+2	"Swordsman,Swordsman"	"Green Ninja, Green Ninja"			
+2	Green Ninja	"Star, Star"
+2	"Galaga Green, Galaga Green"	"Galaga Red, Galaga Blue, Galaga Red, Galaga Blue"
+2	"Fygar, Pooka, Fygar, Pooka"	Swordsman
+2	"DefMutant, DefLander, DefMutant"	"DefSwarmer, DefBomber, DefSwarmer"
+2	DefPod	"DefBaiter, DefLander, DefBaiter, DefLander"
+2	PiranhaPlant	"Cat, Fygar, Cat"
+2	"Lizardman, Lizardman"	"Keese, Keese, Keese, Keese"
+
+
+#########################################################		
+# Level 3: Lots of undead!		
+3	"Chelnov Copter,Chelnov Copter"	Chelnov Shield
+3	"Chelnov Runner, Chelnov Runner, Chelnov Runner"	
+3	Chelnov Shield	"Robot, Robot"
+3	"Skeleton, Skeleton"	"Ghost, Ghost"
+3	"Bat,Bat"	"Medusa Head, Medusa Head"
+3	"FireBones, FireBones"	"Bat, Skeleton, Medusa Head"
+3	"FireBones, FireBones"	"ZSkeleton, ZSkeleton, ZSkeleton"
+3	"U3Skeleton, ZSkeleton, U3Skeleton"	"Skeleton, Skeleton"
+3	"U3Skeleton,ToDWight,U3Skeleton"	"Zombie,Zombie,Zombie"
+3	"ToDWight, ToDWight"	"Bat, Bat"
+#########################################################		
+4	"Moon Bomber, Moon Bomber"	"Axeman, Axeman"
+4	"Rumbler, Trooper, Rumbler"	"Soldier, Soldier"
+4	"Moon Bomber, Moon Bomber"	"DefLander, DefPod, DefLander"
+4	"Chelnov Copter,Chelnov Copter"	"Chelnov Shield, Chelnov Shield"
+4	"Blue Flea, Blue Flea, Blue Flea, Blue Flea, Blue Flea"	"Blue Fox, Blue Fox, Blue Fox"
+4	"Bomb Man, Bomb Bird, Bomb UFO"	"Bomb Bird, Bomb UFO, Bomb MAN"
+4	"Sorcerer, Sorcerer"	"Firecrawler, Firecrawler, Firecrawler"
+4	"Soldier, Soldier, Soldier"	"Crab, Crab"
+4	"Sorcerer, Firecrawler, Sorcerer"	"Legend Hopper,Legend Hopper"
+
+#########################################################		
+# Level 5		
+
+5	"Helmet Bot, Helmet Bot"	"Robotron, Robotron, Robotron, Robotron, Robotron"
+5	Bubbleman	"Helmet Bot, Helmet Bot"
+5	Fireman	"Robotron, Robotron, Robotron, Robotron"
+5	"Russkie, Russkie, Russkie"	"Elevator Man, Elevator Man, Elevator Man"
+5	Crashman	"Dark Goomba, Dark Goomba"
+5	"Red Koopa, Goomba, Red Koopa"	"Beetle, Beetle"
+5	"Red Oktorok, Red Oktorok"	"Rock Spider, Rock Spider"
+5	"Sorcerer, Sorcerer"	"Para Koopa, Helmet Bot, Para Koopa"
+
+#########################################################		
+#Level 6 monsters		
+6	"U3Demon, U3Gargoyle, U3Demon"	"U3Gargoyle, U3Mane, U3Gargoyle"
+6	Wendy	"Snail,Goblin,Snail"
+6	"Goblin,Goblin,Goblin,Goblin,Goblin"	"Ooze, Ooze, Ooze"	
+6	"Red Slime, Ice Slime"	"Slime, Ooze, Slime"	
+6	"AthenaSlime, Slime, AthenaSlime, Slime"	"Red Slime, Blue Slime, Ice Slime"	
+
+
+#########################################################			
+#Level 7 monsters			
+7	"CrossroadsA,CrossroadsC,CrossroadsC,CrossroadsA"	"CrossroadsB,CrossroadsB,CrossroadsB,CrossroadsB,CrossroadsB"	
+7	"CrossroadsB,CrossroadsA,CrossroadsC,CrossroadsB,CrossroadsA,CrossroadsC"	"Googly Crawler, Googly Crawler"	
+7	"QWalker, QWalker, QWalker"	"Googly Crawler, Googly Crawler, Googly Crawler"	
+7	Sword Dog	"LWOgre,LWHat"	"LWHat,LWOgre"
+7	Cutman	"LWOgre,LWOgre,LWOgre"	
+7	"Caterpillar,Caterpillar"	"Ladybug,Ladybug"	
+
+#########################################################			
+#Level 8 monsters			
+8	"Blue Oktorok, Red Oktorok, Blue Oktorok"	"Neo Fly, Neo Fly"	
+8	"ToDGoblin,ToDGoblin"	"ToDRat,ToDRat,ToDRat"	
+8	"Neo Fly, Neo Fly"	"ToDGoblin, ToDRat"	
+8	"Blue Oktorok, Red Oktorok, Blue Oktorok"	"EvilWabbit,EvilWabbit"	
+8	"EvilWabbit,EvilWabbit"	"ShellBug, ShellBug"	
+8	"Fishman, Fishman"	"Jelly, Jelly, Jelly"	
+8	"Jelly,Jelly"	Fishman	"Robocrab, Robocrab"
+
+#########################################################			
+#Level 9			
+9	"Lizard, Lizard"	"EvilWabbit,Lizard,EvilWabbit"	
+9	Ironknuckle	"Jelly,Jelly,Jelly"	
+9	"Blue Oktorok,Neo Fly,Blue Oktorok"	"LeeNinja,LeeYamo"	Abadon
+9	"Lizard, Lizard, Lizard"	IronKnuckle	
+9	"Bowman,Bowman"	Abadon	
+9	GBZora	"GBOkto,GBMoblin,GBOkto,GBMoblin"	
+
+#########################################################			
+#Level 10			
+# Boss recycling is a-ok!			
+10	"GlowSkull,GlowSkull"	"2600DragonA,2600DragonB"	
+10	"Neo Oktorok,Red Oktorok,Blue Oktorok, Neo Oktorok"	"LWImp, LWOcto, LWImp"	
+10	Shivan Dragon	"RiverCityA,Abadon,RiverCityB"	
+10	"King Slime,King Slime"	"Ooze,AthenaSlime,Ice Slime"	
+10	"Alien, Alien"	RiverCityA	RiverCityB
+10	"Fly, Neo Fly, Fly"	"Neo Oktorok, Neo Oktorok"	
+10	"Fire Beast, Fire Beast"	"Skull, Skull, Skull"	

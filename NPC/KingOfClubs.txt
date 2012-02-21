@@ -1,0 +1,103 @@
+def FirstMetPre(P,M):
+    return not P.EventFlags.get("L8KingOfClubsMet")
+def FirstMetTrig(P,M):
+    P.EventFlags["L8KingOfClubsMet"] = 1
+def JoinedAlready(P,M):
+    return P.EventFlags.get("L8ClubsJoined")
+def NotJoinedAlready(P,M):
+    return not P.EventFlags.get("L8ClubsJoined")
+def DefeatedDragon(P,M):
+    return P.KilledBosses.get((8, "ShivanDragon"))
+def JoinNowPre(P,M):
+    return P.EventFlags.get("L8Tower") and not P.EventFlags.get("L8ClubsJoined")
+def TowerDone(P,M):
+    return P.EventFlags.get("L8Tower")
+def JoinTrig(P,M):
+    P.EventFlags["L8ClubsJoined"] = 1
+def HaveTwine(P,M):
+    return P.KeyItemFlags.get("Ariadne's Thread")
+def NoHaveTwine(P,M):
+    return not P.KeyItemFlags.get("Ariadne's Thread")
+def GetTwineTrig(P, M):
+    print "GET TWINE!"
+    P.KeyItemFlags["Ariadne's Thread"] = 1
+~
+Root|~
+|FirstGreet|FirstMetPre|None|FirstMetTrig
+|JoinNow|JoinNowPre||JoinTrig
+|SecondGreet
+~
+JoinNow|Oh, thank you for freeing the High Priestess!  Now the danger to the kingdom is over, at least
+for now.  And so, as I promised, so I shall deliver: The Army of Clubs is ready to follow you into battle
+against the Goblins.~
+Superb!|Main
+Excellent!  And now, we must go. [Done]|None
+~
+FirstGreet|Ah, hello, scary new people.  You must be adventurers, because you haven't tried to stab me yet.  I
+am the King of Clubs, ruler of the Kingdom of Hope.~
+Hello, your majesty.|Main
+~
+SecondGreet|Oh, welcome back.  I, the King of Clubs, am pleased to see you again.~
+Thank you, your majesty.|Main
+Thanks, but we've got to be moving on. [Done]|None
+~
+Main|~
+|JoinedMain|JoinedAlready
+|MainDone|DefeatedDragon
+|UnjoinedMain
+~
+MainDone|Now that you defeated the Shivan Dragon and his army of goblins, the Four Kingdoms are at peace
+again.  We are busy rebuilding at this point, but we hope you'll come back and visit when things are
+back to normal.~
+We'll do that. [Done]|None
+~
+JoinedMain|Our forces are ready to fight by your side.  Now, what plans shall we discuss?~
+What news do you have?|News
+Are there any shops around here?|Shops
+If you're the king of clubs, why do you carry a sword?|WhySword
+Farewell, your Majesty. [Done]|None
+~
+UnjoinedMain|What would you like to discuss?~
+What news do you have?|News
+Can you help us?|Help
+Are there any shops around here?|Shops
+If you're the king of clubs, why do you carry a sword?|WhySword
+Farewell, your Majesty. [Done]|None
+~
+WhySword|Hmm...I suppose it does break the theme a bit.  There <CN:PURPLE>IS</C> a King of Swords, but he lives far away, close to
+the King of Pentacles and the King of Cups.  Anyway, you're one to talk.  You guys still look the same no matter what
+you're wielding or wearing.~
+You've got a point there.|Main
+~
+Help|I'm afraid we're already in some bad trouble.  We're the weakest of the four kingdoms, I'll 
+admit.  The west edge of our lands was overrun by mad beasts, and they have built a strange black tower
+there.  It's a twisted, black thing, of impossible angles, and makes your head hurt just to look at it.
+Our High Priestess has become lost in the tower, and without her guidance, the army cannot act.~
+What if we bring back the priestess?|TowerQuestHaveTwine|HaveTwine
+What if we bring back the priestess?|TowerQuest|NoHaveTwine||GetTwineTrig
+~
+TowerQuestHaveTwine|Well, if you could bring the High Priestess back, we would surely join you.  Be careful, though: In
+the tower, you can go north, south, east, west, up and down, and...<CN:PURPLE>this-a-way</c> and <CN:PURPLE>that-a-way</c>.  It's a
+confusing place.  Use <CN:GREEN>Ariadne's Thread</c> to escape if you get lost.~
+We had some other questions.|Main
+Don't worry, we'll bring her back. [Done]|None
+~
+TowerQuest|Well, if you could bring the High Priestess back, we would surely join you.  Be careful, though: In
+the tower, you can go north, south, east, west, up and down, and...<CN:PURPLE>this-a-way</c> and <CN:PURPLE>that-a-way</c>.  It's a
+confusing place.  Take this - you can use it to escape if you get lost.\n\n
+<CN:YELLOW>[ You have received</C> <CN:GREEN>Ariadne's Thread</c><CN:YELLOW>]</C>~
+We had some other questions.|Main
+Don't worry, we'll bring her back. [Done]|None
+~
+News|News?  News!?  There's an army of <CN:BRIGHTRED>goblins</C> gathered on this level, that's what's news.
+And some peasants claimed that a <CN:BRIGHTRED>Shivan dragon</C> swooped down and ate some of their sheep yesterday.
+Oh, the weight of leadership weighs heavy on my head...~
+We had some other questions.|Main
+Farewell, your Majesty. [Done]|None
+~
+Shops|Well, there's an <CN:YELLOW>inn</C> here in the palace.
+Just go down the hall, take the door on the left, you can't miss it.  And I hear there's 
+a <CN:YELLOW>save shrine</C> on the level, but I'm not sure quite where.~
+We had some other questions.|Main
+Farewell, your Majesty. [Done]|None
+~

@@ -1,0 +1,109 @@
+def FirstMetPre(P,M):
+    return not P.EventFlags.get("L6BardMet")
+def FirstMetTrig(P,M):
+    P.EventFlags["L6BardMet"] = 1
+def LearnedBardTech(P,M):
+    return P.EventFlags.get("L6BardTech")
+def NotLearnedBardTech(P,M):
+    return not P.EventFlags.get("L6BardTech")
+def LearnBardTech(P, M):
+    import Music
+    import time
+    P.EventFlags["L6BardTech"] = 1
+    Music.PauseSong()
+    time.sleep(0.2)
+    Resources.PlayStandardSound("PacmanNoise.wav")
+    time.sleep(1.4)
+    Music.UnpauseSong()
+def TeachBreak(P,M):
+    for Player in P.Players:
+        if Player.Species.Name == "Bard":
+            return "TeachBreakYes"
+    return "TeachBreakNo"
+~
+Root|~
+|FirstGreet|FirstMetPre|None|FirstMetTrig
+|SecondGreet
+~
+FirstGreet|A group of heroes, brave and bold\n
+Has come to see the land of cold.\n
+I strike a tone on the Gong of Greeting\n
+To herald this momentous meeting.\n\n
+My name is Syntessa.  I am a bard, a skald, a spinner of tales, a listener to the Music of the World.~
+Hello, Syntessa.|Main
+~
+SecondGreet|Salutations, brave explorers\n
+Take refuge here from dungeon's horrors\n
+Sheathe your blades, and dry your shoes\n
+And tell me your exciting news!~
+Hello again, Syntessa.|Main
+~
+Main|So, what would you like to hear about?~
+What is this place?|ThisLevel
+Do you have any bard advice?|BardTips
+Can you help us?|NextLevel|NotLearnedBardTech
+We must leave now.|Bye
+~
+ThisLevel|This is a realm of endless snow,\n
+Where unforgiving ice winds blow.\n
+Mazes and monsters everywhere,\n
+But you can get through if you dare.
+~
+Must you speak in rhyme?|Rhyme
+We had other questions.|Main
+~
+Rhyme|Rhyme is important.  Magic flows from a bard's enchanted instruments, but the rhythm and
+sound of a bard's song are what control the magic, and turn it to its proper purpose.~
+We had other questions.|Main
+We must leave now.|Bye
+~
+Bye|Farewell!  I hope someday to sing of your great success.~
+Goodbye. [Done]|None
+~
+BardTips|The most important thing for bards is to work on their Charisma (CHA).  Charisma helps them
+control the music of battle, and helps recover magic points for the spellcasters.  But having lots of
+Strength and Dexterity is useful, too.~
+We had other questions.|Main
+We must leave now.|Bye
+~
+NextLevel|I cannot come with you on your quest.  But I can tell you this: There is a <CN:BRIGHTBLUE>wall of ice</C>
+along the way which only a bard could hope to break.~
+Then, can you teach us to break it?|||TeachBreak
+Use a bard?  Pah!  We'll just hit it harder!|NoBard
+~
+NoBard|Never underestimate the powers of a bard.  Especially if your name rhymes with something unpleasant.~
+We had other questions.|Main
+Hmph.  We're leaving now.|Bye
+~
+TeachBreakNo|I'm afraid none of you have quite the artistic temperment needed for this task.  Bring me a bard,
+and then I'll have something to work with.~
+Where can we find a bard?|FindBard
+Very well - we'll be back.|Bye
+~
+FindBard|Wherever there is good food, fine wine, and a crowd of people, you can find bards.  Go to an <CN:GREEN>inn</C>
+and you should be able to <CN:GREEN>recruit</C> a bard without much trouble.~
+We had other questions.|Main
+We must leave now.|Bye
+~
+TeachBreakYes|Very well.  Watch closely, as good technique is essential.  I take this violin, carved under
+moonlight by elven craftsemn.  I hold it like so, and take this bow woven from spider's silk.~
+Go on.|TeachBreakYes15
+~
+TeachBreakYes15|I place my fingers firmly, but gracefully, and prepare myself mentally and spiritually...~
+And then?|TeachBreakYes2|||LearnBardTech
+~
+TeachBreakYes2|...and thus, I play the song of opening!  This song can break the <CN:BRIGHTBLUE>ice wall</C>
+and allow you to pass.~
+Thank you, Syntessa!|Taught
+Aiiiie!  So...awful!|Awful
+~
+Taught|Don't mention it.  I wish you the best of luck in your quest.~
+We had other questions.|Main
+We must leave now.|Bye
+~
+Awful|Philistines!  Clearly, you don't appreciate the true <CN:RED>greatness</C> of my art!  Well, laugh if
+you like, but future generations will remember my dramatic innovations in barding.
+My "Sonata for Orc and Goomba" will live on, long after my passing!~
+Whoa, sorry!  Didn't mean to be so critical.|Main
+Seriously.  Your sonic torture made my ears want to vomit.|NoBard
+~

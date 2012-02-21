@@ -1,0 +1,87 @@
+# Background music for Tendrils.							
+# Don't monkey with this file if you aren't sure what you're doing!							
+#Name	Filename	Type	Title	Game	Composer	Remixer	Dumper
+disarm	Disarm.it	BGM	Character Select	Street Fighter II			
+savepoint	Premonition.mp3	BGM	Premonition	Wanderers from Ys III			
+shopping	Twinbee.xm	BGM	Twinbee	Twinbee	Konami	4mat	
+house	House.it	BGM	House 1	Earthbound	Keiichi Suzuki		sKaNkPiT
+metalgear	MetalGear.xm	Battle	Master Computer	Metal Gear	K.Muraoka	Leif Geijer	
+gato	Gato.xm	BGM	Gato's Song	Chrono Trigger	Yasunori Mitsuda	Interceptor	
+options	Options.it	BGM	Option	Twinbee			
+umgah	UMGAH.MOD	TRIVIA	Umgah Theme	Starcon 2	D. Nicholson		
+credits	Credits.xm	CREDITS	Happy End	Tendrils	BadBadtzMaru		
+dune	Dune remix.mod	Blocks	Eco-love	Dune	Stephane Picq	THE MIXER	
+agony	agony_end of game.mod	Blocks	Ending Theme	Agony	"Martin Wall, Martin Ling"		
+startout	shadowgatelibrary.xm	STARTOUT	Library	Shadowgate		Kent Hansen	
+daleks	Saturn.it	DALEKS	Saturn Valley	Earthbound			sKaNkPiT
+intro	IntroSong.xm	INTRO	Intro	Tendrils	BadBadtzMaru		
+innkeeper	Innkeeper.xm	INN	Sleepy Time	Tendrils	BadBadtzMaru		
+sleeping	Sleeping.xm	Sting	Zzzzz	Tendrils	BadBadtzMaru		
+commando	traven-commando_hiscore.xm	BGM	Hiscore	Commando		traven / Syndrome	
+dragonwarrior	WARRIOR.S3M	BGM	Overworld	Dragon Warrior		Michael Burke	
+town2	Town2.it	BGM	Town 2	7th Saga			
+blezmon	!k_ksd.xm	BLEZMON	Dyna Blade	Kirby Super Deluze		ken	
+tower	Tower.xm	TOWER	Munchkinism	Tendrils	BadBadtzMaru		
+mariocave	MarioCave.xm	DANCEPREP	Underground	Super Mario Brothers		Traven	
+90	90.xm	BGM	90	Tendrils	swt		
+#################################################							
+"# Battle songs can have extra data listed here.  It's optional, but it looks nice."							
+ZeldaTitle	ZeldaTitle.xm	Battle	Title Theme	The Legend of Zelda	Koji Kondo	Traven (Syndrome)	
+Wizardry	Wizardry.xm	Battle	Main Theme	Wizardry	Mike Alsop		4mat
+Dancing Justice	Dancing Justice.xm	Battle	Dancing Justice	Tendrils	BadBadtzMaru		
+Gamelan	Gamelan.xm	Battle	Game LAN	Tendrils	BadBadtzMaru		
+7thsaga	7thSaga.it	Battle	Battle Theme	7th Saga			
+Mute City	Mute City.it	Battle	Mute City	F-Zero			
+Bloody Tears	Bloody Tears.it	Battle	Bloody Tears	Castlevania 4			
+Bubble Bobble	Bubble Bobble.xm	Battle	Main Tune	Bubble Bobble		lizardking	
+Tetris	Tetris.xm	Battle	Ingame	Tetris		Traven (Syndrome)	
+Never	Never.xm	Battle	Never Again	Tendrils	BadBadtzMaru		
+!k_kirby	!k_kirby.xm	Battle	Castle Lololo	Hoshi no Kirby	ken		
+RallyRemix	RallyRemix.xm	Battle	Theme	Rally X		BadBadzMaru	ken
+86	86.xm	Battle	Eighty-six	Tendrils	BadBadtzMaru		
+awesome	Awesome.xm	Battle	Planet 1	Awesome	Tim Wright		
+starpaws	starpaws.xm	Battle	Ingame	Star Paws	Rob Hubbard	wire	
+bomberman	Bomberman.xm	Battle	Bomb Factory	Bomberman		wire	
+z2cave	z2cave.it	Battle	Dark Cave	Zelda 2	Koji Kondo		
+mushrooms	Mushrooms.it	Battle	Beware the Forest's Mushrooms	Super Mario RPG	Koji Kondo		
+ryu	Ryu.it	Battle	Ryu's Stage	Street Fighter II			
+Jellydog-Castlevania	Jellydog-Castlevania.xm	Battle	Stage 1	Castlevania		Jellydog	
+mountainmix	MountainMix.xm	Battle	In the Hall of the Mountain King	Mountain King / Spelunker		radix / ken
+toutrun2	toutrun2.xm	Battle	Ingame	Turbo Outrun 2	Maniacs of Noise	Gjermund Sivertsen
+sor3	SOR.mp3	Battle	Hideout New Building	Streets of Rage III	Yuzo Koshiro	
+blaster	Blaster.mp3	Battle	Level 3	Blaster Master	Naoki Kodaka & Marumo 	
+karnov	Karnov Mix.mp3	Battle	Karnov Mash-up	Karnov / Wizards and Warriors	Data East / Rare	BadBadtzMaru
+drwily	DrWily.mp3	Battle	Dr. Wily's Fortress	Megaman 2	"OGERETSU,MANAMI,YUUKICHAN'S PAPA "	
+chimera	Chimera.mp3	Battle	Track 2	Chimera	Rob Hubbard	
+grandfinale	FFVI - Grand Finale.mp3	Battle	Grand Finale	Final Fantasy 6	Nobuo Uematsu	
+chronotrigger	Chrono Trigger.mp3	Battle	Boss Battle	Chrono Trigger	Yasunori Mitsuda	
+shinobi	Shinobi.mp3	Battle	Stages 1 and 3	Shinobi		
+sor2	SOR2.mp3	Battle	Streets of Rage 2	Streets of Rage 2	Yuzo Koshiro	
+golgo	Golgo.mp3	Battle	Title	Golgo 13		
+mrheli	MrHeli.mp3	Battle	Ingame	Mr. Heli		
+greenhill	Green Hill Zone.mp3	Battle	Green Hill Zone	Sonic the Hedgehog		
+waveman	WaveMan.mp3	Battle	Wave Man	Megaman 5		
+airman	Airman.mp3	Battle	Air Man	Megaman 2		
+ff2boss	FF2Boss.mp3	Battle	Final Fantasy 2	Boss Battle	Nobuo Uematsu		
+#######################################################							
+"# Maze songs can also have info listed here, optionally."							
+dkccoral	dkc-coral.mp3	Maze	Coral Capers	Donkey Kong Country			
+ff6-esper	ff6-esper.mp3	Maze	Another World of Beasts	Final Fantasy 6	Nobuo Uematsu		
+smw-ghosthouse	smw-ghosthouse.mp3	Maze	Ghost House	Super Mario World	Koji Kondo		
+alien breed	AB2.MOD	Maze	Main Theme	Alien Breed 2	Alistair Brimble		
+contented	CONTENT.IT	Maze	Contented Workforce	Age of Wonders			
+nexus	Nexus.xm	Maze	Nexus	Tendrils	BadBadtzMaru		
+gods	Gods.mod	Maze	Title	Gods	Richard Joseph		
+tendrils of bread	Tendrils of Bread.xm	Maze	Tendrils of Bread	Tendrils	BadBadtzMaru		
+metroid	Metroid.xm	Maze	Intro and Brinstar	Metroid	Hip Tanaka		ken
+commander	Commander.xm	Maze	Commander	Star Control 2	Riku Nuottajarvi		
+superfrog2	Superfrog2.mod	Maze	Level 2	Superfrog	Alistair Brimble		
+gianasisters	gianasisters2.xm	Maze	Ingame	Super Giana Sisters	Chris Huelsbeck	wire	
+kotr	!k_kotr.xm	Maze	Ingame	Knights of the Round		ken	
+brinstar2	Brinstar 2.it	Maze	Brinstar 2	Super Metroid			
+ff2cave	Cave.it	Maze	Cave	Final Fantasy 4	Nobuo Uematsu		
+corridors	Corridors of Time.it	Maze	Corridors of Time	Chrono Trigger	Yasunori Mitsuda		Andy Grove
+penta	PentaA.xm	Maze	Neo-amadinda	Tendrils	BadBadtzMaru		
+excitetown	Excite Town.mp3	Maze	Excite Town	Phantasy Star 2			
+kissme	KissMe.xm	Maze	"Kiss Me, Cruel Fortran (instr.)"	Tendrils	BadBadtzMaru		
+adventurers	Advenurer's Blood.xm	Maze	Adventurer's Blood	Tendrils	BadBadtzMaru		

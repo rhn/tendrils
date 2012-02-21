@@ -1,0 +1,109 @@
+# Dialog files are organized like this:
+# First, a collection of function definitions.
+# Then, there's a collection of nodes.
+def FirstMetPre(P,M):
+    return not P.EventFlags.get("L7PythonMet")
+def FirstMetTrig(P,M):
+    P.EventFlags["L7PythonMet"] = 1
+def ByePost(P,M):
+    print "ByePost:", P.EventFlags.get("L7PythonAskedPie")
+    if (not P.EventFlags.get("L7PythonAskedPie")) and (not P.EventFlags.get("L7PythonFed")):
+        if P.KeyItemFlags.get("Yummy Pie"):
+            return "AskForPieAlreadyGot"
+        else:
+            return "AskForPie"
+    else:
+        return "Bye"
+def FedPie(P,M):
+    return P.EventFlags.get("L7PythonFed")
+def HavePie(P,M):
+    return P.KeyItemFlags.get("Yummy Pie")
+def PieAskedTrig(P,M):
+    P.EventFlags["L7PythonAskedPie"] = 1
+    print "AskedTrig!"
+def PieFeedTrig(P,M):
+    print "PIE FEED TRIGGER!"
+    P.KeyItemFlags["Yummy Pie"] = 0
+    P.KeyItemFlags["Spaceship Parts"] = 1
+    P.EventFlags["L7PythonFed"] = 1
+~
+Root|~
+|FirstGreet|FirstMetPre|None|FirstMetTrig
+|GivePie|HavePie
+|SecondGreet
+~
+GivePie|Aahh, what a sssweet aroma.\n\n <CN:YELLOW>[ The python swallows the pie in one gulp! ]\n
+[ There is now a pie-shaped lump in the python ]</CN>\n\nDeliciousss!~
+So, what's in it for us?|PieReward
+~
+PieReward|Ahh, yesss.  Here are some trinketsss I gathered around that big ssstructure to the sssouth.  Perhapsss they
+will be of ussse to you.\n\n<CN:YELLOW>[ You got: Spaceship Parts ]</CN>~
+Thanks!  So, do you have any news?|Info|||PieFeedTrig
+Thanks!  We'll be on our way now.|Bye|||PieFeedTrig
+~
+FirstGreet|Greetingsss, visssitorsss.  What bringsss you to thisss dungeon?~
+Hello there.  Who are you?|Hello2
+Aiie!  A talking snake!|Hello2Snake
+~
+Hello2|You can call me Coil.  I am a python, as you can sssee.  It's nice to meet visitorsss, things can get quite
+lonely down here in the dungeon.  Other than the monstersss, of courssse.~
+Can you tell us anything about this level?|Info
+We'd better be going now.|||ByePost
+~
+Hello2Snake|Yesss, I am a sssnake.  A python, to be precissse.  One of the noblessst of ssserpentsss.  
+And quite a nice sssnake, even though thossse
+two rabbitsss ssseem to be afraid of me for sssome reason.~
+What two rabbits?|Rabbits
+Can you tell us anything about this level?|Info
+We'd better be going now.|||ByePost
+~
+SecondGreet|Welcome back, humansss.  Ssstay a while, and chat.~
+Can you tell us anything about this level?|Info
+We'd better be going now.|||ByePost
+~
+AskForPie|Ah...before you go.  Perhapsss you could do me a favor while you're sssearching the maze?  One day I when I was
+ssslithering around, I sssmelled something deliciousss baking.  It sssmelled like some sssort of fruit pie.  If you could
+bring me sssuch a pie, I'm sssure I could make it worth your while.~
+We'll watch for it.|Bye|||PieAskedTrig
+~
+AskForPieAlreadyGot|Ah...before you go.  Perhapsss you could do me a favor while you're sssearching the maze?  
+One day I when I was
+ssslithering around, I sssmelled something deliciousss baking.  It sssmelled like some sssort of fruit pie.  If you could
+bring me sssuch a pie, I'm sssure I could make it worth your while.~
+You mean...this pie, here?|GivePie
+~
+
+Bye|Farewell, humansss.  Take care, and remember to sssave your game.~
+Bye. [Done]|None
+Sssayonara, ssserpent. [Done]|None
+~
+Info|Well, thisss level is an easy place to get lossst.  If you crawl - or in your cassse, walk - in one direction for 
+long enough, you'll probably get back where you ssstarted.  Some rabbitsss live to the sssoutheassst, near the ssstairs 
+leading up.  There's a cassstle, which probably guards the ssstairs downward.  And there is sssome kind of ssslime monssster
+to the northwessst.~
+What do you know about the rabbits?|Rabbits
+What do you know about the castle?|Castle
+What can you tell us about the slime monster?|Slime
+We'd better be going now.|||ByePost
+~
+Rabbits|There are two rabbitsss.  Well, at leassst for now, there are only two.  Rabbitsss are famousss 
+for breeding, but these two ssseem to have had
+some sort of falling-out.  A pity, because little rabbitsss are quite deliciou...er, that is to sssay, quite delightful.  
+Yesss, delightful.~
+What else can you tell us about this level?|Info
+We'd better be going now.|||ByePost
+~
+Castle|The cassstle is well defended, with a moat and a garrissson.  You would need an army to ssstorm it.  I think that
+Mother Brain originally sssent her troopsss to capture the castle to and ssstop anyone from getting deeper into 
+the dungeons.  If you need to get to Mother Brain, I sssupose you'll have to find some way to asssail the place.~
+What do you know about the rabbits?|Rabbits
+What can you tell us about the slime monster?|Slime
+We'd better be going now.|||ByePost
+~
+Slime|The mold monster is a disgusssting creature, all mottled color and horrible sssmell.  I'm not sssure what it'sss
+made of, but I think that it would be vulnerable to lightning.  Yesss, that might do the trick.  I recommend avoiding it,
+though, not fighting it.  Ssslimes are not known for keeping much treasure.~
+What do you know about the rabbits?|Rabbits
+What do you know about the castle?|Castle
+We'd better be going now.|||ByePost
+~

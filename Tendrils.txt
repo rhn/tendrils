@@ -1,0 +1,565 @@
+*Check blaster master timing
+*Rapid clicks in blinkenlights give bizarre effects
+*Shield (zelda) background color
+*Exp is WAY too easy to get
+*Bombs too easy to get
+*SOR3 gap check (seems long, at least later)
+
+Note: Submit to Madmonkey :)
+Submit to Penny Arcade
+
+
+"Once again, if you haven't downloaded "Tendrils" yet, DO IT! And if you haven't downloaded lately, DO IT AGAIN! The latest update is up and it just gets better with each one.
+
+As dumplechan 'splains it, "Tendrils" is an RPG Remix, sampling graphics, music, sounds, and yes, even dungeons, from other games that you've probably played at some point in your life. And of course, it has a unique combat system, aka "rhythmic combat", for fans of music-based games such as "Dance Dance Revolution" or "Parappa the Rapper". " - schwa
+
+"For example, I have no qualms getting a few perfects and then unloading 3 or 4 Chocobos in a row during each battle to get the AAA rating (exp x 5!).  I admit, it is cheesy, but very, very fun." - Frank chang
+
+"...I'm going to mope at home while playing Tendrils 'til my
+fingers bleed.  BLEED, I tell you!" -- B.Chas Parisher
+
+"Awesome game dude!! I just played tendrils last night until 2:00 am last 
+night; I may need a twelve step program. It's progressing well, I see." - Mike Hall
+
+"P.S. I'll be waiting for the next installment of tendrils . . . I need a 
+bard!! Dude, you totally rock! Tendrils is definitely one of the most 
+playable games I've seen in along time. DDRPG is a cool concept!" - Mike Hall
+
+"And great job on Tendrils! I haven't had much time lately to play much of anything, but your work on this is really impressive." - Matthew Reinhold
+
+"...The rythmic thing for defense and attacking? Genius. Amazing..." - Matthew Reinhold
+
+"I'm envious.  Really cool, and no serious bugs so far!" - Eric Boesch
+
+"Ahhh, you bastard, you mirrored the second level at that "warp and
+weft" spot, didn't you?  No wonder i was getting lost!@#$@!$" - rone
+
+"I LOVE IT!!!  I think it is sooooooo groovy.  I can't say how excited I am
+to see it in action.  Very, very, very groovy." - Sean Curtis
+
+"SWT is damned for half of eternity for getting me one step closer to playing 'Dance Dance Revolution'". - rone
+
+21 Feb 22:17 - (Friend) Solwyn: 'To be honest, it's seemed fairly easy so far, although I hadn't had it on manic until recently (as I hadn't realized I could change it whenever I like [whoops])'
+21 Feb 22:18 - (Friend) Solwyn: 'However.. I like it. I really like it.'
+
+Global.Party.KeyItemFlags["Army of Rabbits"] = 1
+
+To release:
+- Test getting into a battle, getting treasure
+- Update version in Constants.py
+- Copy tendrils.py to tendrils.pyw
+- Run setup.py py2exe
+- Update version in Innosetup
+- Run Innosetup (ctrl-F9 to COMPILE)
+- Zip everything from dist/tendrils into a big zipfile; delete pyd and dll and exe files.
+- Upload to PythonApocrypha.com
+- Run tracker.  Go to d:\BitTorrentSrc\BitTorrent-3.3, and run:
+bttrack.py --port 6969 --dfile dstate 
+- Create new torrent.  Announce URL:
+http://tendrils.homedns.org:6969/announce
+- Host new torrent
+- Upload new torrent to cox webspace
+- Test the torrent on the cox webspace
+
+The following is a list of all known bugs, enhancements, and issues.  A leading character of * 
+denotes a resolved item, ? an item that may or may not be acted on, and - a standard item
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+- Calibration of all battlesongs:
+9*Airman: -27
+3*7thsaga: -57, extra 2 arrows
+*Beware mushrooms: -29/-7
+*Blordy tears: -39/23, avg -7
+*Bomb factory: 9
+*BossBattle chrono: -32/-51
+*Castle lololo: 9/32, one extra arrow
+*Dancing justice: -15/23
+*Zelda dark cave: -16/10
+*Megaman wilyfortress: -35
+
+*EightySix -10 (extra arrow)
+*FF2Boss 4
+*GameLAN 3/96 (1extra)
+
+*GrandFinale -8/-32
+*GreenHillZone
+*HideoutNew 13/3
+
+*MountainKing
+*Ingame SP -10/-42, del 2
+-49/-65
+*ingame heli ok!
+
+*ingame Toutrun -22/3
+*ingame tetris -14/-25
+*Karnov mashup 9/24 del2
+level3 blaster OK!
+*Wizardry -27/-16
+*bubble bobble -85/-80 del1
+
+*Metal gear: -35 / -18 
+
+Mute city: -35/11, del1
+6/35 (-6, 1.0001)
+
+Never again: -29/-21, del1
+-1/8 (1, 0.99999)
+
+Awesome: -21/-20
+perfect
+
+Ryu: -4/-3 del1
+ok
+
+Cvania stage1: -19/-15, del1
+-5/-10 (5 1.00001)
+
+Shinobi: -6/5
+-1/6 (1 0.99999)
+
+Sor2: -30/-28
+-5/-5
+
+RallyX: -36/-8
+3/33 (-4 0.99999)
+
+Golgo: -25/-35
+-43/-44
+
+Zelda: -102/-89, del1
+-6/11 (7 0.99999)
+
+Chimera: -1/-8
+Waveman: -34/-21
+-18/-5
+
+
+---
+
+Broken arrows after a summon :(
+Shield image back
+* "1 hit" : do lightgrey, then white
+* Turn is not frozen by a summon; the turn never happens!!
+
+
+
+
+
+- Ranking B SFX
+- More music for blocks/blinken/pegs
+*- "Moves:" updates right away when blinkenlights is solved
+- Better instructions on key config screen (plug in before starting tendrils, etc)
+? Psyco.full() produces a crash
+? We rely upon the fact that SDL gives a broken song position (time since start, disregarding pauses)
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+@GI made a game.  @gIt's an cross between an @ORPG @gand @ODance Dance Revoultion@g.  
+@BIt is called @RT@re@On@od@Rr@ri@Ol@os@w.
+@RGo here@W to download it: http://members.cox.net/swt2/Tendrils/
+- = - = - = - = - = - = - = - = - = - = - = - =
+@gOutdated manor pie page: http://members.cox.net/swt2/Aard/ManorPies.html
+- = - = - = - = - = - = - = - = - = - = - = - =
+Goals this mort: 
+- Get exprate and keepall.  
+- Win more wars
+- Remember to savor the zen-like slapstick of MUD life
+
+description + @GI made a game.  @gIt's a cross between an @ORPG @gand @ODance Dance Revoultion@g.  
+description + @BIt is called @RTendrils@B.
+description + @RGo here@W to download it: http://members.cox.net/swt2/Tendrils/
+description + @w- = - = - = - = - = - = - = - = - = - = - = - =
+description + @gOutdated manor pie page: http://members.cox.net/swt2/Aard/ManorPies.html
+description + @w- = - = - = - = - = - = - = - = - = - = - = - =
+description + @WGoals this mort: 
+description + @w- @gGet @rexprate@g and @rkeepall@w
+description + @w- @gWin more wars
+description + @w- @gRemember to savor the zen-like slapstick of MUD life
+
+
+
+
+
+
+*-Flat filename
+*-Cards imagefiles
+*-Figby fist trapname shown on calfo
+*- Psyco optional
+*- Mr.Sandman
+?- finnish guy had para immune AND para
+*- Bighter 'miss' images
+*- After resting in an inn, the keypress "i" does not invoke the inventory screen.  However, after taking a step or something, the "i" keyboard shortcut works.
+
+- background art!
+- Calibration miniscreen
+
+o- Control ALL dialog screens by keyboard.  (Disarm/ignore, for starters)
+o- King of town is required before you can go on to the stone-head and knights.
+*- Better interface for SELLING CRAP
+
+- MIRRORED files, too (on godsquad)
+
+- para songs
+
+* Add lights-out free-play (with particular puzzles; track best score).  Accessible after...10 traps
+
+- Ensure magic map vanishes when its purpose is done
+- Pump up difficulty at levels 2-4
+
+- Mac can't handle excite town.  "Module format not recognized"
+- Requests: Double dragon, Lufia battle theme, 1942 planes, C64:Krakout, Archon, Fuzzbomb from Agent USA, ActRaisers
+
+- sloppy arrows when looping.  (Sometimes, after a song loops, arrows are .1 seconds away)
+- First and second training-dialog for battle
+- digdug sound effects
+
+*) If you press esc during a song and then continue, and the song ends, it doesn't start from the beginning, but at the place where you pressed esc. I'm not entirely sure if this always happens, but I've seen it happening a few times so it might be worth checking. 
+I can confirm the inventory bug. For me it happened on level 4 after coming out of the inn where I changed my party setup once and recruited a ninja, who was left at the inn.
+
+
+*- L8 images release
+*- joust-pong escapable
+*- Jouse-pong foot erase
+*- edged font
+
+*- Ninja dead-image
+*- inn: Dead characters don't look alive
+
+- recapture tellah, sylie with no transparent
+
+- Fixes to linux, mac version
+
+- Floors and ceilings vary
+- L8 maze graphics are kind of homely
+
+
+
+
+*- Less processor when paused
+*- Cycle bad-conditions
+- Other bugs reported by Eb
+- Max bug: Sometimes, music doesn't loop.
+*- Max bug: Can re-get the copper key
+- Document it: Unlocking spells (once is enough, etc)
+
+*Move images around (moonside on l10... forgotten worlds on l10...)
+*More monster damage
+*More XRay items; and, add an NPC hint about xray.
+
+*Fix mountain mix arrow-timing
+*Playtest level 10
+
+*Grab 2 more background images (shinobi bonus stage?  Bubble bobble?)  
+*Three more tendrils: Roll High, ?an image, ?drinking game
+*NPC meeting with game designer (if have all 10 tendrils)
+*Fix the ELEVATOR (on level 7)
+*Fix the CHUTE (on level 8)
+*Be sure items are placed on levels 8, 9, 10
+*Finish ff2boss music.
+*Playtest level 8
+*Playtest level 9
+
+*Add peg solitaire mini-game (and free-play mode)
+*Add lights-out free-play (with particular puzzles; track best score).  Accessible after...level 5?
+*Test summoner stuff (battle and utility spells)
+*Add some escapipes to random drops, and to some caches
+*Last boss battle special-code (two forms, and dump to ending credits)
+*Mario remix for final battle?
+
+
+
+
+
+*Joust-pong minigame
+
+The Tendrils:
+Mame challenges
+hisepeed rpg
+drinking game
+roll high
+prayer to rpg
+metagaming
+life as munchkinism
+full-series play
+kill you mini version
+wiznaibus
+
+Plan:
+Thurs: Start tracker.  Playtest 3, 4. song 31.  Place three tendrils.  Ten critters, three backgrounds.  Three spells.
+Fri: Playtest 5, 6.  Song 32.  Place three tendrils.  Ten critters, three backgrounds, Three spells.
+Sat: Playtest 7, 8.  Song 33.  Place three tendrils.  Ten critters, Three spells.
+Sun: Playtest 9, 10.  Song 34.  Place last tendrils, and game designer.  Critters, and end boss.  Last spells.
+
+
+- Gather the "ten tendrils" (different approaches to video games, one on each level; get all ten and you can talk with the game designer on level 10)
+- A puzzle for level 10 (peg jump, I suppose; maybe canoes and knights)
+- Dig level 10:"evil" riddle, glass-wall maze, eskimo reappears...
+- Beef up Level 9 (bgm, ...)
+- Beef up dialog trees (20 more nodes)
+- Playtesting!
+
+Dopefish
+Ultros
+Para file format (Speedway)
+Another SoR song
+Megaman song from Bob
+Sonic song from Brueck
+*FF3 mad orchestra dance
+Music: SMB
+Other songs: Axelay? DKC? Another by me?  
+Fix all mage and cleric and summoner spells
+Superfrog bgm sounds wrong
+Item pruning (copper key, ...)
+Rally-X song has too many runs of swords; loop is awkward (too soon, too sharp)
+Ryu music is too SOFT and needs more DRAGON PUNCHES
+Pump up monster power more
+Spell and item placement
+More monsters:
+	Legacy of the Wizard grab
+	Kung Fu Master guy
+	Asteroids saucer
+	River City Ransom
+	zelda-gameboy
+	Final Fight guy
+	Sonic
+	
+Pegjump minigame
+More spell review-sessions
+Sword of Cadash items
+Include spec for Mame Challenge/Cup
+10 More trivia questions
+Encounters in levels 7-10
+
+
+*Level3 boss
+*Level5 rock image
+- - - - 
+Test levels 
+*Free-play mode: Re-scan button; bigger "listbox"
+*Solitaire
+*Joker (from Shadowrun?) riddles
+*L8 goblin army, shivan boss
+*Pump up difficulty
+*Tell quinn and doug
+
+Mastermind trap-game
+Smaller lights-out puzzles
+*Wumpus monster
+*Finish all item power-specs
+*Fire,cold,elec strike; robots
+*Tunnels of Doom grab
+*Summoner-required boss on l3/4
+Beta announce AFTER a week o' bug fixes: pygame.org, PA, DDRFreaks, ark, aardwolf
+Normalize song (and sfx) volumes
+*Song:SoR boss, Sonic, Chimera...lean on Bob for more
+
+Hippy mode
+- SnipeScreen needs a bullet icon!
+*Quest requiring a bard
+*Quest requiring a summoner
+Quest requiring a cleric
+*Boss battle: CONFUSION
+Boss battle: Variable ARROW rates
+- - - - 
+3 songs
+Level9: Zelda redux, peg-jumping, conveyors?, qbert?, glass-wall maze
+Spell images
+*Master-mind minigame
+- - - -
+3 songs
+Level10: Teleporter maze.  1-way doors.  Three-form end boss.
+
+---------------------------------------
+[[[[[[[Level 0]]]]]]]
+Hippy mode
+Free-play mode
+l-i-t-t-l-e money
+Check synch on Bloody Tears (pentomino)
+Fix Giana Sisters timing versus sidplay output.  Track 3/8 on:
+D:\Tendrils\sid\HVSC_5.5-all-of-them\HVSC_55_BIG\C64Music\Huelsbeck_Chris
+---------------------------------------
+[[[[[[[Level 1]]]]]]]
+---------------------------------------
+[[[[[[[Level 2]]]]]]]
+---------------------------------------
+[[[[[[[Level 3]]]]]]]
+Books
+---------------------------------------
+[[[[[[[Level 4]]]]]]]
+Townspeople
+---------------------------------------
+[[[[[[[Level 5]]]]]]]
+Puzzle box
+Encounters
+Spells
+---------------------------------------
+[[[[[[[Level 6]]]]]]]
+Encounters
+Spells
+---------------------------------------
+[[[[[[[Level 7]]]]]]]
+Treasure placement
+Glider GUN
+Encounters
+Spells
+---------------------------------------
+[[[[[[[Level 8]]]]]]]
+*Blezmon instructions
+Blezmon: CPU *always* takes blezmon if available.  (Take highest-scoring of the thingies!)
+Chute
+Diamond queen talk
+Joker riddles
+Joker talk
+Spade talk
+Solitaire puzzle
+Solitaire mini-game
+Shivan boss
+Item placement
+Encounters
+BGM
+Battle songs
+---------------------------------------
+[[[[[[[Level 9]]]]]]]
+Dig dungeon: Zelda knockoff?
+Encounters
+BGM
+Battle songs
+[[[[[[[Level 10]]]]]]]
+Puzzle box
+Encounters
+BGM
+Battle songs
+
+---------------------------------------
+
+*Place the three puzzle boxes.
+
+(a) Labels on the "special items" menu would sometimes be painted black on black. I'd see all three of my items once, and the next time I'd see one of them, and the time after that I'd see none of them. I could click on the label but I couldn't see it. 
+
+"Dumapic" claims to list north first and east second. Surely that's the problem -- just exchange the words "north" and "east", and the problem is fixed. 
+
+Also, another minor one -- I was on level 3 and chose a New game, and I ended up starting out on level 3. (Mysteriously, I then chose New game a second time and ended up on level 1 as expected, I think.)
+
+
+
+
+*- Game startup: Choose classes, and choose speed level
+*- Sparring interface at bard guild.  Place bard guild.
+- More books for the Dark Library; "l-i-t-t-l-e money"
+- Bosses
+
+- WormScreen needs a charging noise
+- SnipeScreen needs a bullet icon!
+- SaveScreen mantras
+
+
+
+*- song QUEUE (inn)
+*- Tempo powers
+*- Akaishi says, "also, outlines for the "correct" positions would help"
+
+*--send useful info to jwgh
+- Recruit someone for Linux and Mac ports
+
+- Kung Fu! monsters, that is.
+
+
+- Tele-pipe
+- Add more monsters and battle-backgrounds!
+- Cuter images for "perfect", "bad", "good"
+- Equip screen escape more conspicuous
+- Eb Oesch: Had to flee, because song DIDN'T STOP!
+- Eb Oesch: Don't change the save display right on click; change it after they hit return.
+- Akaishi: "Thingies scroll too fast"
+* Akaishi says, "also, my party is dead but walking around anyway"
+
+-
+- Image of a centipede (from...centipede, or millipede)
+*- Put a torrent up
+*- Put the screenshots (and the rest of my site) back up
+- Announce the game on www.pygame.org
+- Dopefish lives!
+- Eggplant head for kid icarus
+- Fix up level 6 (revamp it).  LIFE puzzles(?)
+- Place the puzzle boxes
+
+
+BATTLE TUNES PENDING:
+-Turbo Outrun 2
+
+SNES Battle:
+-DKC:Ice Cave Chant
+-ninjag: NG1 - Act 4-2 - Bazilisk Mine Field.spc
+-smworld:15 level 2.SPC
+-rtype:R-TYPE.SP2
+BGM:metroid3\Brinstar 2.spc
+
+
+
+-----------------------------
+
+-----------------------------
+- Sfx for tank charging.  (Whrrrm....)
+- Recruit someone to host/build a Tendrils site, with forum
+- Revamp the FONTS used.  Use several...
+- Equalize the volume levels of all the SOUNDS.
+- One more trap minigame.  Regexp puzzles?  "MAO" puzzles?  Solitaire (e.g.narcotic)?
+- L6 design;  robot assembly puzzle(?), conveyor belts(?)
+- Trivia: Home game usable?
+- L3 boss 
+- L4 boss
+- L5 boss
+
+*- Spells: Blizzard, Regen, Cure2, Stoneskin
+- poison shells hidden on l7 or l8
+- Arrow smoothness
+- Critter sources: Black Tiger, Shinobi, Bubble Bobble, Contra, Zelda series, Metroids,
+ elevator action, Commander Keen, Megaman series, Galaga, Galaxian, Space Invaders, Mappy,
+ Rai Den, Twin Cobra, Street Fighter, Mortal Kombat, Final Fight, 
+- Virtual pet
+*- Better images for the ROCKS on L5
+
+-----
+- Fix the timing at pattern ends of Tetris.xm
+- Maze puzzle: word squares with some letters missing; the missing letters make words and the words make riddles like "the bane of trees" (fire).
+
+----------------------------------------------------
+Stuff to do:
+- Add bard power: Song tempo
+- Riddle puzzles
+- Queue a song (for inn staying)
+- Syphon spell (refills the caster, THEN other casters; slow casting time)
+- L7: Game of Life maze (as laid out)
+- L8: LoZ 1 mazes; Ultima 3 maze
+
+SUMMONER SPELLS:
+- 10 more Summons
+- Summonings on maze screen (angel, eye of argon)
+
+- Picture for the trainer on L1
+- Animated chest (from Black Tiger) for trap disarm minigames
+- One more chest minigame.  Virus puzzle?  
+- Weight balancing puzzles
+
+Songs to add:
+Sonic
+Leander
+Lotus
+Wizardry
+
+*- Install new win32all on laptop; move away python22 so it's not called in executing .py files or by the shortcut to pythonwin
+*- Use the laptop for secondary movie storage
+*- Build the installer.  Include python source code.  Provide option to create .exe 
+shortcut on desktop, and program group.
+
+* Trivia questions
+***Argh.exe
+*- Add named colors for key/door display (orange, purple)
+
+*-Fix item SIZES and BACKGROUNDS
+*-test regen spell
+*-test stoneskin spell
+*-show spellperks in statuspanel
+*- Cuter images for the arrows (swords, shields)
+*- summonthief() test (gauntlet thief)
+*- NSF-to-midi: Zelda2 palace, blaster master, deadly towers, golgo 13
+ (I'm done monkeying with this - rather than work on it any longer, let's just
+  add .mp3/.dwi support and have done with it!!)

@@ -1,0 +1,58 @@
+def FirstMetPre(P,M):
+    return not P.EventFlags.get("L8JackOfSpadesMet")
+def FirstMetTrig(P,M):
+    P.EventFlags["L8JackOfSpadesMet"] = 1
+def JoinedAlready(P,M):
+    return P.EventFlags.get("L8SpadesJoined")
+def NotJoinedAlready(P,M):
+    return not P.EventFlags.get("L8SpadesJoined")
+def DefeatedGoblins(P,M):
+    return P.EventFlags.get("L8Solitaire")
+def JoinNowPre(P,M):
+    return P.EventFlags.get("L8Joker") and not P.EventFlags.get("L8SpadesJoined")
+def JokerDone(P,M):
+    return P.EventFlags.get("L8Joker")
+def JokerNotDone(P,M):
+    return not P.EventFlags.get("L8Joker")
+def JoinTrig(P,M):
+    P.EventFlags["L8SpadesJoined"] = 1
+~
+Root|~
+|FirstGreet|FirstMetPre|None|FirstMetTrig
+|JoinNow|JoinNowPre||JoinTrig
+|Joined|JoinedAlready
+|Victorious|DefeatedGoblins
+|SecondGreet
+~
+JoinNow|Thank you, wanderers.  The fey spell has been broken, and our king is back to his usual form.
+And so, as I promised, so I shall deliver: The Army of Spades is ready to
+follow you into battle against the Goblins.~
+Keen!  And now, we must go. [Done]|None
+~
+JoinFirstVisit|The Joker has informed me that you are the ones who broke the spell cast on our King.  He 
+also claims that you're planning an assault on the goblin fortress.  We are in your debt, strangers, and 
+so we would be honored to fight by your side.~
+Keen!  And now, we must go. [Done]|None
+~
+FirstGreet|Enter, friends.  Any visitors are welcome in these dark times.  I am the Jack of Spades, general
+of the Kingdom of Courage.~
+Hello, sirrah.|Problem|JokerNotDone
+Hello, sirrah.|JoinFirstVisit|JokerDone||JoinTrig
+~
+SecondGreet|Hello again.  Our king is still bewitched, I fear.  Do you bring good news?~
+Not yet, I'm afraid.|Problem2
+~
+Problem|Our kingdom is in crisis, with invaders coming from the east.  And what's more, the Joker - damn his eyes! - has transformed our king into a duck.  Yes, a duck!  The King swims to and fro in a pond, and the Queen cries all day and all night.  I fear there is little that I can discuss while our king is indisposed.  Until the <CN:GREEN>spell is broken</C>, the Kingdom of Spades must attend to its own problems.  I am sorry.~
+Goodbye, then. [Done]|None
+Where is this Joker?|Problem2
+~
+Problem2|The Joker lives to the west.  He's a strange one, not evil, really, but...twisted.  Watch carefully
+what you do and say if you go to see him.  And don't try fight him directly, if you can help it...~
+Thanks for the advice. [Done]|None
+~
+Joined|Ah, hello again!  Our war preparations are underway.  We will drive the goblins back into the pits from whence they came.  The time for talking is over...the time for battle is nigh!~
+To victory! [Done]|None
+~
+Victorious|Hail!  That was a great battle against the goblins, friends.  I added many notches to my sword's hilt, one for each skull split or heart pierced.  Now there is peace again, and time to mourn our dead.~
+Hail, and farewell.[Done]|None
+~

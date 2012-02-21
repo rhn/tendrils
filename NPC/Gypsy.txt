@@ -1,0 +1,56 @@
+def GoneTrig(P,M):
+    P.EventFlags["L4Gypsy"] = 1
+    P.GetItem("Death Sickle")
+~
+Main|Welcome.  Art thou ready to have thy fortune told?~
+Yes, please.|Quiz1
+Not now, thanks. [Done]|None
+~
+Quiz2|A guard stops and questions thee about a murder thou hast committed.  Dost thou:\n
+<CN:YELLOW>Humbly</c> deny thou didst the deed?\n
+<CN:YELLOW>Sacrifice</C> the guard to the dark god Gorto?~
+Um...the first one.|Quiz3
+Um...the second one.|Quiz3
+Wait a minute, you're the devil, aren't you?|Devil2
+~
+Quiz1|A merchant is walking along, carrying a weighty purse of gold.  Dost thou:\n
+Show <CN:YELLOW>compassion</C> by relieving him of half of his heavy load?\n
+Take all the gold, to prod him toward greater <CN:YELLOW>spirituality</c>?\n~
+Um...the first one.|Quiz2
+Um...the second one.|Quiz2
+Wait a minute, you're the devil, aren't you?|Devil1
+~
+Devil2|No, no, I'm not the devil.  Why, I'm just a humble fortune-teller!  If I were 
+the devil, I would know the names of all 666 greater demons, and I only know fifty.
+Sixty, tops.~
+Ok, let's get back to the question.|Quiz2
+No, seriously.  You're the devil|DevilFound|||GoneTrig
+~
+Devil1|No, no, I'm not the devil.  Why, I'm just a humble fortune-teller!  If I were 
+the devil, I would be drinking the blood of the damned, instead of this...er...tomato
+juice.  Yes.  Lots of healthful vitamins. ~
+Ok, let's get back to the question.|Quiz1
+No, seriously.  You're the devil.|DevilFound|||GoneTrig
+~
+Quiz3|A drunkard, reeking of cheap mead, impugns thy <CN:YELLOW>honor</C>.  How dost
+thou respond?\n
+<CN:YELLOW>Honestly</c> say he is uglier than a goat's back end.\n
+Show <CN:YELLOW>valor</c> by cutting off his head and punting it.\n~
+Wait a minute, you're the devil, aren't you?|Devil3
+~
+Devil3|No, no, I'm not the devil.  Why, I'm just a humble fortune-teller!  That pitchfork over there is just an ordinary farming tool, used for harvesting souls.  I mean, hay!  Yes, harvesting hay.~
+No, seriously.  You're the devil.|DevilFound|||GoneTrig
+~
+DevilFound|<CN:RED>Curse you, adventurers!  Yes, I am the 
+<CN:BRIGHTRED>Devil</C><CN:RED>.  This gypsy disguise was part of one of my twisted
+evil schemes...and I would have gotten away with it if it weren't for you meddling kids!
+Pah, I say, PAH!</C>
+\n\n<CN:YELLOW>[ The</C> <CN:BRIGHTRED>devil</C> <CN:YELLOW>vanishes in a puff 
+of acrid smoke, leaving behind a ruined wagon, an ominous blade, and a lingering odor of 
+fried jumbo shrimp ]
+\n\n[ You acquired the dreaded <CN:BRIGHTRED>Death Sickle<CN:YELLOW>! ]
+~
+Huh.  That was interesting. [Done]|None
+There goes one hell of a guy. [Done]|None
+~
+

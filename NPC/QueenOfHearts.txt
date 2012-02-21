@@ -1,0 +1,150 @@
+def FirstMetPre(P,M):
+    return not P.EventFlags.get("L8QueenOfHeartsMet")
+def FirstMetTrig(P,M):
+    P.EventFlags["L8QueenOfHeartsMet"] = 1
+def JoinedAlready(P,M):
+    return P.EventFlags.get("L8HeartsJoined")
+def NotJoinedAlready(P,M):
+    return not P.EventFlags.get("L8HeartsJoined")
+def DefeatedDragon(P,M):
+    return P.KilledBosses.get((8, "ShivanDragon"))
+def JoinNowPre(P,M):
+    return P.EventFlags.get("L8Blezmon") and not P.EventFlags.get("L8HeartsJoined")
+def BlezmonDone(P,M):
+    return P.EventFlags.get("L8Blezmon")
+def JoinTrig(P,M):
+    P.EventFlags["L8HeartsJoined"] = 1
+~
+Root|~
+|FirstGreet|FirstMetPre|None|FirstMetTrig
+|JoinNow|JoinNowPre||JoinTrig
+|SecondGreet
+~
+JoinNow|Hello again, Blezmoticians!  That was quite an impressive game.  I watched it from the royal box, and
+I was rooting for you all along!  And so, as I promised, so I shall deliver: The Army of Hearts is ready to
+follow you into battle against the Goblins.~
+Splendid!|Main
+Wonderful!  And now, we must go. [Done]|None
+~
+FirstGreet|Greetings and salutations, new subjects!  I am the Queen of Hearts.  I rule over the Eastern Kingdom,
+full of love.~
+Hello, your majesty.|Main
+~
+SecondGreet|Ah, here you are back again!  Strange, isn't it, that no matter how fast one runs, one always ends
+up in the same place, doesn't one?  You are always welcome here.~
+Thank you, your majesty.|Main
+Matters elsewhere require our attention. [Done]|None
+~
+Main|~
+|JoinedMain|JoinedAlready
+|MainDone|DefeatedDragon
+|UnjoinedMain
+~
+MainDone|Now that you defeated the Shivan Dragon and his army of goblins, the Four Kingdoms are at peace
+again.  I really must ask the Royal Plaquesmith about putting up a plaque in your honor.~
+Make sure it's a fancy one. [Done]|None
+~
+JoinedMain|Our forces are ready to fight by your side.  In the Kingdom of Hearts, we believe all
+problems can be solved with <CN:RED>love</C>.  Of course, we recognize that sometimes you have to
+<CN:RED>love</C> things with pikes and crossbows.  Now, what plans shall we discuss?~
+What's going on around here?|News
+Can you tell us anything about the other kingdoms?|Kingdoms
+What are the rules of Blezmon?|Blezmon
+Where is the King of Hearts?|King1
+Farewell, your Majesty. [Done]|None
+~
+UnjoinedMain|What would you like to discuss?~
+What's going on around here?|News
+Can you help us?|Help
+Can you tell us anything about the other kingdoms?|Kingdoms
+Where is the King of Hearts?|King1
+Farewell, your Majesty. [Done]|None
+~
+Help|Well, I'm not sure I could muster the troops at the moment.  You see, the Blezmon tournament sometimes takes
+rather a long time.  This year, there have been several ties.  We usually play the best two out of four games, you
+see.  This year we tried the best three out of six, but that didn't seem to fix things.  Maybe next year we'll
+try the best four out of eight...~
+What if we defeat your Blezmon champion?|BlezQuest
+~
+BlezQuest|Well, if you can defeat the champion, that would wrap up the tourney quite nicely.  Otherwise, the whole
+thing might spill over into yet another month.  The Blezmon Statium is off to the south; watch out for wandering
+monsters along the way.~
+So, what is Blezmon, anyway?|Blezmon
+We had some other questions.|Main
+~
+News|Haven't you heard?  There's a <CN:ORANGE>Shivan Dragon</C> on this level!  And what's worse, he's in
+command of a veritable army of goblins.  And this couldn't have happened at a worse time; the <CN:BRIGHTGREEN>Blezmon</C>
+tournament is in full swing.~
+What is Blezmon?|Blezmon
+Can you tell us anything about the other kingdoms?|Kingdoms
+Farewell, your Majesty. [Done]|None
+~
+King1|Normally, His Majesty would be right here by my side.  Unfortunately, he had a bit of an accident.  It was
+the Knave's fault, really.  You see, I had just finished baking some strawberry tarts, and set them out to cool.
+The Knave stole them, and went running off.~
+And what happened then?|King2
+~
+King2|Well, the King went chasing after the Knave.  Suddenly, he slipped on his royal robe, and as he fell...well, 
+he stabbed himself.  In the head.  With his sword.~
+Oh, I'm sorry.|King3
+~
+King3|It was quite a tragedy.  But we have managed to carry on.  Love conquers all, as we like to say!
+~
+How brave of you.|Main
+~
+Kingdoms|Well, there's the Kingdom of Clubs in the South.  There's also the Kingdom of Diamonds, far to the West.
+And the Kingdom of Spades is to the North.  Their army is the strongest.  Still, I think you would probably need
+to <CN:BRIGHTBLUE>gather all four armies</c> in order to defeat the goblins.~
+Interesting.|Main
+~
+Blezmon|~
+|BlezmonAlreadyDone|BlezmonDone
+|Blezmon1
+~
+BlezmonAlreadyDone|Ah, Blezmon!  A wonderful game.  You did quite a fine job in the tourney, by the way.  I hope
+you can stop by next year, if the forces of evil haven't destroyed all that's good and wholesome by then.~
+We'll try.|Main
+~
+Blezmon1|Blezmon?  Oh, it's a fine game.  The rattle of the dice, the roar of the crowd...  You see, the two players take
+turns rolling five dice, trying to get the highest score.  You can get <CN:RED>groups of numbers</C>, or
+<CN:RED>combinations</C>, or even a <CN:BRIGHTRED>Blezmon</C>.~
+How does the die-rolling work?|Blezmon2
+How do you get groups of numbers?|Blezmon3
+What are combinations?|Blezmon4
+What is a "Blezmon"?|Blezmon5
+Ok, that's enough about Blezmon for now.|Main
+~
+Blezmon2|Well, you roll the five dice.  You can choose to re-roll some or all of them, and then you can choose
+to re-roll some a second time.  Then, you take the points in a row on your scorecard.  You can fill the rows in
+any order, that's most of the strategy.  And once your scorecard is full, you're done, and if you scored the
+most points, you win.~
+How do you get groups of numbers?|Blezmon3
+What are combinations?|Blezmon4
+What is a "Blezmon"?|Blezmon5
+Ok, that's enough about Blezmon for now.|Main
+~
+Blezmon3|The scorecard has <CN:GREEN>number rows</C> for ones, twos, and so on up to sixes.  For those rows, you
+try to roll as many of that number as you can.  For instance, four sixes let you score a total of 24 on
+the "sixes" row.  The number rows aren't worth as much as <CN:GREEN>combinations</c>, but there's a
+<CN:GREEN>bonus</c> for scoring a high total on the number rows.~
+How does the die-rolling work?|Blezmon2
+What are combinations?|Blezmon4
+What is a "Blezmon"?|Blezmon5
+Ok, that's enough about Blezmon for now.|Main
+~
+Blezmon4|There are several combinations.  For instance, a <CN:GREEN>4-of-a-kind</C> can be filled by any four
+numbers - four sixes is worth the most, but even four ones works.  The <CN:GREEN>straight</C> is filled by a run
+of numbers - one through five, or two through six.  I've heard that beginners can <CN:GREEN>right-click</c> their
+scorecard to get an explanation of how to fill each row, that probably helps them learn the game.~
+How does the die-rolling work?|Blezmon2
+How do you get groups of numbers?|Blezmon3
+What is a "Blezmon"?|Blezmon5
+Ok, that's enough about Blezmon for now.|Main
+~
+Blezmon5|The "Blezmon" is where you roll 5 of the same number.  It's worth a bonus 50 points, and the crowd
+loves it!~
+How does the die-rolling work?|Blezmon2
+How do you get groups of numbers?|Blezmon3
+What are combinations?|Blezmon4
+Ok, that's enough about Blezmon for now.|Main
+~

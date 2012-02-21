@@ -1,0 +1,190 @@
+##########################
+#Super-secret Spy Stuff
+#Chests	Type	Successes	Failures
+Trap	Lights out	73	12
+Trap	Wire Lock	82	4
+Trap	Word dials	63	8
+Trap	Pounder	88	2
+Trap	Master	83	29
+Trap	Castle	80	7
+#Songs	Name	Miss	Poor	Good	Perfect
+Song	Music\Battle\Boss\FFVI - Grand Finale.mp3	8	4	44	702	
+Song	Music\Battle\DDRei TournaMix 3\Baby Baby\Baby Baby.mp3	2	5	8	104	
+Song	Music\Battle\!k_kirby.xm	0	0	0	0	
+Song	Music\Battle\2\RallyRemix.xm	54	8	68	1005	
+Song	Music\Battle\Boss\Gamelan.xm	77	9	125	640	
+Song	Music\Battle\3\SOR.mp3	125	50	480	2390	
+Song	Music\Battle\Jellydog-Castlevania.xm	72	0	0	0	
+Song	Music\Battle\Dance Dance Revolution 3rdMix\AFRONOVA\AFRONOVA.mp3	6	3	24	69	
+Song	Music\Battle\4\Dancing Justice.xm	44	15	114	638	
+Song	Music\Battle\SOR.mp3	0	0	10	125	
+Song	Music\Battle\7\Ryu.it	6	4	78	766	
+Song	Music\Battle\8\toutrun2.xm	52	30	271	1610	
+Song	Music\Battle\2\starpaws.xm	30	6	83	761	
+Song	Music\Battle\6\Shinobi.mp3	12	7	150	1662	
+Song	Music\Battle\Dance Dance Revolution 5th Mix\DXY!\DXY!.mp3	0	0	3	60	
+Song	Music\Battle\Super Mario [Euro Mix].mp3	1	0	19	98	
+Song	Music\Battle\1\ZeldaTitle.xm	33	7	74	493	
+Song	Music\Battle\DWI SM Originals - DDRei Tournamix 3\DDRei TournaMix 3\Airen\Airen.mp3	0	2	5	11	
+Song	Music\Battle\DWI SM Originals - DDRei Tournamix 3\DDRei TournaMix 3\Spin\Spin.mp3	2	1	12	69	
+Song	Music\Battle\4\!k_kirby.xm	18	11	143	1002	
+Song	Music\Battle\9\Airman.mp3	15	2	85	1101	
+Song	Music\Battle\DDRei TournaMix 2\Castlevania - SoTN Hidden Track\Castlevania - SoTN Hidden Track.mp3	14	9	39	99	
+Song	Music\Battle\StepMAnia\Dance Dance Revolution 2nd Mix\MAKE A JAM!\MAKE A JAM!.mp3	7	0	5	90	
+Song	Music\Battle\3\7thSaga.it	22	10	65	448	
+Song	Music\Battle\DDR Video Games 2nd Mix\BurningHeat\burningheat.mp3	0	1	2	44	
+Song	Music\Battle\DWI SM Originals - DDRei Tournamix 3\DDRei TournaMix 3\Theme of Strider Hiryu\Theme of Strider Hiryu.mp3	13	1	4	24	
+Song	Music\Battle\7\Tetris.xm	8	7	82	527	
+Song	Music\Battle\Boss\Chrono Trigger.mp3	36	18	83	690	
+Song	Music\Battle\Dance Dance Revolution 4th Mix (04-11-03)\Dance Dance Revolution 4th Mix\LEADING CYBER\LEADING CYBER.mp3	7	5	32	160	
+Song	Music\Battle\DDR Anime 1st Mix\ExcelSaga\excel.mp3	6	9	7	20	
+Song	Music\Battle\7\Green Hill Zone.mp3	39	22	236	1778	
+Song	Music\Battle\DDR Anime 1st Mix\Love Hina Euro Mix\SakuraSaku.mp3	1	0	2	96	
+Song	Music\Battle\10\DrWily.mp3	13	4	64	748	
+Song	Music\Battle\DDR Anime 2nd Mix\Digi Charat Welcome 2000\wel_2000.mp3	1	7	23	136	
+Song	Music\Battle\DDR Anime 2nd Mix\soramimi\soramimi.mp3	33	28	26	19	
+Song	Music\Battle\4\Chimera.mp3	12	6	87	695	
+Song	Music\Battle\1\Bubble Bobble.xm	155	20	167	1973	
+Song	Music\Battle\8\WaveMan.mp3	55	26	197	2165	
+Song	Music\Battle\6\Mushrooms.it	14	8	107	1185	
+Song	Music\Battle\DDRei TournaMix 4 PLUS\Mission impossible\miMission Impossible Theme.mp3	15	1	26	141	
+Song	Music\Battle\Never.xm	0	0	3	18	
+Song	Music\Battle\8\Jellydog-Castlevania.xm	19	14	99	869	
+Song	Music\Battle\0\bak\MetalGear.xm	0	0	3	29	
+Song	Music\Battle\Dance Dance Revolution 3rdMix\IT ONLY TAKES A MINUTE (Extended Remix)\IT ONLY TAKES A MINUTE (Extended Remix).mp3	7	7	21	97	
+Song	Music\Battle\5\z2cave.it	45	19	256	1973	
+Song	Music\Battle\9\Blaster.mp3	0	0	16	169	
+Song	Music\Battle\5\Wizardry.xm	42	14	137	1202	
+Song	Music\Battle\2\Blaster.mp3	11	5	90	779	
+Song	Music\Battle\DDR Video Games 5th Mix\Korobeiniki\korei.mp3	0	0	0	0	
+Song	Music\Battle\3\Bomberman.xm	13	17	126	884	
+Song	Music\Battle\DDR Anime 2nd Mix\Galaxy Bang Bang\Galaxy BANG BANG.mp3	14	9	32	60	
+Song	Music\Battle\9\Mute City.it	9	6	50	500	
+Song	Music\Battle\1\work\Bloody Tears.it	66	30	299	2236	
+Song	Music\Battle\6\Awesome.xm	11	6	137	1190	
+Song	Music\Battle\7\Golgo.mp3	31	29	163	1548	
+Song	Music\Battle\9\FF2Boss.mp3	2	0	16	279	
+Song	Music\Battle\Daikenkai Chun-Li Mix.mp3	4	11	83	147	
+Song	Music\Battle\DWI SM Originals - DDRei Tournamix 1\DDREI TournaMiX\heavens\Mecha King Gojira - Tear Open The Heavens.mp3	33	18	77	257	
+Song	Music\Battle\DDRei TournaMix 4 PLUS\Fun Fun And Shout\Fun Fun and Shout.mp3	10	8	21	71	
+Song	Music\Battle\Dance Dance Revolution 1st Mix\PARANOiA\PARANOiA.mp3	0	1	5	58	
+Song	Music\Battle\Para\speedway\speedway.mp3	17	6	17	52	
+Song	Music\Battle\10\Karnov Mix.mp3	16	10	66	904	
+Song	Music\Battle\Boss\MountainMix.xm	37	22	153	1003	
+Song	Music\Battle\Epoq-Lepidoptera.ogg	0	0	12	90	
+Song	Music\Battle\10\MrHeli.mp3	16	5	42	837	
+Song	Music\Battle\DDR Anime 1st Mix\Shuffle\Shuffle.mp3	3	3	8	4	
+Song	Music\Battle\cakes\cakes.mp3	10	0	16	64	
+Song	Music\Battle\3\Never.xm	30	3	31	386	
+Song	Music\Battle\5\86.xm	54	8	117	969	
+Song	Music\Battle\2\Mute City.it	33	5	31	56	
+Song	Music\Battle\Dance Dance Revolution 3rdMix\UPSIDE DOWN\UPSIDE DOWN.mp3	2	1	1	47	
+Song	Music\Battle\8\FFVI - Grand Finale.mp3	20	6	70	797	
+Song	Music\Battle\Dance Dance Revolution 3rdMix\DAM DARIRAM\DAM DARIRAM.mp3	1	1	1	17	
+Song	Music\Battle\9\SOR2.mp3	5	5	51	931	
+Song	Music\Battle\DDR Anime 1st Mix\Chobits\ChobitsIntro.mp3	0	2	31	50	
+Song	Music\Battle\1\Bloody Tears.it	163	17	159	1246	
+Song	Music\Battle\DWI SM Originals - DDRei Tournamix 3\DDRei TournaMix 3\Drop In The Ocean\Drop In The Ocean.mp3	3	6	21	70	
+Song	Music\Battle\DDR Anime 2nd Mix\Dirty Pair Flash\Kimigadaisuke.mp3	0	1	15	73	
+Song	Music\Battle\DDRei TournaMix 3\Get The Party Started\Get The Party Started.mp3	2	3	23	61	
+##########
+#Unfortunate PC Deaths
+#Name	Level	Class	Cause
+##########
+#Glorious Victories over Monsters
+##########
+#Current Party Events
+Event	L5WolfySolved	1
+Event	L7PythonFed	1
+Event	L7SummoningBook	1
+Event	L6Daleks	1
+Event	L10EVIL	1
+Event	L6DragonLock	1
+Event	L10Sinistar	1
+Event	L7ToadMet	1
+Event	wevel8	7
+Event	L8ClubsJoined	1
+Event	L6ScorchedEarth	1
+Event	L1DoorUnlock	1
+Event	L8JokerMet	1
+Event	L6BardTech	1
+Event	L5WolfyTime	None
+Event	Riddle:1	1
+Event	L5ClericRemedial	1
+Event	L7BeesMet	1
+Event	L7ChefMet	1
+Event	L4DoorUnlock	1
+Event	L10PegDoor	1
+Event	L8DiamondsJoined	1
+Event	L7DefeatedCastle	1
+Event	L2FedCakeBeast	1
+Event	BlockPuzzleBlockado	(1668, [('A', 2, 2), ('1', 0, 0), ('2', 0, 2), ('3', 0, 1), ('6', 2, 5), ('7', 2, 0), ('0', 2, 1), ('4', 1, 3), ('5', 0, 3), ('8', 3, 4), ('9', 2, 4)])
+Event	L1KittyGirlMet	1
+Event	L7FedRabbitA	1
+Event	L7RabbitBreed	1
+Event	L7RabbitBMet	1
+Event	L10EskimoHeal	1
+Event	L8Joker	1
+Event	L3ChefMet	1
+Event	L5Sokoban	1
+Event	L6BardMet	1
+Event	L3QuadBoss	4
+Event	L8Blezmon	1
+Event	L7GotPie	1
+Event	L6MageRemedial	1
+Event	L8QueenOfHeartsMet	1
+Event	Sinistar	1
+Event	L7GotHoney	1
+Event	L1SavedKitty	1
+Event	L3Vault	1
+Event	Riddle:2	1
+Event	L6HitEskimo	1
+Event	Riddle:3	1
+Event	L8Tower	1
+Event	L7PythonMet	1
+Event	L4KingRastanMet	1
+Event	L5WolfySquare	None
+Event	L5BuriedTreasure	1
+Event	L10JoustPong	1
+Event	L4SawForge	1
+Event	L4Gypsy	1
+Event	L7RabbitBreedTime	1295926766.21
+Event	L6BrokeIce	1
+Event	L8KingOfClubsMet	1
+Event	L8HeartsJoined	1
+Event	L8Solitaire	1
+Event	L7RabbitAMet	1
+Event	L7FixedSpaceship	1
+Event	L8SpadesJoined	1
+Event	L6LockPuzzleSolved	1
+Event	L10PegLoot	1
+Event	L7SpaceshipReward	1
+Event	L6LockPuzzle	([(0, 1, -1), (-1, 0, -1), (0, 1, 0)], 926)
+Event	L8QueenOfDiamondsMet	1
+Event	L8JackOfSpadesMet	1
+Event	L7BoughtCrumpet	1
+Event	L7FedRabbitB	1
+##########
+#Key items
+KeyItem	Tendril 7	1
+KeyItem	A Kitty	0
+KeyItem	Knight Map	1
+KeyItem	Blue Key	0
+KeyItem	Yummy Pie	0
+KeyItem	Yellow Key	0
+KeyItem	Orange Key	0
+KeyItem	Toxic Shells	1
+KeyItem	Red Key	0
+KeyItem	Sniper Rifle	1
+KeyItem	Shortbread	0
+KeyItem	Green Key	0
+KeyItem	The Head of Clippy	0
+KeyItem	White Key	1
+KeyItem	Blue Puzzle Box	1
+KeyItem	Purple Key	0
+##########
+#Characters	Name	Level	STR	DEX	CON	INT	WIS	CHA
+Character	McFly	Bard	18	22	18	14	12	13	26
+Character	Dr.Heal	Cleric	17	20	17	16	14	31	11
+Character	Godzilla	Fighter	18	26	16	20	9	11	10
+Character	Elfy	Mage	17	12	11	11	33	16	14

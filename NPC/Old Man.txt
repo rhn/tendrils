@@ -1,0 +1,17 @@
+#An old man who gives you a letter.
+def FirstMetPre(P,M):
+    return not P.EventFlags.get("L10OldManMet")
+def FirstMetTrig(P,M):
+    P.EventFlags["L10OldManMet"] = 1
+    P.KeyItemFlags["Letter"] = 1
+~
+Root|~
+|FirstGreet|FirstMetPre|None|FirstMetTrig
+|Greetings
+~
+FirstGreet|Give this to the old woman.\n\n<CN:YELLOW>[ You got a <CN:GREEN>letter<CN:YELLOW>. ]~
+Thank you. [Done]|None
+~
+Greetings|Secret doors and traps are everywhere.  Be careful as you explore.~
+Thank you. [Done]|None
+~

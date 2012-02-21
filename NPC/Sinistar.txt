@@ -1,0 +1,61 @@
+def StartSound(P,M):
+    import Resources
+    Resources.PlaySound(os.path.join("Sounds", "Sinistar", "Beware I Live.wav"))
+    return "Hello"
+def NameSound(P,M):
+    import Resources
+    Resources.PlaySound(os.path.join("Sounds", "Sinistar", "I Am Sinistar.wav"))
+    return "Challenge"
+def NameSound10(P,M):
+    import Resources
+    Resources.PlaySound(os.path.join("Sounds", "Sinistar", "I Am Sinistar.wav"))
+    return "Challenge10"
+def Trigger(P,M):
+    import Global
+    Global.App.StartTrivia()
+def IsLevel10(P,M):
+    return (M.Level == 10)
+~
+Root|~
+|||StartSound|
+~
+Hello|~
+|HelloL10|IsLevel10
+|Hello2
+~
+HelloL10|Beware, I live!~
+What, you again?  I thought we beat you already!|||NameSound10
+~
+Challenge10|Yes, we have met before - boss re-use is a key component of good dungeon management.  
+But it was a total
+fluke that you beat me.  I'm rested up and ready for a rematch.  And this time, you'll need
+<CN:ORANGE>1000</C> points to get past me!~
+All right Sinistar, we'll take you on. [Done]|||Trigger
+~
+Hello2|Beware, I live!~
+Who the heck are you?|||NameSound
+WHAT the heck are you?|||NameSound
+~
+Challenge|I am Sinistar.\n\nAnd I challenge you to the truest form of combat...\n\n
+...TRIVIA!~
+Trivia?|YesTrivia
+You have got to be joking.|NotKidding
+All right then, bring it on.|Trivia
+~
+YesTrivia|Yes, trivia.  We will see whether or not you know anything about the classics.
+\n\nThere shall be ten questions, starting with the simple (worth 100 points) and 
+working up to the truly difficult (worth 300 points).  If you get 750 points, you can
+continue onward.  If you don't...then <CN:BRIGHTRED>I SHALL DEVOUR YOUR SOULS.~
+We are ready. [Done]|||Trigger
+Bring it on, spooky head o' doom! [Done]|||Trigger
+~
+Trivia|There shall be ten questions, starting with the simple (worth 100 points) and 
+working up to the truly difficult (worth 300 points).  If you get 750 points, you can
+continue onward.  If you don't...then <CN:BRIGHTRED>I SHALL DEVOUR YOUR SOULS.~
+We are ready. [Done]|||Trigger
+Bring it on, spooky head o' doom! [Done]|||Trigger
+~
+NotKidding|I am a being of pure malice, a consumer of planets.  I have destroyed a
+thousand worlds, and my minions roam this galaxy at will.  I do not joke.~
+Well then, what are the rules?|Trivia
+~

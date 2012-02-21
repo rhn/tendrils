@@ -1,0 +1,145 @@
+# Dialog files are organized like this:
+# First, a collection of function definitions.
+# Then, there's a collection of nodes.
+def FirstMetPre(P,M):
+    return not P.EventFlags.get("L3ChefMet")
+def FirstMetTrig(P,M):
+    P.EventFlags["L3ChefMet"] = 1
+def PurchasePost(P,M):
+    if P.KeyItemFlags.get("Shortbread",None):
+        return "AlreadyBought"
+    if P.Gold >= 1000:
+        P.Gold -= 1000
+        P.KeyItemFlags["Shortbread"] = 1
+        return "Bought"
+    return "NotEnoughMoney"
+def IsLevel7(P,M):
+    return (M.Level == 7)
+def L7FirstMetPre(P,M):
+    return not P.EventFlags.get("L7ChefMet")
+def L7FirstMetTrig(P,M):
+    P.EventFlags["L7ChefMet"] = 1
+def L7BoughtCrumpet(P, M):
+    return P.EventFlags.get("L7BoughtCrumpet")
+def L7ForSalePost(P,M):
+    if P.EventFlags.get("L7BoughtCrumpet"):
+        return "L7SoldOut"
+    else:
+        return "L7Crumpet"
+def KilledMoldMonster(P,M):
+    return P.KilledBosses.get((7, "KingSlime"))
+def CrumpetTrigger(P,M):
+    print "CRUMPET TIME!"
+    P.EventFlags["L7BoughtCrumpet"] = 1
+    P.KeyItemFlags["Crumpets"] = 1
+~
+Root|~
+|L7|IsLevel7
+|FirstGreet|FirstMetPre|None|FirstMetTrig
+|Greet
+~
+L7|~
+|L7FirstGreet|L7FirstMetPre|None|L7FirstMetTrig
+|L7Greet
+~
+L7Inconvenient|Dungeon?  Hmph!  The neighborhood has gone downhill since the Demon Castle moved in, but I still
+don't think I'd call it a dungeon.~
+Anyway.  What's for sale?|||L7ForSalePost
+~
+L7FirstGreet|Welcome to the Pan Panic bakery!  Now in two convenient locations, to better serve YOU!~
+What's for sale?|||L7ForSalePost
+You look strangely familiar.|L7Familiar
+Convenient locations?  We're the middle of the dungeon!|L7Inconvenient
+~
+L7Greet|Welcome back to the Pan Panic bakery!    Now in two convenient locations, to better serve YOU!~
+What's for sale?|||L7ForSalePost
+You look strangely familiar.|L7Familiar
+Convenient locations?  We're the middle of the dungeon!|L7Inconvenient
+~
+L7SoldOut|I'm all sold out, I'm afraid.  I'd better start baking!~
+Ok, thanks.|L7Bye
+Bake on, bakery girl.  Bake on for justice.|L7Bye
+~
+L7Bye|Bye-bye!~
+Bye. [Done]|None
+~
+L7Familiar|Familiar?  Ah, I'll bet you've met my sister.  She also runs a bakery shop.  How is she doing?~
+Pretty well.  She sold us some shortbread.|L7Sister
+Not so good.  She's in the middle of a maze, surrounded by hordes of undead.|L7SisterBad
+~
+L7Sister|Oh, that's nice to hear.  I hope eventually these monsters go away so I can visit her.~
+So, what's for sale?|||L7ForSalePost
+~
+L7SisterBad|Oh, dear!  I should send her some sort of card.  Or maybe some banana bread.  You know what they
+say: When you're surrounded by undead, try a yummy slice of banana bread!~
+Say, that rhymes.|L7Blah
+Yeah, I don't think anyone says that.|L7Blah
+~
+L7Blah|Anyway, what can I do for you?~
+What's for sale?|||L7ForSalePost
+We were just leaving.|L7Bye
+~
+L7Crumpet|Well, supplies are a little low, so I'm afraid I can't sell you anything.  Unless...maybe
+you're willing to do a favor for me?~
+What sort of favor?|L7CrumpetQuest
+Favors?  Forget it, we're leaving!|L7Bye
+~
+L7CrumpetQuest|There is a <CN:ORANGE>mold monster</c> on this level.  It sends spores EVERYWHERE!  I can't
+bake anything now, or it will get eaten and turn into icky slime monsters.  But maybe if you killed the
+mold monster, I could bake you something special.~
+We have vanquished the Slime King.|L7CrumpetsDone|KilledMoldMonster
+We'll see what we can do.|Bye
+~
+L7CrumpetsDone|Oh, hooray!  In that case, let me start baking!\n\n<cn:yellow>[ An hour of frantic baking later... ]</cn>
+\n\nOkay, here are some <CN:BRIGHTGREEN>crumpets</C>.  I got so excited that I made an awful lot of them,
+but maybe you can find someone to share them with.~
+Thanks, bakery babe!|L7Bye|||CrumpetTrigger
+~
+FirstGreet|<CN:YELLOW>[You unexpectedly find yourself in a bakery]</C>\n\nHello, and welcome to my shop!  Sorry
+it's in such an inconvenient place!~
+Hello.  What's for sale?|Shop
+Why on earth is your bakery in the middle of the dungeon?|FirstGreet2
+~
+Greet|Welcome back to my shop!  Sorry
+it's in such an inconvenient place!~
+Hello.  What's for sale?|Shop
+Why on earth is your bakery in the middle of the dungeon?|FirstGreet2
+~
+FirstGreet2|Well, the overhead is very low.  But on the other hand, I don't get that many
+customers here.  And getting supplies in the middle of the Cathedral of
+Darkness can be a little rough, believe you me.  
+Just the other day, some traders were bringing in some bags of sugar,
+but they were eaten by monsters.~
+Which?  The bags, or the traders?|FirstGreet3
+Huh.  Well, what have you got for sale?|Shop
+Why don't you try selling stuff to the monsters?|SellToMonsters
+~
+FirstGreet3|Both!  The monsters ate everything - the merchants, the sugar, even one of the 
+wheels off the wagon.~
+What have you got for sale?|Shop
+Why don't you try selling stuff to the monsters?|SellToMonsters
+~
+SellToMonsters|Sell stuff to the monsters?  Hmm...that's not a bad idea.  Still, most of the
+monsters don't have very refined taste.  I'm not sure whether they'd go for pastries.~
+What have you got for sale?|Shop
+Well, we'll be going now.|Bye
+~
+Shop|I've got a wonderful <CN:brightgreen>shortbread</c>, which I'm selling for just <cn:yellow>1000 zenny</c>.
+\n\nEr...I know it's rather a steep price, but I don't get a lot of business, so I have to make
+money somehow.~
+Ok, we'll take one.|||PurchasePost
+Too expensive. [Done]
+~
+AlreadyBought|Why, you already have some shortbread!  You should try it, it's delightful.~
+We'll be going now. [Done]
+~
+NotEnoughMoney|It looks like you don't have enough money.  Come back later.~
+Bye. [Done]
+~
+Bought|<CN:YELLOW>[You have paid 1000 zenny]</c>\n\n
+There you go!  I'm sure you'll love it.  It's the best shortbread around.~
+Thanks. [Done]
+~
+Bye|Thanks for stopping by!  Come back any time.~
+Bye. [Done]
+~

@@ -1,0 +1,253 @@
+#An old man in the first town, who gives some useful advice
+#about classes, items, and chests.
+def FirstMetPre(P,M):
+    return not P.EventFlags.get("L1OldManMet")
+def FirstMetTrig(P,M):
+    P.EventFlags["L1OldManMet"] = 1
+~
+Root|~
+|FirstGreet|FirstMetPre|None|FirstMetTrig
+|Greetings
+~
+FirstGreet|Hello, whippersnappers!  My name's AAA, but people around here just call
+me Gramps.  I may look like a crazy old coot, but I went
+on many an adventure back in my day, killing princesses and rescuing monsters.  Or was
+it the other way around?  The old memory's not what it used to be. ~
+Nice to meet you, Mr. AAA.|Greetings2
+~
+Greetings2|Anyhoo, I've got plenty of stories from my adventuring days.  And if you
+want, I can give you a few pointers on how to stay alive out there.  You're safe from monsters
+here in Skara Brae, but things get dangerous once you leave town.~
+That sounds great.|Main
+Actually, we should be going.  World won't save itself.|Goodbye
+~
+Goodbye|Thanks for stopping by!  Remember to stop by the Save Shrines whenever you get
+the chance.  Those things are keen!~
+Bye. [Done]|None
+~
+Greetings|Well, hello again!  It's nice of you to visit an old fogey like me.  Are you
+in the mood for some adventuring talk?~
+That sounds great.|Main
+Not now, thanks.|Goodbye
+~
+Main|What would you like to hear about?  I can tell you some things about <CN:GREEN>classes</C>,
+to help you organize a party.  Or I know some things about <CN:GREEN>equipment</C>.  And
+back when I was young and spry I was good at opening <CN:GREEN>chests</C>.  Or if you've
+got a minute, you could hear one of my <CN:GREEN>stories</C>.~
+Tell us about classes.|Classes
+Tell us about items.|Items
+Tell us about chests.|Chests
+Tell us a story.|Story
+Actually, we should get going.|Goodbye
+~
+Main2|What else would you like to hear about?~
+Tell us about classes.|Classes
+Tell us about items.|Items
+Tell us about chests.|Chests
+Tell us a story.|Story
+Actually, we should get going.|Goodbye
+~
+Chests|Ah, there's nothing quite like the thrill of killing monsters and taking their
+stuff.  Most of the good stuff is hidden in chests, though.  Chests have <CN:BRIGHTRED>locks</C>
+that you have to disarm, otherwise the <CN:BRIGHTRED>traps</C> are triggered.\n\nThere are
+several kinds of lock - one where you have to stop some spinning dials at the right 
+password, one where you have to flip a lot the switches to the right position...  And you
+have to work quickly, before the trap is triggered.  The locks and traps aren't so bad
+around here, but they get tougher as you go deeper into the dungeon.  That's why it's nice
+to have a <CN:BRIGHTGREEN>ninja</C> in your party - with those guys around, you get more time on the locks, 
+and the traps are a little less deadly.~
+Interesting.  What else can you tell us?|Main2
+Thanks for the info.  We'd better be going.|Goodbye
+~
+Classes|Well, there's six classes in all.  The Fighter is the best at combat.  The Mage
+and Summoner can dish out a lot of damage with spells, but they're not good at combat.  The 
+Cleric, Bard, and Ninja are average at combat, and have other abilities.~
+What do Fighters do?|ClassFighter
+What do Ninjas do?|ClassNinja
+What do Clerics do?|ClassCleric
+What do Bards do?|ClassBard
+What do Mages do?|ClassMage
+What do Summoners do?|ClassSummoner
+That's enough about classes.|Main2
+~
+ClassFighter|Fighters?  They hack and slash things.  They can wear heavy armor, too, so
+they can take a lot more abuse than the poor squishy mages.  The <CN:red>tank</C> - you know, the
+guy on the front row - is usually a fighter.~
+Tell us more about classes.|Classes
+Thanks, we'll be going now.|Goodbye
+~
+ClassNinja|Ninjas - or Ninja, whatever - are sneaky, and they throw those pointy
+things.  Shuriken, that's what they're called.  Anyway, Ninjas aren't quite as good in
+a fight as Fighters, but they are great at disarming traps.  Opening chests is easier and
+safer with a ninja in the party.  I hear ninjas are also good with those new-fangled
+sniper rifles the kids are all talking about.  I don't hold with that kind of tomfoolery
+myself, just give me a sword, and a shield, and a 10' pole, and a lantern, and some
+iron rations, and...where was I?  Oh yes, ninjas.~
+Tell us more about classes.|Classes
+Thanks, we'll be going now.|Goodbye
+~
+ClassCleric|Well, I recommend always having a Cleric in the party.  They can cast <CN:BRIGHTGREEN>Cure</c>
+spells, which is really handy for restoring the old HP when you're not near an Inn.  
+Clerics can also fix problems like poisoning, or stoning, or even death.  They can
+<CN:RED>turn</C> undead, which does a lot of damage to ghosts and vampires and that sort
+of thing.  Plus, Clerics can fight pretty well (though not as well as Fighters, of
+course)~
+Tell us more about classes.|Classes
+Thanks, we'll be going now.|Goodbye
+~
+ClassBard|Ah, the Bard is an interesting class.  Having them around makes spellcasters recover
+mana.  It's slow, but it really adds up over time.  Also, bards have some control over the Song of Battle. 
+That's a nice trick, since it lets you use the songs you're good at, and avoid
+the ones you don't like.  \n
+Like that one that goes "DUN, dun dun DUN, tum-ty-tum-ty-tum-ty-TUM!"\n\n
+I hate that confounded song.  Dagnabbit.~
+Tell us more about classes.|Classes
+Thanks, we'll be going now.|Goodbye
+~
+ClassMage|A Mage is good at harnessing the hidden energies of the universe, mostly to 
+blow stuff up.  Some of them can do some other handy things, too, like levitation and
+scrying.  I was always most impressed by the whole blowing-stuff-up aspect.  Anyway, Mages
+can't wear heavy armor, so it's best to keep them in the back row, where they won't take
+so much damage.  And make sure they don't run out of <CN:BRIGHTBLUE>MP</C> (Magic Points)
+before a big battle.~
+Tell us more about classes.|Classes
+Thanks, we'll be going now.|Goodbye
+~
+ClassSummoner|Ah, the Summoner!  Well, they can call upon powerful beasts to aid in
+battle.  To do a good summoning, you have to follow the summoned monster with the mouse
+pointer as closely as possible - or something like that, I never could get the hang of
+magic myself.  Anyway, a skilled Summoner can dish out even more damage than a Mage. 
+Summoners aren't good at hand-to-hand combat, though, so don't put them in the front row.~
+Tell us more about classes.|Classes
+Thanks, we'll be going now.|Goodbye
+~
+Items|Well, there are <CN:ORANGE>supplies</c> and then there's <CN:ORANGE>equipment</c>.  <CN:ORANGE>Supplies</C> are things that you use up, like potions and antidotes.\n\nTo use a potion, choose the character
+who'll use it, then hit <CN:BRIGHTGREEN>U</C> for "Use", then hit <CN:BRIGHTGREEN>A</C> (the letter next to
+<CN:YELLOW>Potion</C>).  Or you can use the mouse, either way.  Then choose the character to use the potion on.  It takes a few moments to use an item (or cast a spell), and your character can't attack during that time, so keep that in mind.\n\nIn a battle, all this messing around
+with items can be hard to do while still hitting the arrows, so it's probably best to 
+pause first by hitting Escape, then use the items.~
+So, what other supplies are there?|Supplies
+Ok.  But what about equipment?|Equipment
+That's enough about items.|Main2
+~
+Equipment|There are five slots for equipment: <CN:YELLOW>Head</C>, 
+<CN:YELLOW>Body</C>, <CN:YELLOW>Weapon</C>, <CN:YELLOW>Arms</C>, and <CN:YELLOW>Legs</C>.  You
+want a weapon that does as much damage as possible.  And you want your <CN:RED>AC</c> (Armor Class) to be as high
+as possible, since that helps block the damage you take from monsters.\n\nSome items
+can even raise attributes; Boots of Speed raise Dexterity, and a good shield raises your
+maximum HP.  The deeper you go into the dungeon, the better stuff you'll find.  But 
+remember that a character's class limits what they can equip - a Mage can't handle 
+a Bastard Sword, for instance.\n\n
+Oh, yes - you can equip items in the maze by hitting <CN:BRIGHTGREEN>I</C>.~
+Interesting.  Can you tell us more about supplies?|Supplies
+That's enough about items.|Main2
+~
+Supplies|Well, there are different kinds of <CN:YELLOW>Potion</c> to restore HP...and an 
+<CN:YELLOW>Ether</C> can even
+restore MP.  <CN:YELLOW>Antidote</c> cures poison, a <CN:YELLOW>Flute</c> cures silence, and a 
+<CN:YELLOW>Medusa Scale</c> thaws 
+people who've been turned into stone.  An <CN:YELLOW>Elixir</c> fixes everything except death.  And you 
+can restore people to life with a <CN:YELLOW>Phoenix Down</c>.~
+Ok.  But what about equipment?|Equipment
+That's enough about items.|Main2
+~
+Story|Well, I could tell you about the Unjumpable Chasm, or the tale of Sir Wevel.  Or 
+there was the time I almost died.~
+The Unjumpable Chasm, you say?|Chasm1
+What's the Tale of Sir Wevel?|Wevel1
+How did you almost die?|AlmostDie1
+Ok, enough stories for now.|Main2
+~
+Chasm1|Well, back long ago, there were these legends that if you gathered the Seven
+Moon Crystals, you could summon some great treasure, or destroy the world, or something
+nifty like that.  Anyway, the King really wanted these Moon Crystals, and he dispatched
+teams of adventurers far and wide, to mountain's peak and dungeon's depths, until at
+last they had gathered six of the seven crystals from their hiding places.~
+What about the last crystal?|Chasm2
+~
+Chasm2|Well, the last crystal was across a deep chasm.  The chasm was too steep and 
+perilous to climb down, so the
+only hope was to jump across it.  Some of the bravest knights in the realm tried to jump
+across, and fell into oblivion.  Some of the smarter knights even took their armor off
+before attempting the jump, but still nobody made it more than halfway before they plummeted
+into the chasm.~
+Why didn't they throw a rope across?|Chasm3Grr
+Why didn't they use an airsip?|Chasm3Grr
+Why didn't they cast a levitation spell?|Chasm3Grr
+So what finally happened?|Chasm3
+~
+Chasm3Grr|Listen here, kiddo, I'm telling this story, not you!\n\nNow where
+was I?  Oh yes, the chasm.  Well, the King was not very creative, but he was
+very persistent.  He sent more and more intrepid adventurers to attempt to jump
+the chasm.  And one after another, they fell to their doom.  Well, it turns out 
+the chasm wasn't actually bottomless after all.
+So, eventually there were so many dead anthropomorphic raccoons and ninjas and
+Italian plumbers clogging the pit that you could just walk across the top of all the
+bodies.  A little grotesque, but there you are.  And that was how the last Moon
+Crystal was recovered.~
+So, what other stories have you got?|Story
+That's it, we're leaving.|Goodbye
+~
+Chasm3|Well, the King was not very creative, but he was
+very persistent.  He sent more and more intrepid adventurers to attempt to jump
+the chasm.  And one after another, they fell to their doom.  Well, it turns out 
+the chasm wasn't actually bottomless after all.
+So, eventually there were so many dead anthropomorphic raccoons and ninjas and
+Italian plumbers clogging the pit that you could just walk across the top of all the
+bodies.  A little grotesque, but there you are.  And that was how the last Moon
+Crystal was recovered.~
+So, what other stories have you got?|Story
+That's it, we're leaving.|Goodbye
+~
+Wevel1|Sir Wevel was the strongest warrior the realms had ever seen.  He could behead
+a bronze dragon in a single swing of his sword - and that was his backhand!  But Sir 
+Wevel had a - well, a quirk to his personality.  He was obsessed with being complete.
+If you sent him to, say, recover the Thunder Staff from the Tomb of Horrors, he 
+wouldn't come back until he had opened every door, peeked in every chest, and smashed 
+every barrel.  It could take a while.  I met Sir Wevel once, he was trying to figure 
+out a way to get through the Jungle of Despair in under 20 minutes flat.~
+Well, what became of Sir Wevel?|Wevel2
+~
+Wevel2|Well, one day Sir Wevel was sent to kill an evil wizard.  Name of Zorto, or 
+something like that.  Anyway, Zorto heard that Sir Wevel was coming.  But instead of
+barricading himself into his lair, Zorto flung the doors open.  When Sir Wevel got there,
+there was a long row of wooden dolls.  Each doll was hollow, with a seam around its middle,
+so that the top and bottom could be pulled apart to reveal - another doll.  And within 
+that doll, another doll.  And so on.  Sometimes, inside the smallest doll there would be
+a gold piece, or a peanut, or whatever.~
+Well, that doesn't seem so evil.|Wevel3
+Wait, you don't mean that...|Wevel3
+~
+Wevel3|Well, Sir Wevel couldn't resist opening all the dolls.  And just when he thought 
+he was out of treasure...he would find ten more dolls, tempting him to find out what was
+inside.  And then more dolls.  And for all I know, Sir Wevel is still in the Castle of Zorto, unable to tear
+himself away.\n\nAfter that incident, we would call someone a "wevel" if they were
+obsessed with mapping each square of a dungeon, or maxxing out every possible skill, or
+capturing one of every creature.  ~
+So, what other stories have you got?|Story
+That's it, we're leaving.|Goodbye
+~
+AlmostDie1|I remember it as though it happened just yesterday.  I had been sent, along
+with Jigglypuff the Bard and Sushi the Ninja, to defeat the Dread Lord Orlox.  We carved
+a bloody path through his underlings, but when we finally got there, he put up quite a
+fight.  And just when we thought he was defeated, he changed forms into a bizarre (and
+somewhat gross) beast with too many arms.  And then he fired this glowy beam of energy
+that hit me dead on, and I fell to the dank floor.~
+Wow!  What happened then?|AlmostDie2
+~
+AlmostDie2|Well, I was lying there, groaning in agony, unable to do anything but 
+watch as my comrades got pounded.  When suddenly it seemed I could see some words.  At 
+first I thought I'd reached the big High Score List in the Sky.  But then I noticed 
+that some of the letters were backwards.  They looked like this: 
+<CN:BRIGHTGREEN>3UNITNO) OT NIO) T43SNI</C>.  And there were numbers, too, counting 
+down slowly.  And suddenly I heard this little fanfare, and suddenly my wounds were 
+healed, and I felt better than ever.~
+Did you defeat the Dark Lord?|AlmostDie3
+~
+AlmostDie3|That's DREAD lord, not DARK lord.  Sheesh, I thought my memory was going.  
+Anyway, yes, we thrashed him good after that.  See, the key was to hit him in his single
+giant eye.  He flashed when we hit him there, so we knew we were doing damage.  Anyway, 
+once we figured that out, it was no problem.  And that's the story of my near-death 
+experience, strange but true.~
+So, what other stories have you got?|Story
+That's it, we're leaving.|Goodbye

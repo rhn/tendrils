@@ -1,0 +1,45 @@
+def FirstMetPre(P,M):
+    return not P.EventFlags.get("L4KingRastanMet")
+def FirstMetTrig(P,M):
+    P.EventFlags["L4KingRastanMet"] = 1
+def KilledAlready(P,M):
+    return P.KilledBosses.get((4, "L4Boss"))
+def AlreadyGotKey(P,M):
+    return P.EventFlags.get("L4DoorUnlock") or P.KeyItemFlags.get("Silver Key")
+def NotAlreadyGotKey(P,M):
+    return (not P.EventFlags.get("L4DoorUnlock")) and (not P.KeyItemFlags.get("Silver Key"))
+def GetKeyTrigger(P,M):
+    P.KeyItemFlags["Silver Key"] = 1
+~
+Root|~
+|FirstGreet|FirstMetPre|None|FirstMetTrig
+|Killed|KilledAlready|
+|SecondGreet
+~
+FirstGreet|Hail, adventurers.  I used to be a thief and murderer.  Otherwise, I could not survive
+in such difficult times.  Sit beside me and listen to my story of days full of adventure.~
+Actually, we just wanted some advice.|Advice
+~
+Advice|Be warned!  The defender of this level <CN:RED>cannot be harmed</C> by weapons and magic.
+Only a <CN:GREEN>summoner</C> can damage it!  A <CN:GREEN>summoner spell</c> should break its
+protections, so that ordinary weapons and magic can damage it.  If you meet the great stone head
+and have no summoner, you must <CN:RED>flee</c> or be destroyed.~
+Can you tell us anything else?|Advice2
+~
+SecondGreet|Welcome back!  I will tell you the chronological story of a barbarian who dared to challenge.~
+Actually, we just wanted some advice.|Advice
+~
+Killed|Congratulations on your victory against the great stone head.  You have done this town a great service.~
+Thanks. [Done]|None
+~
+Advice2|The <CN:BRIGHTRED>fire knights</C> guard the rooms ahead.  They are tricky, never moving in straight
+steps like you or I.  No, they always move <CN:BRIGHTBLUE>two steps forward</C>, then <CN:BRIGHTBLUE>one step
+to the side</C>.  Approaching one straight on is safe, but together they guard most ways through.  I heard a
+rumor that there is a <CN:GREEN>map</c> showing where the knights stand, that may help guide you past...~
+Thanks. [Done]|None|AlreadyGotKey
+Anything else?|GetKey|NotAlreadyGotKey||GetKeyTrigger
+~
+GetKey|I see you are determined to face the peril.  Very well, please take this key.  It will unlock the door
+at the north end of town.\n\n<CN:YELLOW>You have obtained: Silver Key</C>~
+Thanks. [Done]|None
+~

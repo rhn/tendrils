@@ -1,0 +1,72 @@
+# Dialog files are organized like this:
+# First, a collection of function definitions.
+# Then, there's a collection of nodes.
+def FirstMetPre(P,M):
+    return not P.EventFlags.get("L1KittyGirlMet")
+def FirstMetTrig(P,M):
+    P.EventFlags["L1KittyGirlMet"] = 1
+def PostPoorKitty(P, M):
+    print "PostPoorKitty!"
+    if P.KeyItemFlags.get("A Kitty"):
+        return "Saved"
+    else:
+        return "AskToSave"
+def KittyGetSpell(P, M):
+    P.FoundMageSpells[1] = 1
+    P.FoundSummonerSpells[13] = 1
+    P.KeyItemFlags["A Kitty"] = 0
+    P.EventFlags["L1SavedKitty"] = 1
+SavedPre = lambda P,M:(P.KeyItemFlags.get("A Kitty"))
+AlreadySavedPre = lambda P,M:(P.EventFlags.get("L1SavedKitty"))
+~
+Root|~
+|FirstGreet|FirstMetPre|None|FirstMetTrig
+|Saved|SavedPre
+|AlreadySaved|AlreadySavedPre
+|NotSavedYet
+~
+FirstGreet|I lost my kitty! She wandered outside, and I'm too scared to go out after her. 
+I sure hope that she's okay.
+~
+Poor kitty!|None|None|PostPoorKitty
+~
+AskToSave|You seem like such brave adventurers.
+Could you go and look for Muffin for me?~
+Yes.|ThankSave
+No.|ButYouMust
+~
+ButYouMust|But you must!
+\n\n
+Won't you please go look for Muffin?~
+Yes.|ThankSave
+No.|ButYouMust
+~
+ThankSave|Oh, thank you!  I'm sure my cat is on this level somewhere.  Please be careful out there.~
+Ok.|Goodbye
+Don't worry, miss.  We'll find your cat.|Goodbye
+So, should we bring him back raw, or lightly roasted?|EwwGoodbye
+~
+Goodbye|Thank you.  I'll be waiting.~
+[Done]|None
+~
+EwwGoodbye|Lightly roasted...?  Oh, don't say that!  Muffin!  MUFFIN!~
+[Done]|None
+~
+NotSavedYet|Hello again.  Have you seen my cat anywhere?~
+Not yet.  We'll keep looking.|Goodbye
+~
+Saved|(Muffin lets out a joyful meow, and jumps into the girl's lap)
+Oh, you've saved my cat!  I'm so happy!  Yaaay!
+
+...In return, I suppose I should give you a reward.~
+A reward, you say?|Reward
+Darn straight!|Reward
+~
+Reward|You found my lost cat, so I'll teach you a magic spell that will be useful if <CN:RED>you</C> ever get lost - it's called <CN:BRIGHTBLUE>DUMAPIC</C>.
+Mages can cast it, and it doesn't cost much mana.  I hope it comes in handy!~
+Thanks!  [Done]|None|None|KittyGetSpell
+~
+AlreadySaved|Hi again!  It's so nice to have Muffin back.\n\n
+Be careful out there, and be sure to equip the best weapons and armor you can.~
+Take care.  [Done]|None
+~

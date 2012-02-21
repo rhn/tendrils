@@ -1,0 +1,66 @@
+def HitEskimo(P,M):
+    P.EventFlags["L6HitEskimo"]=1
+def EskimoWasHit(P,M):
+    return P.EventFlags.get("L6HitEskimo", 0)
+def IsLevel10(P,M):
+    return (M.Level == 10)
+def NoHealLevel10(P,M):
+    if (M.Level==10) and (P.EventFlags.get("L6HitEskimo", 0)):
+        return 1
+def IsTimeForHeal(P,M):
+    if (M.Level==10) and (not P.EventFlags.get("L6HitEskimo", 0)) and not P.EventFlags.get("L10EskimoHeal", 0):
+        P.EventFlags["L10EskimoHeal"] = 1
+        for Index in range(10):
+            P.GetItem("Ether")
+        return 1
+~
+Root|~
+|NoHeal10|NoHealLevel10
+|Heal|IsTimeForHeal
+|Hello10B|IsLevel10
+|Hello
+~
+Heal|I CAN REFILL YOUR ENERGY.\n\n<CN:YELLOW>[ You received: 10x Ether ]</C>~
+Thanks! [Done]|None
+What can you tell us about this dungeon?|Hello10B
+~
+NoHeal10|I DON'T GIVE YOU ENERGY BECAUSE YOU HIT ME.~
+Fine, bye then. [Done]|None
+Wait, you're that guy from level six!|Hello10B
+~
+Hello10B|I'M ESKIMO.\n\nTHERE'S NOTHING HERE.~
+Bye. [Done]|None
+Don't you have anything else to say?|Hello10C
+~
+Hello10C|...\nI'M ESKIMO.\n\nTHERE'S NOTHING HERE.~
+Bye. [Done]|None
+Argh!  Enough of your madness!  Take that!|Ouchiecoo10|||HitEskimo
+~
+Ouchiecoo10|OUCH!\n\nWHAT DO YOU DO?~
+Bye. [Done]|None
+~
+Hello|I'M ESKIMO.\n\nTHERE'S NOTHING HERE.~
+Bye. [Done]|None
+Hello, Eskimo!  What can you tell us about this dungeon?|Hello2
+~
+Hello2|...\nI'M ESKIMO.\n\nTHERE'S NOTHING HERE.~
+Yes, I believe we've covered that already...|Hello3
+All righty then.  We'll be leaving now. [Done]|None
+~
+Hello3|I'M ESKIMO.\n\nTHERE'S NOTHING HERE.~
+Do you have anything else to say?|Hello4
+WE'RE ADVENTURERS.  DO YOU KNOW ANYTHING?|Hello4
+This is getting nowhere.  Goodbye. [Done]|None
+~
+Hello4|...\nI'M ESKIMO.\n\nTHERE'S NOTHING HERE.~
+Well, um, thanks for your time. [Done]|None
+Are you mocking us?  Take THAT!|Ouchiecoo|||HitEskimo
+~
+Ouchiecoo|OUCH!\n\nWHAT DO YOU DO?~
+Aha!  You can say something else, after all!|Hello5
+~
+Hello5|I'M ESKIMO.\n\nTHERE'S NOTHING HERE.~
+Goodbye, Eskimo.[Done]|None
+~
+
+

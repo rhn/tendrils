@@ -1,0 +1,37 @@
+# Trivia questions!							
+# Row format: Difficulty\tQuestion\tRight\tWrong\tWrong\tWrong...							
+# Where difficulty is 0 (easy), 1 (medium) or 2 (hard)							
+# The trivia challenge will have 5 easy questions (100 points), 3 medium (200 points), and							
+# 2 hard (300 points).  You lose 1/4 points for guessing wrong.  To win, you need 750 points.							
+0	What is the name of Mario's brother?	Luigi	Bowser	Toad	Jumpman	Lenny	Squiggy
+0	Which Atari system came out first?	2600	800	5200	7800	Jaguar	
+0	What word do the moogles, from Final Fantasy, love to say?	Kupo!	Lali-ho!	Moog!	Beable!	Doidy!	
+0	What kind of animal is Sonic?	Hedgehog	Bandicoot	Kangaroo	Penguin		
+0	Which of these is a light-gun game?	Duck Hunt	In The Hunt	Sub Hunt	Jungle Hunt		
+0	Which of these is a 16-bit game system?	SNES	SMS	PlayStation	Colecovision	Jaguar	
+0	Who allied with the Terrans against the Zerg?	Protoss	Tribbles	Gargoyles	Martians		
+1	Which of these games includes the sword Ringil?	Angband	Nethack	Ultima III	Bahamut Lagoon
+1	Which of these games does NOT let you kill enemies by dropping things on them?	Galaga	Mr. Do!	Burger Time	Bagman	Dig Dug	
+1	Which Street Fighter does not have an uppercut special move?	Chun Li	Ryu	Ken	Sagat		
+1	Who is the arch-enemy of the Belmont family?	Dracula	X-Death	Sub-Zero	Dhalsim	Minax	
+1	What magic word comes from the original Adventure?	xyzzy	kweepa	humbug	spispopd		
+1	How many squares can each city use in the game Civilization?	20	10	8	25	
+1	How do you kill Death in the Gauntlet?	Use a potion	Shoot some food	Hit him with a hammer	Push him into a pit	
+1	Who defeated the Metroids?	Samus Aran	Cruise Leroy	Roger Wilco	Starfox	
+2	What is the way to defeat Exodus, the spawn of Mondain and Minax?	Insert the four Cards	Wield the four Swords	Ring the four Bells	Recite the four Mantras	
+2	What game included the secret code Up Up Down Down Left Right Left Right B A Start?	Contra	Super Mario Brothers	Rygar	Metroid	
+2	What item did the Vault Dweller go in search of?	A water chip	A nuclear bomb	A plague vaccine	A toaster	
+2	What is the object of the game Blaster Master?	Save your pet frog	Destroy the enemy mothership	Escape from another dimension	Avenge your master's death	
+2	What does Dodongo dislike?	Smoke	Silver arrows	Music	Mushrooms	
+2	Who do you beat up to win fifteen silver points?	Gato	Mappy	Panty Cat	Gorf	
+1	Which game is most similar to Gyruss?	Tempest	Neuromancer	Phantasy Star	Loom	Shadowrun
+2	Name the monster that isn't found in The Great Underground Empire.	Dragon	Cyclops	Thief	Grue	
+2	How many monsters in the original Rogue?	26 (one for each letter)	13 (unlucky)	12 (one for each zodiac sign)	100 (one for each square)	
+0	Who's the hero of Doom?	A space marine	A ninja	A detective	A sorcerer	A chef
+2	Which of these won't try to take over your brain?	Skull Heads, from Faxanadu	The Flood, from Halo	The Many, from System Shock 2	Head crabs, from Half Life	
+1	Which of these isn't a real Wily Power Robot?	Wolf Man	Fire Man	Centaur Man	Pharaoh Man
+2	Which of these is a tradable commodity in Trade Wars 2002?	Ore	Guns	Artifacts	Fabric
+0	What puzzle game gets its name from the Japanese word for warehouse?	Sokoban	Tetris	Strip Mah-jongg 3000	Mifune
+1	In many stories, the heroes gather items for each element - earth, air, fire, water.  Which NES game does NOT include such a quest?	Faxanadu	Crystalis	Dungeon Magic	Ironsword
+0	What kind of animal is Donkey Kong?	Monkey	Donkey	Alien	Fish
+0	Sakura Taisen blends giant robot battles with another game element.  What is it?	Dating girls	Mining resources	Exploring dungeons	Researching weapons

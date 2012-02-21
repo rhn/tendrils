@@ -1,0 +1,85 @@
+def FirstMetPre(P,M):
+    return not P.EventFlags.get("L10AuthorMet")
+def FirstMetTrig(P,M):
+    P.EventFlags["L10AuthorMet"] = 1
+def SecondMetPre(P,M):
+    return not P.EventFlags.get("L10AuthorMet2")
+def SecondMetTrig(P,M):
+    P.EventFlags["L10AuthorMet2"] = 1
+def BirthdayPre(P,M):
+    import time
+    Schmoopy = time.localtime()
+    return (Schmoopy[1]==2 and Schmoopy[2]==28)
+~
+Root|~
+|Birthday|BirthdayPre|None|FirstMetTrig
+|FirstGreet|FirstMetPre|None|FirstMetTrig
+|SecondGreet|SecondMetPre|None|SecondMetTrig
+|ThirdGreet
+~
+Birthday|HAPPY BIRTHDAY TO ME,\nHAPPY BIRTHDAY TO ME,\nHAPPY BIRTHDAY DEAR STEPHEN,\nHAPPY BIRTHDAY TO ME!\n\n
+Ah, sorry about that.  I do love a good birthday, though.~
+Wait, who are you!?|FirstGreet2
+Happy Birthday!|Main
+~
+FirstGreet|Well, well, well.  Look who's broken down the fourth wall and come to visit.   I must say, 
+I am impressed that you managed to find all the Tendrils.  You have found the Secret Room.~
+Who are you?|FirstGreet2
+~
+SecondGreet|Hello again, Player.  I'm pleased that you stopped by again.  To show you my gratitude, I'll 
+teach you another easter egg.  If you talk to the townspeople of Skara Brae on Christmas, some of them will
+give you presents.~
+Ho, ho, ho.|Main
+~
+ThirdGreet|Hello again, Player.  I hope you are having fun.~
+Sure am.|Main
+Can't complain.|Main
+~
+FirstGreet2|Why, I'm the author, of course!  The man behind the curtain.  Actually, you've been talking to me 
+all along, in a sense, since I wrote the lines - magic bees, bakery sisters, Mister AAA.  But now, through
+the miracle of post-modernism, you get to chat with me directly.~
+Oh.  Uh...hello.|Main
+But we aren't really talking, are we?  We're just navigating through a dialog tree.|NavTree
+This is getting weird.  I'm leaving.  I mean, we're leaving.  [Done]|Bye
+~
+NavTree|True enough - and it's not even a particularly bushy tree.  If you want to ask me something I 
+wasn't expecting, or was too lazy to write an answer for, then you're out of luck.  Still, there are 
+some things which I am able to talk about.~
+So, what do you have to say?|Main
+~
+Bye|Goodbye, Player.  I do not know who you are, and probably we will never meet.  But I wish you all the best.
+And I hope you have enjoyed Tendrils as much as I enjoyed making it.~
+Bye. [Done]|None
+~
+Main|Well now, what shall we talk about?~
+Why did you build Tendrils?|Why
+Where did you get your ideas?|Idea
+What games do you recommend?|Recommend
+What's so great about old games?|Classic
+What's with this music?|Music
+It's been fun, but I'd better go save the world now. [Done]|Bye
+~
+Why|Well, I've always loved video games.  I wanted to build a tribute to classic games, and all 
+the fun I've had playing them with friends.  Also, I wanted to make an RPG with a different combat
+system from the generic system where you can just hold down A, or X, or whatever the button is called, 
+and get through battles in your sleep.  And so, I took some graphics and music and gameplay, and stitched 
+them together to form one big Frankengame.~
+Hmm.|Main
+~
+Idea|Most of my ideas were gleefully stolen from the same games all the graphics and music come from.  Even
+dungeon levels - level 2 is the Pac-Man maze, of course, and level 1 includes part of the first Wizardry 
+dungeon, and level 9 is based upon Legend of Zelda dungeons.\n\nClassic games are where the actual ideas came from; Tendrils rests entirely upon them, like ivy growing up an old stone wall.~
+Hmm.|Main
+~
+Recommend|There are many excellent games out there, that are well worth playing and discussing.  I sometimes think about starting a "game club", like a book club, for the literate enjoyment of fine games.  
+\n\nAnyway, here are a few games that I would wholeheartedly recommend for various reasons: Sid Meier's Alpha Centauri, Planescape: Torment, Valkyrie Profile, Starcraft, Age of Wonders, Black Tiger, Starcon 2, Einhander, System Shock 2, Hengband.  And the Metroid series, the Zelda series, the Megaman series, the Final Fantasy series, most of the Mario games.  There, that should be enough recommendations to keep you busy for a while.~
+Hmm.|Main
+~
+Classic|It's all about gameplay.  Memorable games aren't the ones that provide a lot, they're the ones that demand a lot.  New games give more to the player - more details, fancier graphics, sometimes better soundtracks (although I'm enough of an old-timer to prefer old school video game music).  But newer games also tend to be easier, shorter, more like movies, more predictable.\n\nOf course, there are great new games with solid gameplay and 
+no bozotic cinematic sequences.  They take things to a whole new level...~
+Hmm.|Main
+~
+Music|Oh, the music?  I wrote this.  It's called "90", because it's the 90th piece I wrote.  Well, 90th after I started keeping count.\n\n 
+I like it very much.  I don't suppose anyone else will, but this is <CN:GREEN>my</C> secret room after all.~
+Hmm.|Main
+~

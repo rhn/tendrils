@@ -1,0 +1,146 @@
+def FirstMetPre(P,M):
+    return not P.EventFlags.get("L8JokerMet")
+def FirstMetTrig(P,M):
+    P.EventFlags["L8JokerMet"] = 1
+def GuessedRiddle1(P,M):
+    return P.EventFlags.get("Riddle:1")
+def NotGuessedRiddle1(P,M):
+    return not P.EventFlags.get("Riddle:1")
+def GuessedRiddle2(P,M):
+    return P.EventFlags.get("Riddle:2")
+def NotGuessedRiddle2(P,M):
+    return not P.EventFlags.get("Riddle:2")
+def GuessedRiddle3(P,M):
+    return P.EventFlags.get("Riddle:3")
+def NotGuessedRiddle3(P,M):
+    return not P.EventFlags.get("Riddle:3")
+def GuessedRiddle4(P,M):
+    return P.EventFlags.get("Riddle:4")
+def NotGuessedRiddle4(P,M):
+    return not P.EventFlags.get("Riddle:4")
+def GuessedRiddle5(P,M):
+    return P.EventFlags.get("Riddle:5")
+def NotGuessedRiddle5(P,M):
+    return not P.EventFlags.get("Riddle:5")
+def Answer1Trig(P,M):
+    print "Answer1Trig!"
+    RightAnswers = ("promise","a promise","word","your word","promises")
+    Callback = lambda W,N=1,RA=RightAnswers:Global.App.RiddleCallback(N, RA, W)
+    Global.App.ShowWordEntryDialog("What is your answer?", Callback)
+def Answer2Trig(P,M):
+    print "Answer2Trig!"
+    RightAnswers = ("breath","your breath")
+    Callback = lambda W,N=2,RA=RightAnswers:Global.App.RiddleCallback(N, RA, W)
+    Global.App.ShowWordEntryDialog("What is your answer?", Callback)
+def Answer3Trig(P,M):
+    print "Answer3Trig!"
+    RightAnswers = ("umbrella","umbrellas","an umbrella")
+    Callback = lambda W,N=3,RA=RightAnswers:Global.App.RiddleCallback(N, RA, W)
+    Global.App.ShowWordEntryDialog("What is your answer?", Callback)
+def Answer4Trig(P,M):
+    print "Answer4Trig!"
+    RightAnswers = ("cloud","a cloud","clouds","some clouds")
+    Callback = lambda W,N=4,RA=RightAnswers:Global.App.RiddleCallback(N, RA, W)
+    Global.App.ShowWordEntryDialog("What is your answer?", Callback)
+def Answer5Trig(P,M):
+    print "Answer5Trig!"
+    RightAnswers = ("icicle","icicles","an icicle")
+    Callback = lambda W,N=5,RA=RightAnswers:Global.App.RiddleCallback(N, RA, W)
+    Global.App.ShowWordEntryDialog("What is your answer?", Callback)
+
+def KingFreeTrig(P,M):
+    print "The KING is FREE!"
+    Global.Party.EventFlags["L8Joker"] = 1
+def IsKingFree(P,M):
+    return Global.Party.EventFlags.get("L8Joker")
+def IsThreeCorrect(P,M):
+    Count = 0
+    for Index in range(1, 6):
+        Count += Global.Party.EventFlags.get("Riddle:%d"%Index, 0)
+    print "IsThreeCorrect!?"
+    if Count>2:
+        return 1
+    return 0
+~
+Root|~
+|VisitDone|IsKingFree
+|FirstGreet|FirstMetPre||FirstMetTrig
+|SecondGreet
+~
+Correct|~
+|FreeKing|IsThreeCorrect
+|CorrectOne
+~
+Incorrect|What?  No, that's not the right answer.  Would you like another try?~
+Yes, ask us another question.|Questions
+No, we have had enough. [Done]|None
+~
+VisitDone|O ho ho!  Back for more riddles?  No time, I fear.  I'm far too busy learning to juggle puppies.~
+Ok, goodbye. [Done]|None
+~
+CorrectOne|Right you are!  You have guessed my riddle.~
+All right, what else have you got?|Questions
+~
+FreeKing|Right you are!\n\nO ho ho!  You have done well.  Are you sure that you want to turn the king
+back into a boring old human, and not into some thing fun, like a hedghog or a glass of wine?~
+Yes, we're sure.|KingFreed|||KingFreeTrig
+~
+KingFreed|Very well.  Abracadabra, hocus pocus, futplex beable doidy kazam!\n\nIt is done.\n\nNow,
+what would you think about being turned into a fish?~
+Sorry, we need to leave now. [Done]|None
+~
+FirstGreet|O ho ho!  Come to set free the King of Spades?  Well, forget about it.  He was a fool, and 
+turning him into a duck was unspeakably hilarious.  I could turn him into a kumquat, I suppose, or into 
+a cow with smaller cows for feet.  But I couldn't turn him back now.  \n\nUnless...
+~
+Unless what, Joker?|Unless
+~
+SecondGreet|O ho ho!  Again you've come to be baffled and amazed!  Perhaps you're ready to answer some
+riddles?  The King of Spades is still a duck, and it's still hilarious.  But if can meet my challenge,
+I'll turn him back again.~
+Give us your riddles, then.|Questions
+We have no time for this trickery!|Bye
+~
+Unless|Unless you answer some riddles, ho ho!  I have five riddles for you, but just to make it easy,
+you only have to guess three of them right.  Aren't I a nice guy?~
+Uh...sure.|Questions
+You're a freak of nature, is what you are.|Questions
+~
+Questions|Questions, questions, so many questions!  If you can answer three, I will undo the spell.  So, what will you do now?
+~
+What is the first question?|Riddle1|NotGuessedRiddle1
+What is the second question?|Riddle2|NotGuessedRiddle2
+What is the third question?|Riddle3|NotGuessedRiddle3
+What is the fourth question?|Riddle4|NotGuessedRiddle4
+What is the fifth question?|Riddle5|NotGuessedRiddle5
+We have had enough.  Goodbye. [Done]|None
+~
+AnswerRiddleTemp|...~
+~
+Riddle1|What must you give, before you can keep it?~
+I can answer this riddle.|AnswerRiddleTemp|||Answer1Trig
+I don't know.|Questions
+~
+Riddle2|What is sometimes heard, rarely seen, is light as a feather, but even a strong man cannot hold it for long?~
+I can answer this riddle.|AnswerRiddleTemp|||Answer2Trig
+I don't know.|Questions
+~
+Riddle3|What can go up a chimney down, but cannot go down a chimney up?~
+I can answer this riddle.|AnswerRiddleTemp|||Answer3Trig
+I don't know.|Questions
+~
+Riddle4|As I went for a walk one day,\n
+I saw a sheep no wolf could kill.\n
+Its fleece was white, but turned to grey.\n
+I walked a mile, and saw it still\n
+What did I see?~
+I can answer this riddle.|AnswerRiddleTemp|||Answer4Trig
+I don't know.|Questions
+~
+Riddle5|Glittering points\n
+That downward thrust.\n
+Sparkling spears\n
+That never rust.
+~
+I can answer this riddle.|AnswerRiddleTemp|||Answer5Trig
+I don't know.|Questions

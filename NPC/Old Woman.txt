@@ -1,0 +1,24 @@
+#An old woman who gives you some medicine...if you give her a letter.
+def HaveLetterPre(P,M):
+    return P.KeyItemFlags.get("Letter")
+def LetterTrig(P,M):
+    del P.KeyItemFlags["Letter"]
+    for I in range(5):
+         P.GetItem("Phoenix Down")
+    for I in range(5):
+         P.GetItem("Elixir")
+    P.EventFlags["L10Medicine"] = 1
+~
+Root|~
+|MedicineGreet|HaveLetterPre|None|LetterTrig
+|Greet
+~
+Greet|...~
+... [Done]|None
+~
+MedicineGreet|Take this medicine with you on your way.
+\n\n
+<CN:YELLOW>[ You got: <CN:BRIGHTRED>Phoenix Down<CN:YELLOW> x5 ]\n
+<CN:YELLOW>[ You got: <CN:BRIGHTRED>Elixir<CN:YELLOW> x5 ]
+~
+Wow, thanks! [Done]|None

@@ -1,0 +1,176 @@
+# RabbitB, the female rabbit, demands honey.  (Both rabbits are
+# having tea, and are missing an important ingredient).  If
+# you help both rabbits, then they will help you...
+def FirstMetPre(P,M):
+    return not P.EventFlags.get("L7RabbitBMet")
+def FirstMetTrig(P,M):
+    P.EventFlags["L7RabbitBMet"] = 1
+def MetOtherRabbit(P,M):
+    return P.EventFlags.get("L7RabbitAMet")
+def HaveHoney(P,M):
+    return P.KeyItemFlags.get("Honey")
+def NotHaveHoney(P,M):
+    return not P.KeyItemFlags.get("Honey")
+def GiveHoneyTrigger(P, M):
+    P.EventFlags["L7FedRabbitB"] = 1
+    del P.KeyItemFlags["Honey"]
+def HaveArmy(P,M):
+    return P.KeyItemFlags.get("Army of Rabbits")
+def DefeatedCastle(P,M):
+    return P.EventFlags.get("L7DefeatedCastle")
+def NotDefeatedCastle(P,M):
+    return not P.EventFlags.get("L7DefeatedCastle")
+def HelpedRabbitA(P, M):
+    return P.EventFlags.get("L7FedRabbitA")
+def HelpedRabbitB(P, M):
+    return P.EventFlags.get("L7FedRabbitB")
+def HelpUsPost(P,M):
+    # Ask for help.
+    if P.KeyItemFlags.get("Army of Rabbits"):
+        return "HelpUsD"
+    if not P.EventFlags.get("L7FedRabbitB"):
+        return "HelpUsA"
+    if not P.EventFlags.get("L7FedRabbitA"):
+        return "HelpUsB"
+    # Aha!  Both rabbits are ready to go:
+    P.EventFlags["L7RabbitBreed"] = 1
+    import time
+    P.EventFlags["L7RabbitBreedTime"] = time.time() + 60*3 #24*60*60
+    return "HelpUsC"
+def OffLevelPost(P,M):
+    if P.KeyItemFlags.get("L7DefeatedCastle"):
+        return "OffLevelAfter"
+    return "OffLevelBefore"
+def OtherRabbitPost(P,M):
+    if P.EventFlags.get("L7FedRabbitB"):
+        return "OtherRabbitNice"
+    return "OtherRabbitJerk"
+def GetArmyPre(P,M):
+    if not P.EventFlags.get("L7RabbitBreed"):
+        return 0
+    if P.EventFlags.get("L7DefeatedCastle") or P.KeyItemFlags.get("Army of Rabbits"):
+        return 0
+    ##M.Walls[2][(13, 13)] = 2 #%%%
+    P.KeyItemFlags["Army of Rabbits"] = 1
+    return 1
+~
+Root|~
+|GetArmy|GetArmyPre
+|FirstGreet|FirstMetPre|None|FirstMetTrig
+|Congrats|DefeatedCastle
+|GoodLuck|HaveArmy
+|GreetHoney|HelpedRabbitB
+|Greet
+~
+Bye|Hang tough, dudes.~
+Bye, Klo. [Done]|None
+~
+FirstGreet|Yo.
+~
+Hello, Mr. Rabbit.  We come in peace.|FirstGreet2
+~
+GetArmy|Hey, studs.  Are you ready to rock Mother Brain's world?
+\n\n<CN:ORANGE>[ Kuni gestures at a batallion of 832,040 rabbits in infantry gear. ]</c>
+\n\nIf you'd waited a bit longer, we could have had an army of 1,346,269.  But
+this is plenty.  Fall in, dudes.
+\n\n<CN:ORANGE>[ The army of rabbits salute, then fall into formation behind you ]</c>
+~
+Where did all these rabbits come from?|Army2
+You and Kuni have been...busy.|Army2
+~
+Army2|Well, the rabbit philosophy is "Make love, then war".  You're totally ready to go
+gate-crashing at that castle, now.~
+Onward to glory.|Main
+Lagomorph power!|Main
+~
+FirstGreet2|Hey, studs.  My name's Klo.  Hope the monsters around here haven't
+caused you any trouble.  This whole area has gone to hell since Mother Brain's 
+minions came.  I keep killing them, but there's always more.  Freaking minions.
+~
+Nice to meet you, Klo.|Main
+~
+Greet|Hey, studs.  How's the fighting out there?  Nothing beats going out and
+trashing bozos.~
+Hi, Klo.|Main
+We brought you some honey.|GiveHoney|HaveHoney
+Yeah, we're just on our way back out. |Bye
+~
+GiveHoney|~
+|GiveHoneyB|||GiveHoneyTrigger
+~
+GiveHoneyB|Honey?  Excellent.  Oh, this is the good stuff, too.  You guys rock the 
+party that rocks my body.~
+Enjoy.|Main
+So, can you do something for us in return?||NotDefeatedCastle|HelpUsPost
+~
+GreetHoney|Hey, studs.  Thanks again for bringing that honey.  How's it goin'?
+~
+Hello again, Klo.|Main
+~
+Main|What's up?~
+Who's that other rabbit?||MetOtherRabbit|OtherRabbitPost
+What can you tell us about this level?|ThisLevel
+Could you help us in our fight?||NotDefeatedCastle|HelpUsPost
+We'd better be going now.|Bye
+~
+GoodLuck|Hey, studs.  I see you've got the whole army with you.  You're looking 
+pretty tough.  That castle will have no chance.~
+Hello again.|Main
+~
+Congrats|Hey, studs.  Nice job at the castle - that was quite a battle.~
+Thanks.|Main
+~
+ThisLevel|This level?  Well, there's not many people still living here, other than me and Kuni.  Everyone else
+got scared off by the minions of Mother Brain, like the <CN:BRIGHTRED>steel golem</c> and
+the <CN:Purple>slime monster</c>.  It's turning into a real dump.
+~
+Slime monster?|SlimeMonster
+Steel golem?|SteelGolem
+That's too bad.|Main
+~
+SlimeMonster|You've fought slimes before, I bet.  They're totally stupid, and not very strong.  But they have some
+sort of freaky <CN:BRIGHTGREEN>Slime King</c> who orders them around.  If you see him, I'd watch out - he looks
+like a big goofy blob, but he's pretty strong.~
+What else is on this level?|ThisLevel
+~
+SteelGolem|Golems are things like rocks and water brought to life by wizards.  There's a weird-looking steel golem
+hiding out on this level.  It works for Mother Brain...I think.  Mostly, it's just completely insane.  Probably
+best to stay away from it.~
+What else is on this level?|ThisLevel
+~
+OtherRabbitJerk|The other rabbit?  Oh, you mean Kuni.  Yeah, she's nice and all, but...well, you have to watch
+what you say around her.  I got on her bad side the other day, and she's still ticked off.  I mean, what's her
+deal, you know?~
+What if you apologized to her?|Apologize
+Yeah, I know what you mean.|Main
+~
+OtherRabbitNice|Yeah, Kuni.  Sometimes you have to be careful what you say to
+her, but she's really something, isn't she?  I mean, check out those ears...~
+Ears, yes.  Hubba hubba, and so forth.|Main
+Glad to hear you two are back on speaking terms.|Main
+
+~
+Apologize|Apologize?  Why should <CN:BRIGHTRED>I</c> apologize when <CN:BRIGHTRED>she</c> started it?  If anyone
+should be apologizing, it's her, I'll tell you that much.  No way.~
+Ok, ok, sorry we asked.|Main
+~
+HelpUsA|Help you?  Sure, I can help you.  But you have to do something for me first.  See, I love <CN:YELLOW>honey</c>,
+but I haven't been able to get any for ages.  If you got me some, then I'd, like, totally be on your side.  As it
+is, things are bad enough without me joining some crazy quest, no offense intended.~
+None taken.|Main|NotHaveHoney
+Fine, you wait here, we'll march off to certain death without you.|Main|NotHaveHoney
+Honey?  We just happen to have some.|GiveHoney|HaveHoney
+~
+HelpUsB|Well, I totally owe you for that whole honey thing.  Tell you what: I'll go talk to to Klo, and
+apologize for calling her a...for what I said last week.  And then she's cool with it, we can help you
+out in a big way.~
+We'll try it.|Main
+We'll go talk to her now.|Bye
+~
+HelpUsC|Yeah, sure thing.  Here's the deal: It'll take like 24 hours.  So, make yourselves scarce for a while, ok?~
+Bye now. [Done]|None
+~
+HelpUsD|Hey, you've got like a zillion rabbits already, that should be enough.  Go to the castle, kick butt and
+take names.  That's my advice.~
+Ok.|Main
+~

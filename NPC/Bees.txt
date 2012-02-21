@@ -1,0 +1,105 @@
+def FirstMetPre(P,M):
+    return not P.EventFlags.get("L7BeesMet")
+def FirstMetTrig(P,M):
+    P.EventFlags["L7BeesMet"] = 1
+def HoneyPre(P,M):
+    return not P.EventFlags.get("L7GotHoney")
+def ClippyDead(P,M):
+    print "Is clippy dead?"
+    print P.KilledBosses.keys()
+    return P.KilledBosses.get((7,"Clippy"))
+def ClippyNotDead(P,M):
+    return not P.KilledBosses.get((7,"Clippy"))
+def ClippyDeadTrigger(P,M):
+    P.KeyItemFlags["The Head of Clippy"] = 0
+    P.KeyItemFlags["Honey"] = 1
+    P.EventFlags["L7GotHoney"] = 1
+~
+Root|~
+|FirstGreet|FirstMetPre|None|FirstMetTrig
+|Greetings
+~
+FirstGreet|Bzzz bzzz bzZZzzZzz bzzz.  Bzzz bzzzzzzzz bzz bzzzzzz!  Bzzz bzz bzzZZZZZZ?
+~
+...|FirstNoSpeaky
+I'm sorry, I don't understand.|FirstNoSpeaky
+Uh... buzz buzz, buzz?|FirstNoSpeaky
+~
+FirstNoSpeaky|Ah, I see, you don't speak Bee.  Sorry about that.  Don't worry, we can speak 
+your language.  BOW TO THE SWARM!  Er, I mean to say, nice to meet you.~
+Wait, bees can't talk!|CanTalk
+What's with this "BOW TO THE SWARM" talk?|SomewhatEvil
+What are you doing here in this dungeon?|SmartBees
+Say, could we have some honey?|WantHoney|HoneyPre
+~
+Greetings|Hello again, humans!  I hope your quest is going well.\n\n
+Things have been quiet around here lately, nothing interesting in the recon reports.  We've sent
+out lots of scouts lately to find more flowers so we can make more honey AND CRUSH ALL OPPOSITION!~
+What do you mean, "CRUSH"?|SomewhatEvil
+How is it that you guys can talk?|CanTalk
+How come you bees are so intelligent?|SmartBees
+Say, could we have some honey?|WantHoney|HoneyPre
+Interesting.  Well, we need to continue our quest.|Bye
+~
+CanTalk|Of course bees can talk!  Normally, we communicate by dancing, of course.  But most PUNY HU-MANS
+don't understand, and anyway, they don't have enough legs to dance properly.  So, we learned
+human language.~
+Yes, but how are you so intelligent?|SmartBees
+Say, could we have some honey?|WantHoney|HoneyPre
+Interesting.  Well, we need to continue our quest.|Bye
+~
+SmartBees|Well, we were once ordinary, thimble-sized bees, peacefully gathering pollen.  Then one day, 
+our Queen was captured by Mother Brain.  She tried to turn us into a swarm of killing machines,
+HARVESTING HONEY FROM THE VERY SOULS OF OUR FALLEN ENEMIES!  So the Queen was turned into a super-Queen, 
+producing a swarm of super-intelligent bees.  Later, the Queen escaped, so we were free to build our hive
+here.  And the "evil killing machine" training wore off.  Mostly.~
+What do you mean, "mostly"?|SomewhatEvil
+Do you know anything else about Mother Brain?|MotherBrain
+Say, could we have some honey?|WantHoney|HoneyPre
+Interesting.  Well, we need to continue our quest.|Bye
+~
+SomewhatEvil|Sometimes the evil training we received from Mother Brain breaks through a little bit.  
+We wake up in the middle of the night, thinking "MUST...STING...HUMANS!"  It's pretty much under control,
+though.  We never wanted to be Mother Brain's elite death squad; we just want a quiet life, harvesting 
+pollen and making honey.~
+Do you know anything else about Mother Brain?|MotherBrain
+Say, could we have some honey?|WantHoney|HoneyPre
+Interesting.  Well, we need to continue our quest.|Bye
+~
+MotherBrain|Mother Brain was some sort of planetary control device, in charge of all the major systems 
+on some other world.  She - or it - went haywire.  Instead of just directing traffic and operating the
+sprinkler systems like she was supposed to, she started ordering people around, and sending squads of 
+monsters out to conquer nearby planets.  If she can take over Nexus, she'll be able to attack wherever
+she pleases, and at that point there'd be no stoppnig her.  It's a bad situation, really.  Someone should 
+probably do something about it.~
+Say, could we have some honey?|WantHoney|HoneyPre
+Interesting.  Well, we need to continue our quest.|Bye
+~
+WantHoney|Honey?\n\nOur precious, <CN:YELLOW>precious</C> HONEY!?\n\nWell, maybe.  But only if you do us an extra special
+favor.~
+What do you need?|WantHoney2
+~
+WantHoney2|Well, one of Mother Brain's underlings has set up a base on this level.  We're worried that 
+he'll try to capture us, and take us back to Mother Brain's big army o' doom.  He's a strange sort of twisty iron
+creature, and our poison sting is useless against him.\n\nIf you kill him for us, we will give you a bucket
+of our finest honey.~
+Sounds dangerous.  We'll do it.|HoneyQuestYes|ClippyNotDead
+On second thought, maybe not.|HoneyQuestNo|ClippyNotDead
+We have vanquished this foe.|HoneyQuestDone|ClippyDead||ClippyDeadTrigger
+~
+HoneyQuestYes|Bzzzzz!  You are brave, puny hu-mans.  Let me explain where he is.\n\n[ A bee dance is performed,
+indicating that the minion is located due north of the beehive ]
+~
+We'll return when he is dead.|Bye
+~
+Bye|Farewell...and keep an eye out for flowers!~
+Bye. [Done]|None
+~
+HoneyQuestNo|This izzzz disappointing.  But, I can't blame you PITIFUL MAMMALS for chickening out.
+\n\nI hope you will come back and visit us later, if you change your mind.~
+Bye. [Done]|None
+~
+HoneyQuestDone|Is this true?  Can this be?\n\n[ You present <CN:BRIGHTBLUE>The Head of Clippy</C> to the bees ]
+\n\nWonderful!  We will be much safer now that that...thing...is dead.  Here, please take this <CN:YELLOW>honey</C>. ~
+Thanks, giant bees!|Bye
+~
