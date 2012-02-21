@@ -1,3 +1,4 @@
+!#/usr/bin/env python
 """
 BEFORE DIVING INTO CODE:
 You will probably want to have the pygame documentation handy.  Many important
