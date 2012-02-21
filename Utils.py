@@ -625,9 +625,14 @@ def GetUserDataDir():
     # Linux users expect user-specific files to be written to that user's directory.
     # Windows users expect application's files to be written to that application's directory.
     # We do the "expected behavior" in each case.
+    # TODO: what's the new behaviour in Windows 7?
+    # TODO #2: apply full spec from http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
     if os.name == "posix":
         if os.environ['HOME']:
-            return os.path.join(os.environ['HOME'], ".tendrils")
+            dirname = os.path.join(os.environ['HOME'], ".tendrils")
+            if not os.path.exists(dirname):
+                os.mkdir(dirname)
+            return dirname
         else:
             sys.exit("$HOME not set - can't write data") # HAW HAW!
     return os.getcwd()
