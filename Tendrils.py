@@ -1,13 +1,4 @@
 """
-Tendrils: The all-singing, all-dancing, role-playing game remix!
-
-ABOUT THE GAME:
-Tendrils is an RPG where combat uses a rhythm game (like Dance Dance Revolution, or Parappa the Rapper).  Your
-party's success depends on their stats, but also on accurate arrow-stomping.  Characters explore a large grid-
-based maze, solve puzzles, discover power-ups (like powerful items, new spells for their wizards), and eventually
-fight Mother Brain, the evillest and toughest of the enemies.  Most of the music, art, and sound effects come
-from classic video games.
-
 BEFORE DIVING INTO CODE:
 You will probably want to have the pygame documentation handy.  Many important
 classes are subclasses of pygame.sprite, and the pygame events are what drives the interface.  The core combat
