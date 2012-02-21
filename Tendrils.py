@@ -1,4 +1,5 @@
-!#/usr/bin/env python
+#!/usr/bin/env python
+
 """
 BEFORE DIVING INTO CODE:
 You will probably want to have the pygame documentation handy.  Many important
@@ -73,6 +74,7 @@ class CommandLines:
     Shop = "shop"
     Maze = "maze"
     Map = "map"
+
     Save = "save"
     Chest = "chest"
     Inn = "inn"
@@ -159,6 +161,7 @@ class TendrilsApplication:
             String = "You found a chest!\n\nWill you attempt to unlock it?"
             Buttons = ["Cast Calfo", "Disarm", "Leave it"]
             Global.App.ShowNewDialog(String, CustomButtons = Buttons, Callback = DisarmCommand)
+
         else:
             DisarmCommand = lambda I=ItemDict, S=SpecialDict, B=BootyType: self.DisarmChest(I, S, B)
             String = "You found a chest!\n\nWill you attempt to unlock it?"
@@ -241,6 +244,7 @@ class TendrilsApplication:
         Monsters = Global.Bestiary.GetRandomEncounter(Global.Maze.Level)
         # Special:
         if Global.Maze.Level >= 10:
+
             for MonsterRank in Monsters:
                 for Monster in MonsterRank:
                     if Monster.Species.Level < 10:
@@ -312,6 +316,7 @@ class TendrilsApplication:
     def CommandLineBattle(self):
         Monsters = []
         Song = None
+
         for Arg in sys.argv[1:]:
             Ext = os.path.splitext(Arg)[1]
             if Ext.upper() in [".XM",".IT",".MOD",".MP3", ".OGG"]:
@@ -386,6 +391,7 @@ class TendrilsApplication:
     def ShowDalekScreen(self, FreePlay = 0):
         import DalekScreen
         NewScreen = DalekScreen.DalekScreen(self, FreePlay)
+
         self.PushNewScreen(NewScreen)
     def StartFreePlay(self):
         import FreePlayScreen
@@ -468,6 +474,7 @@ class TendrilsApplication:
             Monsters.append(Global.Bestiary.GetCritter("Goomba"))
             Monsters.append(Global.Bestiary.GetCritter("Shyguy"))
             Monsters.append(Global.Bestiary.GetCritter("Goomba"))
+
             
             self.ShowSnipeScreen(Monsters)
             return
@@ -543,6 +550,7 @@ class TendrilsApplication:
         NewScreen = MazeScreen.MazeScreen(self)
         if NewGame:
             NewScreen.AddAnimationSprite(MazeScreen.HelperSprite(NewScreen))
+
         self.PushNewScreen(NewScreen)
     def ShowLoadScreen(self):
         import SaveScreen
@@ -629,6 +637,7 @@ class TendrilsApplication:
             except:
                 print "** ERROR handling events! **"
                 traceback.print_exc()
+
             # Handle screen-switches:
             if self.OldCurrentScreen!=self.CurrentScreen:
                 self.OldCurrentScreen = self.CurrentScreen
