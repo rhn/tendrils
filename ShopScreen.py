@@ -234,7 +234,7 @@ class ShopScreen(Screen.TendrilsScreen):
         Image = self.GetPanelWrapImage(Colors.DarkGreen, "Party items:")
         Sprite = GenericImageSprite(Image, self.ItemPanelX - 10, self.PartyPanelY - 30)
         self.AddBackgroundSprite(Sprite)
-        ShopImage = Resources.GetImage(os.path.join(Paths.Images, "background", "%s.png"%self.ShopImageName))
+        ShopImage = Resources.GetImage(os.path.join(Paths.Images, "Background", "%s.png"%self.ShopImageName))
         Sprite = GenericImageSprite(ShopImage, 685, 5) #self.ItemPanelX + self.ItemListingWidth + 21, 5)
         Sprite.rect.left -= Sprite.rect.width / 2
         self.AddBackgroundSprite(Sprite)
